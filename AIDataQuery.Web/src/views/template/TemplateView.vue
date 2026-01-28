@@ -153,7 +153,7 @@
           <el-tree-select
             v-model="form.moduleId"
             :data="moduleOptions"
-            :props="{ value: 'id', label: 'name', children: 'children' }"
+            :props="{ label: 'name', children: 'children' }"
             placeholder="选择所属模块"
             check-strictly
             style="width: 100%"
@@ -237,7 +237,7 @@
           <el-tree-select
             v-model="moduleForm.parentId"
             :data="moduleOptionsForSelect"
-            :props="{ value: 'id', label: 'name', children: 'children' }"
+            :props="{ label: 'name', children: 'children' }"
             placeholder="选择父模块（可选）"
             check-strictly
             clearable
@@ -498,12 +498,6 @@ async function handleDelete(template: TemplateDto) {
   } catch {
     // 错误已由拦截器处理
   }
-}
-
-// 查看模板详情
-function handleViewTemplate(template: TemplateDto) {
-  viewingTemplate.value = template
-  viewDialogVisible.value = true
 }
 
 // 使用模板

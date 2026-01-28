@@ -150,7 +150,7 @@
                 <el-checkbox
                   :model-value="isPlatformSelected(platform.code)"
                   :indeterminate="isPlatformIndeterminate(platform.code)"
-                  @change="(val: boolean) => handlePlatformChange(platform.code, val)"
+                  @change="(val) => handlePlatformChange(platform.code, !!val)"
                 >
                   <span class="platform-name">{{ platform.name }}</span>
                 </el-checkbox>
@@ -195,7 +195,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 import { Plus, Search } from '@element-plus/icons-vue'
 import { userApi, platformApi } from '@/services'
@@ -247,12 +247,6 @@ const rules: FormRules = {
   email: [
     { type: 'email', message: '请输入有效的邮箱地址', trigger: 'blur' }
   ]
-}
-
-// 获取平台名称
-function getPlatformName(code: string): string {
-  const platform = platforms.value.find(p => p.code === code)
-  return platform?.name || code
 }
 
 // 搜索用户

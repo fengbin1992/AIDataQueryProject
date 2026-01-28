@@ -110,13 +110,34 @@ function formatCellValue(value: unknown): string {
   return String(value)
 }
 
-// 获取列宽度
+// 获取列宽度（根据列名和数据内容自适应）
 function getColumnWidth(column: string): number {
-  const len = column.length
-  if (len <= 5) return 100
-  if (len <= 10) return 120
-  if (len <= 20) return 150
-  return 180
+  // 计算列名长度对应的宽度
+  const headerLen = column.length
+  let headerWidth = headerLen * 12 + 24 // 每个字符约12px，加上padding
+
+  // 采样前20行数据计算内容最大宽度
+  if (props.result && props.result.rows.length > 0) {
+    const sampleRows = props.result.rows.slice(0, 20)
+    let maxContentLen = 0
+
+    for (const row of sampleRows) {
+      const cellValue = formatCellValue(row[column])
+      maxContentLen = Math.max(maxContentLen, cellValue.length)
+    }
+
+    // 内容宽度：每个字符约8px（等宽字体），加上padding
+    const contentWidth = maxContentLen * 8 + 24
+
+    // 取列名宽度和内容宽度的较大值
+    const calculatedWidth = Math.max(headerWidth, contentWidth)
+
+    // 限制在合理范围内：最小80px，最大400px
+    return Math.min(Math.max(calculatedWidth, 80), 400)
+  }
+
+  // 无数据时根据列名长度设置
+  return Math.min(Math.max(headerWidth, 80), 200)
 }
 
 // 导出

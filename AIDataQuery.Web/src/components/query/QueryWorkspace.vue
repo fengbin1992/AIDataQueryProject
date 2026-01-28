@@ -256,7 +256,7 @@ const isSelectedProduction = computed(() => {
 
 // 右侧面板引用和拖拽状态
 const rightPanelRef = ref<HTMLElement>()
-const editorHeight = ref(300)
+const editorHeight = ref(400)
 const isResizing = ref(false)
 const startY = ref(0)
 const startHeight = ref(0)
@@ -446,7 +446,7 @@ async function handleExecute() {
     return
   }
 
-  // 检查是否需要添加 TOP 100
+  // 检查是否需要添加 TOP 20
   const sqlTrimmed = localSql.value.trim()
   const isSelectWithoutLimit = /^\s*SELECT\s/i.test(sqlTrimmed) &&
     !/\bTOP\s+\d+/i.test(sqlTrimmed) &&
@@ -454,7 +454,7 @@ async function handleExecute() {
 
   let sqlToExecute = sqlTrimmed
   if (isSelectWithoutLimit) {
-    sqlToExecute = sqlTrimmed.replace(/^(\s*SELECT\s+)/i, '$1TOP 100 ')
+    sqlToExecute = sqlTrimmed.replace(/^(\s*SELECT\s+)/i, '$1TOP 20 ')
     localSql.value = sqlToExecute
     sqlEditorRef.value?.setValue(sqlToExecute)
   }
@@ -502,14 +502,14 @@ async function handleExecuteSelected() {
     return
   }
 
-  // 检查是否需要添加 TOP 100
+  // 检查是否需要添加 TOP 20
   const isSelectWithoutLimit = /^\s*SELECT\s/i.test(selectedSql) &&
     !/\bTOP\s+\d+/i.test(selectedSql) &&
     !/\bLIMIT\s+\d+/i.test(selectedSql)
 
   let sqlToExecute = selectedSql
   if (isSelectWithoutLimit) {
-    sqlToExecute = selectedSql.replace(/^(\s*SELECT\s+)/i, '$1TOP 100 ')
+    sqlToExecute = selectedSql.replace(/^(\s*SELECT\s+)/i, '$1TOP 20 ')
   }
 
   isQuerying.value = true
@@ -668,17 +668,17 @@ function handleClear() {
 onMounted(async () => {
   await loadPlatforms()
 
-  // 初始化编辑器高度
+  // 初始化编辑器高度（编辑器占60%，结果区占40%）
   if (rightPanelRef.value) {
-    editorHeight.value = Math.floor(rightPanelRef.value.clientHeight * 0.45)
+    editorHeight.value = Math.floor(rightPanelRef.value.clientHeight * 0.6)
   }
 })
 
 // KeepAlive 激活时
 onActivated(() => {
-  // 重新计算编辑器高度
+  // 重新计算编辑器高度（编辑器占60%，结果区占40%）
   if (rightPanelRef.value) {
-    editorHeight.value = Math.floor(rightPanelRef.value.clientHeight * 0.45)
+    editorHeight.value = Math.floor(rightPanelRef.value.clientHeight * 0.6)
   }
   // 聚焦编辑器
   setTimeout(() => {

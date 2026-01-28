@@ -340,3 +340,32 @@ MySqlConnector.MySqlException (0x80004005): Table 'dataquery.querytabs' doesn't 
 2026-01-28 14:44:04.511 +08:00 [INF] HTTP GET /api/platforms responded 200 in 25ms
 2026-01-28 14:44:04.546 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
 2026-01-28 14:44:04.647 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 92ms
+2026-01-28 16:24:11.480 +08:00 [INF] Starting AIDataQuery API
+2026-01-28 16:24:14.643 +08:00 [INF] HTTP GET / responded 404 in 1139ms
+2026-01-28 16:24:21.168 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 323ms
+2026-01-28 16:24:21.529 +08:00 [INF] HTTP GET /api/platforms responded 200 in 249ms
+2026-01-28 16:24:21.617 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 337ms
+2026-01-28 16:24:21.620 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 79ms
+2026-01-28 16:24:22.751 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 1115ms
+2026-01-28 16:24:32.804 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 21ms
+2026-01-28 16:24:36.385 +08:00 [INF] User admin logged in successfully
+2026-01-28 16:24:36.391 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 499ms
+2026-01-28 16:24:37.083 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 27ms
+2026-01-28 16:24:37.234 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 77ms
+2026-01-28 16:24:37.238 +08:00 [INF] HTTP GET /api/platforms responded 200 in 85ms
+2026-01-28 16:24:37.279 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-01-28 16:24:37.570 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 274ms
+2026-01-28 16:26:26.506 +08:00 [INF] HTTP GET /api/platforms responded 200 in 56ms
+2026-01-28 16:26:26.554 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 35ms
+2026-01-28 16:26:27.784 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 1217ms
+2026-01-28 16:27:17.341 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 38ms
+2026-01-28 16:27:17.486 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 64ms
+2026-01-28 16:27:17.486 +08:00 [INF] HTTP GET /api/platforms responded 200 in 64ms
+2026-01-28 16:27:17.531 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-01-28 16:27:17.645 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 102ms
+2026-01-28 16:27:18.806 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 36ms
+2026-01-28 16:27:18.857 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 39ms
+2026-01-28 16:27:19.871 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 72ms
+2026-01-28 16:27:19.878 +08:00 [INF] HTTP GET /api/platforms responded 200 in 81ms
+2026-01-28 16:27:19.914 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-01-28 16:27:20.024 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 99ms

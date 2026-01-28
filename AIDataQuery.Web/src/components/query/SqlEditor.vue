@@ -106,7 +106,7 @@ const sqlSnippets = [
   },
   {
     label: 'selt',
-    insertText: 'SELECT TOP ${1:100} ${2:*} FROM ${3:table_name} WHERE ${4:1=1}',
+    insertText: 'SELECT TOP ${1:20} ${2:*} FROM ${3:table_name} WHERE ${4:1=1}',
     detail: 'SELECT TOP 查询模板'
   },
   {

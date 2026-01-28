@@ -127,7 +127,7 @@ import { Search, RefreshLeft, CopyDocument, CaretRight } from '@element-plus/ico
 import { useUserStore, useQueryStore } from '@/stores'
 import { queryLogApi, platformApi } from '@/services'
 import { formatDateTime, formatDuration, formatNumber } from '@/utils'
-import type { QueryLogDto, QueryLogParams, PlatformDto, QueryStatus } from '@/types'
+import type { QueryLogDto, QueryLogParams, PlatformDto } from '@/types'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -205,7 +205,7 @@ function handleReset() {
 }
 
 // 行点击
-function handleRowClick(row: QueryLogDto) {
+function handleRowClick(_row: QueryLogDto) {
   // 展开/收起行详情
 }
 

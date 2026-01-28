@@ -1,5 +1,5 @@
 import { request } from './api'
-import type { LoginRequest, LoginResponse, UserInfo, ChangePasswordRequest, ApiResponse } from '@/types'
+import type { LoginRequest, LoginResponse, UserInfo, ChangePasswordRequest } from '@/types'
 
 /**
  * 认证服务
