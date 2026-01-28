@@ -17,6 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<TemplateModule> TemplateModules => Set<TemplateModule>();
     public DbSet<QueryTemplate> QueryTemplates => Set<QueryTemplate>();
     public DbSet<QueryLog> QueryLogs => Set<QueryLog>();
+    public DbSet<QueryTab> QueryTabs => Set<QueryTab>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -153,6 +154,22 @@ public class AppDbContext : DbContext
                 .WithMany(u => u.QueryLogs)
                 .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // QueryTab
+        modelBuilder.Entity<QueryTab>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.PlatformCode).HasMaxLength(50);
+            entity.Property(e => e.SqlContent);
+            entity.Property(e => e.SortOrder).HasDefaultValue(0);
+            entity.HasIndex(e => e.UserId);
+
+            entity.HasOne(e => e.User)
+                .WithMany()
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

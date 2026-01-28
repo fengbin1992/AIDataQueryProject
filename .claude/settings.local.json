@@ -21,7 +21,12 @@
       "Bash(dotnet tool install:*)",
       "Bash(dotnet ef database update:*)",
       "Bash(cd:*)",
-      "Bash(dotnet ef migrations:*)"
+      "Bash(dotnet ef migrations:*)",
+      "Bash(del /Q \"D:\\\\AINETProject\\\\AIProjectAPI\\\\AIDataQueryProject\\\\AIDataQuery.API\\\\Migrations\\\\*.cs\")",
+      "Bash(dotnet restore:*)",
+      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImp0aSI6IjBmMDhlZGZiLWQ2NzAtNDZiZS1hYzAwLTVkMjZlNTBlNzYxNCIsImV4cCI6MTc2OTYwNDU2NywiaXNzIjoiQUlEYXRhUXVlcnkiLCJhdWQiOiJBSURhdGFRdWVyeSJ9.bqHriNvjGkbvVpTERbGpzyyAC3olhAE5B48lwOKghNQ\")",
+      "Bash(curl:*)",
+      "Bash(tree:*)"
     ]
   }
 }

@@ -8,3 +8,45 @@
 2026-01-28 09:12:30.025 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 31ms
 2026-01-28 09:12:30.051 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 13ms
 2026-01-28 09:12:30.151 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 89ms
+2026-01-28 11:09:04.509 +08:00 [INF] Starting AIDataQuery API
+2026-01-28 11:09:05.220 +08:00 [INF] HTTP GET / responded 404 in 69ms
+2026-01-28 11:10:12.151 +08:00 [INF] HTTP GET /api/platforms responded 200 in 291ms
+2026-01-28 11:10:12.217 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 357ms
+2026-01-28 11:10:12.280 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 106ms
+2026-01-28 11:10:12.928 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 633ms
+2026-01-28 11:12:13.541 +08:00 [INF] HTTP GET /api/platforms responded 200 in 26ms
+2026-01-28 11:12:13.574 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 14ms
+2026-01-28 11:12:13.879 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 291ms
+2026-01-28 11:12:16.138 +08:00 [INF] HTTP GET /api/platforms responded 200 in 84ms
+2026-01-28 11:12:16.138 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 83ms
+2026-01-28 11:12:16.165 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 12ms
+2026-01-28 11:12:16.268 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 93ms
+2026-01-28 11:12:20.248 +08:00 [INF] HTTP GET /api/platforms responded 200 in 16ms
+2026-01-28 11:12:20.273 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 12ms
+2026-01-28 11:12:20.373 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 88ms
+2026-01-28 11:12:31.906 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 12ms
+2026-01-28 11:12:32.072 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 153ms
+2026-01-28 11:12:33.878 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 117ms
+2026-01-28 11:13:45.084 +08:00 [INF] HTTP GET /api/platforms responded 200 in 61ms
+2026-01-28 11:13:45.176 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 78ms
+2026-01-28 11:13:46.452 +08:00 [INF] HTTP GET /api/platforms responded 200 in 15ms
+2026-01-28 11:13:46.481 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 11ms
+2026-01-28 11:13:46.580 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 89ms
+2026-01-28 11:13:51.776 +08:00 [INF] HTTP GET /api/platforms responded 200 in 14ms
+2026-01-28 11:13:51.799 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 11ms
+2026-01-28 11:13:51.853 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 42ms
+2026-01-28 11:14:18.694 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 18ms
+2026-01-28 11:14:20.160 +08:00 [INF] User admin logged in successfully
+2026-01-28 11:14:20.164 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 425ms
+2026-01-28 11:14:20.236 +08:00 [INF] HTTP GET /api/platforms responded 200 in 17ms
+2026-01-28 11:14:20.261 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 12ms
+2026-01-28 11:14:20.304 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 32ms
+2026-01-28 11:14:23.024 +08:00 [INF] HTTP GET /api/platforms responded 200 in 20ms
+2026-01-28 11:14:23.044 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 10ms
+2026-01-28 11:14:23.224 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 168ms
+2026-01-28 12:47:32.138 +08:00 [INF] Starting AIDataQuery API
+2026-01-28 12:49:27.149 +08:00 [INF] User admin logged in successfully
+2026-01-28 12:49:27.169 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 301ms
+2026-01-28 12:49:57.499 +08:00 [INF] HTTP GET /api/platform responded 404 in 18ms
+2026-01-28 12:50:07.687 +08:00 [INF] HTTP GET /api/platform/all responded 404 in 1ms
+2026-01-28 12:50:28.860 +08:00 [INF] HTTP GET /api/Auth/me responded 200 in 69ms

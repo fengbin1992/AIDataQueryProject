@@ -23,6 +23,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ITemplateService, TemplateService>();
         services.AddScoped<IPlatformService, PlatformService>();
         services.AddScoped<IQueryLogService, QueryLogService>();
+        services.AddScoped<IQueryTabService, QueryTabService>();
 
         // Register infrastructure
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
@@ -119,7 +120,7 @@ public static class ServiceCollectionExtensions
             ?? "Data Source=data/app_data.db";
 
         services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlite(connectionString));
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
         return services;
     }

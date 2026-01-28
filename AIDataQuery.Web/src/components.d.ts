@@ -52,6 +52,8 @@ declare module 'vue' {
     ElTree: typeof import('element-plus/es')['ElTree']
     ElTreeSelect: typeof import('element-plus/es')['ElTreeSelect']
     QueryResult: typeof import('./components/query/QueryResult.vue')['default']
+    QueryTabs: typeof import('./components/query/QueryTabs.vue')['default']
+    QueryWorkspace: typeof import('./components/query/QueryWorkspace.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SqlEditor: typeof import('./components/query/SqlEditor.vue')['default']
