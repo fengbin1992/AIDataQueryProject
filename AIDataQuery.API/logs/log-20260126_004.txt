@@ -1,0 +1,2 @@
+2026-01-26 18:21:00.683 +08:00 [INF] Starting AIDataQuery API
+2026-01-26 18:21:01.435 +08:00 [INF] HTTP GET / responded 404 in 51ms

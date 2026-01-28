@@ -1,0 +1,10 @@
+2026-01-28 09:07:19.612 +08:00 [INF] Starting AIDataQuery API
+2026-01-28 09:07:20.152 +08:00 [INF] HTTP GET / responded 404 in 54ms
+2026-01-28 09:07:51.058 +08:00 [INF] HTTP GET /api/platforms responded 200 in 250ms
+2026-01-28 09:07:51.121 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 313ms
+2026-01-28 09:07:51.169 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 92ms
+2026-01-28 09:07:51.580 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 397ms
+2026-01-28 09:12:30.025 +08:00 [INF] HTTP GET /api/platforms responded 200 in 34ms
+2026-01-28 09:12:30.025 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 31ms
+2026-01-28 09:12:30.051 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 13ms
+2026-01-28 09:12:30.151 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 89ms

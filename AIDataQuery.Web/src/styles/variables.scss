@@ -1,0 +1,50 @@
+// SCSS 变量定义
+
+// 颜色
+$primary-color: #409eff;
+$success-color: #67c23a;
+$warning-color: #e6a23c;
+$danger-color: #f56c6c;
+$info-color: #909399;
+
+// 文字颜色
+$text-primary: #303133;
+$text-regular: #606266;
+$text-secondary: #909399;
+$text-placeholder: #c0c4cc;
+
+// 边框颜色
+$border-color: #dcdfe6;
+$border-color-light: #e4e7ed;
+$border-color-lighter: #ebeef5;
+
+// 背景颜色
+$bg-color: #ffffff;
+$bg-color-page: #f5f7fa;
+$bg-color-overlay: #ffffff;
+
+// 尺寸
+$header-height: 60px;
+$sidebar-width: 260px;
+$sidebar-collapsed-width: 64px;
+
+// 圆角
+$border-radius-base: 4px;
+$border-radius-small: 2px;
+$border-radius-round: 20px;
+$border-radius-circle: 100%;
+
+// 阴影
+$box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+$box-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+// 过渡
+$transition-duration: 0.3s;
+$transition-timing: ease;
+
+// 层级
+$z-index-normal: 1;
+$z-index-top: 1000;
+$z-index-popper: 2000;
+$z-index-message: 3000;

@@ -1,0 +1,8 @@
+// 服务导出汇总
+export { request } from './api'
+export { authApi } from './auth'
+export { userApi } from './user'
+export { platformApi } from './platform'
+export { queryApi } from './query'
+export { templateApi } from './template'
+export { queryLogApi } from './queryLog'

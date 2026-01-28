@@ -1,0 +1,30 @@
+// 深色主题
+
+html.dark {
+  // Element Plus 变量覆盖
+  --el-color-primary: #409eff;
+  --el-color-success: #67c23a;
+  --el-color-warning: #e6a23c;
+  --el-color-danger: #f56c6c;
+  --el-color-info: #909399;
+
+  --el-bg-color: #1d1d1d;
+  --el-bg-color-page: #141414;
+  --el-bg-color-overlay: #262626;
+
+  --el-text-color-primary: #e5eaf3;
+  --el-text-color-regular: #cfd3dc;
+  --el-text-color-secondary: #a3a6ad;
+  --el-text-color-placeholder: #8d9095;
+
+  --el-border-color: #4c4d4f;
+  --el-border-color-light: #414243;
+  --el-border-color-lighter: #363637;
+
+  --el-fill-color: #303030;
+  --el-fill-color-light: #262626;
+  --el-fill-color-lighter: #1d1d1d;
+
+  // 额外的深色模式调整
+  color-scheme: dark;
+}

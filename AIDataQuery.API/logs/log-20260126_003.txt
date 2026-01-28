@@ -1,0 +1,264 @@
+2026-01-26 17:22:19.448 +08:00 [INF] Starting AIDataQuery API
+2026-01-26 17:22:19.601 +08:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address https://127.0.0.1:56171: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+ ---> System.Net.Sockets.SocketException (10048): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-01-26 17:22:19.628 +08:00 [FTL] Application terminated unexpectedly
+System.IO.IOException: Failed to bind to address https://127.0.0.1:56171: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+ ---> System.Net.Sockets.SocketException (10048): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in D:\AINETProject\AIDataQueryProject\src\AIDataQuery.API\Program.cs:line 70
+2026-01-26 17:24:07.534 +08:00 [INF] Starting AIDataQuery API
+2026-01-26 17:24:35.921 +08:00 [INF] HTTP GET /api/platforms responded 200 in 263ms
+2026-01-26 17:24:35.921 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 263ms
+2026-01-26 17:24:35.968 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 42ms
+2026-01-26 17:24:35.990 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 54ms
+2026-01-26 17:24:36.367 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 370ms
+2026-01-26 17:25:13.021 +08:00 [INF] Query executed successfully. Rows: 100, Time: 59ms
+2026-01-26 17:25:13.046 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 233ms
+2026-01-26 17:27:17.354 +08:00 [INF] HTTP GET /api/platforms responded 200 in 6ms
+2026-01-26 17:27:17.457 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 84ms
+2026-01-26 17:27:39.961 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms
+2026-01-26 17:27:39.962 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 17:27:39.967 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 17:27:39.994 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 2ms
+2026-01-26 17:27:40.104 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 93ms
+2026-01-26 17:27:58.389 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms
+2026-01-26 17:29:30.944 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:29:30.970 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 15ms
+2026-01-26 17:29:33.321 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms
+2026-01-26 17:34:06.367 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms
+2026-01-26 17:34:24.339 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 17:34:24.358 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 3ms
+2026-01-26 17:34:25.534 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:34:25.892 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:34:28.811 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 4ms
+2026-01-26 17:34:30.353 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 4ms
+2026-01-26 17:34:33.492 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 2ms
+2026-01-26 17:34:39.138 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:34:44.004 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms
+2026-01-26 17:34:51.302 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:34:51.314 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:34:56.678 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 2ms
+2026-01-26 17:35:01.299 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:35:02.670 +08:00 [INF] HTTP GET /api/templates/module/12 responded 200 in 2ms
+2026-01-26 17:35:03.285 +08:00 [INF] HTTP GET /api/templates/module/7 responded 200 in 2ms
+2026-01-26 17:36:35.853 +08:00 [INF] HTTP GET /api/platforms responded 200 in 3ms
+2026-01-26 17:36:35.868 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 3ms
+2026-01-26 17:38:34.732 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:38:34.750 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 2ms
+2026-01-26 17:40:39.660 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:40:39.676 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 1ms
+2026-01-26 17:40:43.685 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:40:43.724 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 17:40:46.752 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 3ms
+2026-01-26 17:40:53.886 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:40:54.353 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:40:54.564 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:40:55.662 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:40:56.125 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:02.678 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:03.992 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:07.874 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:08.476 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:23.713 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:24.807 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:41:25.326 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:41:53.042 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:41:53.838 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:42:00.338 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:42:02.212 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:42:03.155 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:43:52.681 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:43:52.757 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 5ms
+2026-01-26 17:43:55.167 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:43:55.943 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:44:07.960 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:44:08.846 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:44:09.555 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:44:10.300 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:44:10.541 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:44:10.807 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:44:11.353 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 2ms
+2026-01-26 17:44:23.661 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 17:45:03.235 +08:00 [INF] Created template 1 by user 1
+2026-01-26 17:45:03.263 +08:00 [INF] HTTP POST /api/templates responded 201 in 74ms
+2026-01-26 17:45:03.277 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:45:03.291 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:45:13.095 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:45:13.120 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 1ms
+2026-01-26 17:45:13.253 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 124ms
+2026-01-26 17:45:25.550 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:45:25.562 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:45:29.574 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 2ms
+2026-01-26 17:46:04.427 +08:00 [INF] Created template 2 by user 1
+2026-01-26 17:46:04.430 +08:00 [INF] HTTP POST /api/templates responded 201 in 23ms
+2026-01-26 17:46:04.444 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:46:04.458 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:46:07.715 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:46:08.639 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:46:10.331 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:46:27.419 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:46:27.433 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:46:28.251 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:46:36.648 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:46:40.610 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:46:41.789 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:46:52.145 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:46:52.159 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 17:47:10.681 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:47:22.377 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:47:34.656 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 17:47:35.548 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:47:43.522 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 2ms
+2026-01-26 17:47:48.411 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 17:48:52.395 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:51:28.906 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:51:39.545 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:52:29.006 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:52:31.424 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:52:31.425 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:52:31.428 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:52:31.443 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 1ms
+2026-01-26 17:52:31.538 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 71ms
+2026-01-26 17:52:35.551 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:52:35.566 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 0ms
+2026-01-26 17:52:40.256 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 17:52:40.807 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:52:46.344 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 0ms
+2026-01-26 17:53:59.287 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:54:11.602 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 17:54:11.618 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:55:12.687 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 17:55:15.957 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 17:55:15.966 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 17:57:13.265 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:57:13.278 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 0ms
+2026-01-26 17:57:24.142 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:57:24.160 +08:00 [INF] HTTP GET /api/templates/module/module-1 responded 400 in 10ms
+2026-01-26 17:57:36.830 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:57:36.838 +08:00 [INF] HTTP GET /api/templates/module/module-1 responded 400 in 0ms
+2026-01-26 17:59:53.367 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 17:59:53.379 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:06:13.566 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 3ms
+2026-01-26 18:06:13.591 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:06:14.486 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 0ms
+2026-01-26 18:06:14.518 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 0ms
+2026-01-26 18:06:15.859 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 18:06:16.359 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:06:18.678 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 18:06:18.703 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 1ms
+2026-01-26 18:06:18.831 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 121ms
+2026-01-26 18:06:21.742 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 1ms
+2026-01-26 18:06:30.685 +08:00 [INF] User admin logged in successfully
+2026-01-26 18:06:30.689 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 307ms
+2026-01-26 18:06:30.745 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 18:08:35.134 +08:00 [INF] Starting AIDataQuery API
+2026-01-26 18:16:06.594 +08:00 [INF] HTTP GET /api/platforms responded 200 in 289ms
+2026-01-26 18:16:06.624 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 322ms
+2026-01-26 18:16:06.668 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 38ms
+2026-01-26 18:16:06.690 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 80ms
+2026-01-26 18:16:06.987 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 290ms
+2026-01-26 18:16:19.247 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 8ms
+2026-01-26 18:16:19.278 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 16ms
+2026-01-26 18:16:26.793 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 18:16:33.812 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 18:16:34.303 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 3ms
+2026-01-26 18:16:42.744 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 3ms
+2026-01-26 18:16:46.272 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 18:19:16.015 +08:00 [INF] Starting AIDataQuery API
+2026-01-26 18:19:58.815 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 289ms
+2026-01-26 18:19:58.910 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 59ms
+2026-01-26 18:20:00.409 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 8ms
+2026-01-26 18:20:01.482 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 18:20:02.583 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 18:20:06.364 +08:00 [INF] HTTP GET /api/platforms responded 200 in 79ms
+2026-01-26 18:20:06.406 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 30ms
+2026-01-26 18:20:06.685 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 272ms
+2026-01-26 18:20:25.880 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 18:20:25.881 +08:00 [INF] HTTP GET /api/platforms responded 200 in 3ms
+2026-01-26 18:20:25.886 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 18:20:25.914 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 2ms
+2026-01-26 18:20:26.040 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 115ms
+2026-01-26 18:21:56.295 +08:00 [WRN] Login failed: User damin not found
+2026-01-26 18:21:56.298 +08:00 [INF] HTTP POST /api/auth/login responded 400 in 31ms
+2026-01-26 18:22:05.009 +08:00 [INF] User admin logged in successfully
+2026-01-26 18:22:05.010 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 322ms
+2026-01-26 18:22:06.011 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 18:22:06.012 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 18:22:06.020 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 18:22:06.056 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 2ms
+2026-01-26 18:22:06.203 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 115ms
+2026-01-26 18:22:57.282 +08:00 [INF] Query executed successfully. Rows: 0, Time: 19ms
+2026-01-26 18:22:57.285 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 90ms
+2026-01-26 18:23:11.289 +08:00 [INF] Query executed successfully. Rows: 100, Time: 22ms
+2026-01-26 18:23:11.294 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 31ms
+2026-01-26 18:23:44.277 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 18:23:44.293 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 3ms
+2026-01-26 18:23:45.444 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:23:50.295 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:23:50.893 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:23:51.195 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:23:55.063 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 18:23:56.876 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 2ms
+2026-01-26 18:24:22.652 +08:00 [INF] Created template 3 by user 1
+2026-01-26 18:24:22.676 +08:00 [INF] HTTP POST /api/templates responded 201 in 59ms
+2026-01-26 18:24:22.689 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:24:22.704 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 1ms
+2026-01-26 18:24:25.864 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms
+2026-01-26 18:24:30.734 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 2ms
+2026-01-26 18:24:30.745 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:24:31.880 +08:00 [INF] HTTP GET /api/templates/module/6 responded 200 in 1ms
+2026-01-26 18:24:32.224 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:24:44.239 +08:00 [INF] HTTP GET /api/platforms responded 200 in 1ms
+2026-01-26 18:24:50.554 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 3ms
+2026-01-26 18:24:50.564 +08:00 [INF] HTTP GET /api/templates/module/1 responded 200 in 1ms
+2026-01-26 18:24:52.499 +08:00 [INF] HTTP GET /api/platforms responded 200 in 2ms

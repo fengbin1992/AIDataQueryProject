@@ -1,0 +1,5 @@
+// Pinia stores 导出
+export { useUserStore } from './user'
+export { useQueryStore } from './query'
+export { useTemplateStore } from './template'
+export { useThemeStore } from './theme'
