@@ -188,7 +188,7 @@ public class PlatformService : IPlatformService
 
     public async Task<List<DatabaseConnectionDto>> GetConnectionsByPlatformAsync(string platformCode, int userId)
     {
-        // Verify user has permission
+        // Verify user has platform permission
         var hasPermission = await _context.UserPlatformPermissions
             .AnyAsync(p => p.UserId == userId && p.PlatformCode == platformCode);
 
@@ -197,8 +197,15 @@ public class PlatformService : IPlatformService
             return new List<DatabaseConnectionDto>();
         }
 
+        // Get user's permitted connection IDs
+        var permittedConnectionIds = await _context.UserConnectionPermissions
+            .Where(p => p.UserId == userId)
+            .Select(p => p.ConnectionId)
+            .ToListAsync();
+
+        // Filter connections by platform and user's connection permissions
         var connections = await _context.DatabaseConnections
-            .Where(c => c.PlatformCode == platformCode && c.IsActive)
+            .Where(c => c.PlatformCode == platformCode && c.IsActive && permittedConnectionIds.Contains(c.Id))
             .OrderBy(c => c.SortOrder)
             .ToListAsync();
 
