@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using AIDataQuery.API.Data;
 using AIDataQuery.API.Models.DTOs.Platform;
 using AIDataQuery.API.Models.Entities;
+using AIDataQuery.API.Models.Enums;
 using AIDataQuery.API.Services.Interfaces;
 using AIDataQuery.API.Infrastructure.Encryption;
 
@@ -26,16 +27,36 @@ public class PlatformService : IPlatformService
 
     public async Task<List<PlatformDto>> GetPlatformsAsync(int userId)
     {
-        // Get user's permitted platforms
-        var permittedCodes = await _context.UserPlatformPermissions
-            .Where(p => p.UserId == userId)
-            .Select(p => p.PlatformCode)
-            .ToListAsync();
+        // Get user info to check role
+        var user = await _context.Users.FindAsync(userId);
+        if (user == null)
+        {
+            return new List<PlatformDto>();
+        }
 
-        var platforms = await _context.Platforms
-            .Where(p => p.IsActive && permittedCodes.Contains(p.Code))
-            .OrderBy(p => p.SortOrder)
-            .ToListAsync();
+        List<Platform> platforms;
+
+        // Admin can see all active platforms without permission check
+        if (user.Role == UserRole.Admin)
+        {
+            platforms = await _context.Platforms
+                .Where(p => p.IsActive)
+                .OrderBy(p => p.SortOrder)
+                .ToListAsync();
+        }
+        else
+        {
+            // Get user's permitted platforms
+            var permittedCodes = await _context.UserPlatformPermissions
+                .Where(p => p.UserId == userId)
+                .Select(p => p.PlatformCode)
+                .ToListAsync();
+
+            platforms = await _context.Platforms
+                .Where(p => p.IsActive && permittedCodes.Contains(p.Code))
+                .OrderBy(p => p.SortOrder)
+                .ToListAsync();
+        }
 
         var connectionCounts = await _context.DatabaseConnections
             .Where(c => c.IsActive)
@@ -188,7 +209,34 @@ public class PlatformService : IPlatformService
 
     public async Task<List<DatabaseConnectionDto>> GetConnectionsByPlatformAsync(string platformCode, int userId)
     {
-        // Verify user has platform permission
+        // Get user info to check role
+        var user = await _context.Users.FindAsync(userId);
+        if (user == null)
+        {
+            return new List<DatabaseConnectionDto>();
+        }
+
+        // Admin can see all connections without permission check
+        if (user.Role == UserRole.Admin)
+        {
+            var allConnections = await _context.DatabaseConnections
+                .Where(c => c.PlatformCode == platformCode && c.IsActive)
+                .OrderBy(c => c.SortOrder)
+                .ToListAsync();
+
+            return allConnections.Select(c => new DatabaseConnectionDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                PlatformCode = c.PlatformCode,
+                DatabaseType = c.DatabaseType,
+                Description = c.Description,
+                IsProduction = c.IsProduction,
+                IsActive = c.IsActive
+            }).ToList();
+        }
+
+        // For regular users, verify platform permission
         var hasPermission = await _context.UserPlatformPermissions
             .AnyAsync(p => p.UserId == userId && p.PlatformCode == platformCode);
 

@@ -13,12 +13,16 @@ const props = withDefaults(defineProps<{
   modelValue?: string
   readonly?: boolean
   language?: string
+  fontSize?: number
+  fontFamily?: string
   tables?: Array<{ name: string; comment?: string }>
   columns?: Array<{ name: string; type: string; comment?: string; tableName?: string }>
 }>(), {
   modelValue: '',
   readonly: false,
   language: 'sql',
+  fontSize: 14,
+  fontFamily: 'Consolas',
   tables: () => [],
   columns: () => []
 })
@@ -229,7 +233,8 @@ function initEditor() {
     theme: themeStore.isDark ? 'vs-dark' : 'vs',
     automaticLayout: true,
     minimap: { enabled: false },
-    fontSize: 14,
+    fontSize: props.fontSize,
+    fontFamily: props.fontFamily,
     lineNumbers: 'on',
     scrollBeyondLastLine: false,
     wordWrap: 'on',
@@ -312,6 +317,20 @@ watch(() => themeStore.isDark, (isDark) => {
 watch(() => props.modelValue, (newValue) => {
   if (editor && editor.getValue() !== newValue) {
     editor.setValue(newValue)
+  }
+})
+
+// 监听字体大小变化
+watch(() => props.fontSize, (newSize) => {
+  if (editor) {
+    editor.updateOptions({ fontSize: newSize })
+  }
+})
+
+// 监听字体变化
+watch(() => props.fontFamily, (newFamily) => {
+  if (editor) {
+    editor.updateOptions({ fontFamily: newFamily })
   }
 })
 

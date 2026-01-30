@@ -153,6 +153,7 @@
           <el-tree-select
             v-model="form.moduleId"
             :data="moduleOptions"
+            node-key="id"
             :props="{ label: 'name', children: 'children' }"
             placeholder="选择所属模块"
             check-strictly
@@ -237,6 +238,7 @@
           <el-tree-select
             v-model="moduleForm.parentId"
             :data="moduleOptionsForSelect"
+            node-key="id"
             :props="{ label: 'name', children: 'children' }"
             placeholder="选择父模块（可选）"
             check-strictly

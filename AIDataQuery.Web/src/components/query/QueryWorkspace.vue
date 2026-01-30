@@ -1,55 +1,62 @@
 <template>
   <div class="query-workspace">
     <!-- 顶部选择区 -->
-    <div class="query-selectors">
-      <div class="selector-item">
-        <span class="label">平台：</span>
-        <el-select
-          v-model="localPlatformCode"
-          placeholder="选择平台"
-          @change="handlePlatformChange"
-        >
-          <el-option
-            v-for="platform in platforms"
-            :key="platform.code"
-            :label="platform.name"
-            :value="platform.code"
-          />
-        </el-select>
-      </div>
-      <div class="selector-item database-selector">
-        <span class="label">数据库：</span>
-        <el-select
-          v-model="localConnectionId"
-          placeholder="选择数据库"
-          @change="handleConnectionChange"
-          :popper-options="{ strategy: 'fixed' }"
-          :class="{ 'production-select': isSelectedProduction }"
-        >
-          <el-option
-            v-for="conn in connections"
-            :key="conn.id"
-            :label="conn.name"
-            :value="conn.id"
-            :class="{ 'production-option': conn.isProduction }"
+    <div class="query-selectors" v-show="!selectorsHidden">
+      <div class="selectors-content">
+        <div class="selector-item">
+          <span class="label">平台：</span>
+          <el-select
+            v-model="localPlatformCode"
+            placeholder="选择平台"
+            @change="handlePlatformChange"
           >
-            <div class="connection-option">
-              <span class="conn-name">{{ conn.name }}</span>
-              <el-tag
-                v-if="conn.isProduction"
-                type="danger"
-                size="small"
-                class="env-tag"
-              >
-                正式
-              </el-tag>
-            </div>
-          </el-option>
-        </el-select>
-        <el-tag v-if="isSelectedProduction" type="danger" size="small" class="selected-env-tag">
-          正式环境
-        </el-tag>
+            <el-option
+              v-for="platform in platforms"
+              :key="platform.code"
+              :label="platform.name"
+              :value="platform.code"
+            />
+          </el-select>
+        </div>
+        <div class="selector-item database-selector">
+          <span class="label">数据库：</span>
+          <el-select
+            v-model="localConnectionId"
+            placeholder="选择数据库"
+            @change="handleConnectionChange"
+            :popper-options="{ strategy: 'fixed' }"
+            :class="{ 'production-select': isSelectedProduction }"
+          >
+            <el-option
+              v-for="conn in connections"
+              :key="conn.id"
+              :label="conn.name"
+              :value="conn.id"
+              :class="{ 'production-option': conn.isProduction }"
+            >
+              <div class="connection-option">
+                <span class="conn-name">{{ conn.name }}</span>
+                <el-tag
+                  v-if="conn.isProduction"
+                  type="danger"
+                  size="small"
+                  class="env-tag"
+                >
+                  正式
+                </el-tag>
+              </div>
+            </el-option>
+          </el-select>
+          <el-tag v-if="isSelectedProduction" type="danger" size="small" class="selected-env-tag">
+            正式环境
+          </el-tag>
+        </div>
       </div>
+      <el-tooltip content="隐藏选择器" placement="bottom">
+        <div class="panel-hide-btn" @click="emit('hideSelectors')">
+          <el-icon :size="14"><Close /></el-icon>
+        </div>
+      </el-tooltip>
     </div>
 
     <!-- 主内容区 -->
@@ -77,50 +84,72 @@
       <!-- 右侧编辑器和结果区 -->
       <div class="right-panel" ref="rightPanelRef">
         <!-- SQL 编辑器区 -->
-        <div class="editor-section" :style="{ height: editorHeight + 'px' }">
+        <div class="editor-section" :class="{ 'editor-expanded': resultHidden }" :style="resultHidden ? {} : { height: editorHeight + 'px' }">
           <el-card :body-style="{ padding: '12px', height: 'calc(100% - 20px)' }">
             <template #header>
               <div class="card-header">
-                <span>SQL 编辑器</span>
+                <span class="header-title">SQL 编辑器</span>
                 <div class="editor-actions">
                   <el-button-group>
-                    <el-button
-                      type="primary"
-                      :icon="CaretRight"
-                      :loading="isQuerying"
-                      @click="handleExecute"
-                    >
-                      执行 (F5)
-                    </el-button>
+                    <el-tooltip content="执行 (F5)" placement="bottom">
+                      <el-button
+                        type="primary"
+                        :icon="CaretRight"
+                        :loading="isQuerying"
+                        @click="handleExecute"
+                      >
+                        <span class="btn-text">执行</span>
+                      </el-button>
+                    </el-tooltip>
                     <el-tooltip content="执行选中的 SQL (Ctrl+Enter)" placement="bottom">
                       <el-button
                         type="primary"
                         :loading="isQuerying"
                         @click="handleExecuteSelected"
                       >
-                        选中执行
+                        <span class="btn-text">选中</span>
                       </el-button>
                     </el-tooltip>
                   </el-button-group>
-                  <el-button :icon="DocumentAdd" @click="handleSaveTemplate">
-                    保存模板
-                  </el-button>
-                  <el-tooltip content="格式化 (Shift+Alt+F)" placement="bottom">
-                    <el-button :icon="Brush" @click="handleFormat">
-                      格式化
-                    </el-button>
+                  <el-tooltip content="保存模板" placement="bottom">
+                    <el-button :icon="DocumentAdd" @click="handleSaveTemplate" />
                   </el-tooltip>
-                  <el-divider direction="vertical" />
+                  <el-tooltip content="格式化 (Shift+Alt+F)" placement="bottom">
+                    <el-button :icon="Brush" @click="handleFormat" />
+                  </el-tooltip>
                   <el-tooltip content="撤回 (Ctrl+Z)" placement="bottom">
                     <el-button :icon="RefreshLeft" @click="handleUndo" />
                   </el-tooltip>
                   <el-tooltip content="重做 (Ctrl+Y)" placement="bottom">
                     <el-button :icon="RefreshRight" @click="handleRedo" />
                   </el-tooltip>
+                  <el-tooltip content="清空" placement="bottom">
+                    <el-button :icon="Delete" @click="handleClear" />
+                  </el-tooltip>
                   <el-divider direction="vertical" />
-                  <el-button :icon="Delete" @click="handleClear">
-                    清空
-                  </el-button>
+                  <el-select
+                    v-model="editorFontFamily"
+                    class="font-family-select"
+                    size="small"
+                    @change="saveEditorSettings"
+                  >
+                    <el-option
+                      v-for="f in fontFamilyOptions"
+                      :key="f"
+                      :label="f"
+                      :value="f"
+                    />
+                  </el-select>
+                  <el-input-number
+                    v-model="editorFontSize"
+                    class="font-size-input"
+                    size="small"
+                    :min="12"
+                    :max="28"
+                    :step="1"
+                    controls-position="right"
+                    @change="saveEditorSettings"
+                  />
                 </div>
               </div>
             </template>
@@ -128,6 +157,8 @@
               ref="sqlEditorRef"
               v-model="localSql"
               :tables="tableSuggestions"
+              :font-size="editorFontSize"
+              :font-family="editorFontFamily"
               @execute="handleExecute"
               @execute-selected="handleExecuteSelected"
               @format="handleFormat"
@@ -138,17 +169,23 @@
         <!-- 可拖拽分隔条 -->
         <div
           class="resize-handle"
-          @mousedown="startResize"
+          v-show="!resultHidden"
+          @mousedown="startResize($event)"
         >
           <div class="resize-line"></div>
         </div>
 
         <!-- 查询结果区 -->
-        <div class="result-section">
+        <div class="result-section" v-show="!resultHidden">
           <el-card :body-style="{ padding: '12px', height: 'calc(100% - 20px)' }">
             <template #header>
               <div class="card-header">
                 <span>查询结果</span>
+                <el-tooltip content="隐藏结果" placement="bottom">
+                  <div class="panel-hide-btn" @click="emit('hideResult')">
+                    <el-icon :size="14"><Close /></el-icon>
+                  </div>
+                </el-tooltip>
               </div>
             </template>
             <QueryResult
@@ -208,7 +245,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, onActivated, onDeactivated } from 'vue'
 import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
-import { CaretRight, DocumentAdd, Brush, Delete, DArrowLeft, DArrowRight, RefreshLeft, RefreshRight } from '@element-plus/icons-vue'
+import { CaretRight, DocumentAdd, Brush, Delete, DArrowLeft, DArrowRight, RefreshLeft, RefreshRight, Close } from '@element-plus/icons-vue'
 import { useTemplateStore, useQueryTabsStore } from '@/stores'
 import { platformApi, queryApi, templateApi } from '@/services'
 import { format as formatSql } from 'sql-formatter'
@@ -219,6 +256,15 @@ import type { TemplateDto, CreateTemplateRequest, PlatformDto, DatabaseConnectio
 
 const props = defineProps<{
   tabId: string
+  selectorsHidden?: boolean
+  resultHidden?: boolean
+}>()
+
+const emit = defineEmits<{
+  (e: 'hideSelectors'): void
+  (e: 'showSelectors'): void
+  (e: 'hideResult'): void
+  (e: 'showResult'): void
 }>()
 
 const templateStore = useTemplateStore()
@@ -244,6 +290,30 @@ const queryResult = ref<QueryResultType | null>(null)
 // 编辑器引用
 const sqlEditorRef = ref<InstanceType<typeof SqlEditor>>()
 
+// 编辑器字体设置（从 localStorage 加载）
+const EDITOR_SETTINGS_KEY = 'sql-editor-settings'
+const fontFamilyOptions = ['Consolas', 'Monaco', 'Courier New', 'Fira Code', 'Source Code Pro', 'JetBrains Mono', 'Cascadia Code']
+
+function loadEditorSettings() {
+  try {
+    const stored = localStorage.getItem(EDITOR_SETTINGS_KEY)
+    if (stored) {
+      return JSON.parse(stored) as { fontSize: number; fontFamily: string }
+    }
+  } catch { /* ignore */ }
+  return { fontSize: 14, fontFamily: 'Consolas' }
+}
+
+const editorSettings = loadEditorSettings()
+const editorFontSize = ref(editorSettings.fontSize)
+const editorFontFamily = ref(editorSettings.fontFamily)
+
+function saveEditorSettings() {
+  localStorage.setItem(EDITOR_SETTINGS_KEY, JSON.stringify({
+    fontSize: editorFontSize.value,
+    fontFamily: editorFontFamily.value
+  }))
+}
 // 模板面板折叠状态
 const isTemplateCollapsed = ref(false)
 
@@ -668,9 +738,9 @@ function handleClear() {
 onMounted(async () => {
   await loadPlatforms()
 
-  // 初始化编辑器高度（编辑器占60%，结果区占40%）
+  // 初始化编辑器高度（编辑器占70%，结果区占30%）
   if (rightPanelRef.value) {
-    editorHeight.value = Math.floor(rightPanelRef.value.clientHeight * 0.6)
+    editorHeight.value = Math.floor(rightPanelRef.value.clientHeight * 0.7)
   }
 })
 
@@ -713,17 +783,29 @@ defineExpose({
 
 .query-selectors {
   display: flex;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
   margin-bottom: 12px;
   padding: 12px 16px;
   background-color: var(--el-bg-color);
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: padding 0.2s ease;
+  align-items: center;
+
+  .selectors-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex: 1;
+  }
 
   .selector-item {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex: 1;
+    min-width: 280px;
 
     .label {
       font-size: 14px;
@@ -732,8 +814,33 @@ defineExpose({
     }
 
     .el-select {
-      width: 320px;
+      flex: 1;
+      min-width: 200px;
     }
+  }
+
+  .database-selector {
+    .el-select {
+      min-width: 220px;
+    }
+  }
+}
+
+.panel-hide-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: var(--el-text-color-secondary);
+  border-radius: 4px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: var(--el-fill-color-light);
+    color: var(--el-color-primary);
   }
 }
 
@@ -790,13 +897,18 @@ defineExpose({
   flex-shrink: 0;
   min-height: 150px;
 
+  &.editor-expanded {
+    flex: 1;
+    height: auto !important;
+  }
+
   .el-card {
     height: 100%;
   }
 }
 
 .resize-handle {
-  height: 12px;
+  height: 20px;
   cursor: row-resize;
   display: flex;
   align-items: center;
@@ -834,15 +946,74 @@ defineExpose({
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
 
-  span {
+  .header-title {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  // 非编辑器区域的标题（查询结果等）
+  > span:not(.header-title) {
     font-size: 14px;
     font-weight: 500;
   }
 
   .editor-actions {
     display: flex;
-    gap: 8px;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+
+    .btn-text {
+      margin-left: 4px;
+    }
+
+    .font-family-select {
+      width: 130px;
+      flex-shrink: 0;
+    }
+
+    .font-size-input {
+      width: 72px;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// 小屏幕: 隐藏按钮文字，缩小字体选择器
+@media (max-width: 1440px) {
+  .card-header .editor-actions {
+    .btn-text {
+      display: none;
+    }
+
+    .font-family-select {
+      width: 110px;
+    }
+  }
+}
+
+// 超小屏幕: 进一步缩小
+@media (max-width: 1280px) {
+  .card-header .editor-actions {
+    gap: 2px;
+
+    .font-family-select {
+      width: 95px;
+    }
+
+    .font-size-input {
+      width: 66px;
+    }
+
+    .el-divider {
+      display: none;
+    }
   }
 }
 
