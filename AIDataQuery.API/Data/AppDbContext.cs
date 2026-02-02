@@ -18,6 +18,9 @@ public class AppDbContext : DbContext
     public DbSet<QueryTemplate> QueryTemplates => Set<QueryTemplate>();
     public DbSet<QueryLog> QueryLogs => Set<QueryLog>();
     public DbSet<QueryTab> QueryTabs => Set<QueryTab>();
+    public DbSet<ConfigQuery> ConfigQueries => Set<ConfigQuery>();
+    public DbSet<ConfigQueryParameter> ConfigQueryParameters => Set<ConfigQueryParameter>();
+    public DbSet<ConfigQueryParamPreset> ConfigQueryParamPresets => Set<ConfigQueryParamPreset>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -170,6 +173,70 @@ public class AppDbContext : DbContext
                 .WithMany()
                 .HasForeignKey(e => e.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // ConfigQuery
+        modelBuilder.Entity<ConfigQuery>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.SqlContent).IsRequired();
+            entity.Property(e => e.IsPublic).HasDefaultValue(false);
+            entity.Property(e => e.SortOrder).HasDefaultValue(0);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.HasIndex(e => e.CreatedBy);
+            entity.HasIndex(e => e.IsPublic);
+
+            entity.HasOne(e => e.Connection)
+                .WithMany()
+                .HasForeignKey(e => e.ConnectionId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(e => e.Creator)
+                .WithMany()
+                .HasForeignKey(e => e.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // ConfigQueryParameter
+        modelBuilder.Entity<ConfigQueryParameter>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.ParamName).HasMaxLength(50).IsRequired();
+            entity.Property(e => e.ParamLabel).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.ParamType).HasMaxLength(20).IsRequired();
+            entity.Property(e => e.IsRequired).HasDefaultValue(true);
+            entity.Property(e => e.DefaultValue).HasMaxLength(500);
+            entity.Property(e => e.Placeholder).HasMaxLength(200);
+            entity.Property(e => e.ValidationRule).HasMaxLength(200);
+            entity.Property(e => e.SortOrder).HasDefaultValue(0);
+            entity.HasIndex(e => new { e.ConfigQueryId, e.ParamName }).IsUnique();
+
+            entity.HasOne(e => e.ConfigQuery)
+                .WithMany(q => q.Parameters)
+                .HasForeignKey(e => e.ConfigQueryId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // ConfigQueryParamPreset
+        modelBuilder.Entity<ConfigQueryParamPreset>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.ParamValues).IsRequired();
+            entity.Property(e => e.IsDefault).HasDefaultValue(false);
+            entity.HasIndex(e => e.ConfigQueryId);
+
+            entity.HasOne(e => e.ConfigQuery)
+                .WithMany(q => q.Presets)
+                .HasForeignKey(e => e.ConfigQueryId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasOne(e => e.Creator)
+                .WithMany()
+                .HasForeignKey(e => e.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
         });
     }
 }

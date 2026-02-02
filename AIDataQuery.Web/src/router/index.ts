@@ -23,7 +23,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'query',
         name: 'Query',
-        component: () => import('@/views/query/QueryView.vue'),
+        component: () => import('@/views/query/DataQueryView.vue'),
         meta: {
           title: '数据查询',
           icon: 'Search'

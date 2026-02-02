@@ -1,0 +1,26 @@
+2026-02-02 15:44:17.361 +08:00 [INF] Starting AIDataQuery API
+2026-02-02 15:44:18.160 +08:00 [INF] HTTP GET / responded 404 in 74ms
+2026-02-02 15:45:46.303 +08:00 [INF] HTTP GET /api/config-queries responded 401 in 71ms
+2026-02-02 15:45:46.303 +08:00 [INF] HTTP GET /api/query-tabs responded 401 in 71ms
+2026-02-02 15:45:47.192 +08:00 [INF] HTTP GET /api/config-queries responded 401 in 3ms
+2026-02-02 15:45:47.192 +08:00 [INF] HTTP GET /api/query-tabs responded 401 in 3ms
+2026-02-02 15:45:47.324 +08:00 [INF] HTTP GET /api/platforms responded 401 in 0ms
+2026-02-02 15:45:47.324 +08:00 [INF] HTTP GET /api/templates/modules responded 401 in 0ms
+2026-02-02 15:45:49.351 +08:00 [INF] User admin logged in successfully
+2026-02-02 15:45:49.368 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 795ms
+2026-02-02 15:45:49.688 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 118ms
+2026-02-02 15:45:49.724 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 154ms
+2026-02-02 15:45:49.851 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 108ms
+2026-02-02 15:45:49.870 +08:00 [INF] HTTP GET /api/platforms responded 200 in 128ms
+2026-02-02 15:45:49.938 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 52ms
+2026-02-02 15:45:50.418 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 468ms
+2026-02-02 15:46:00.249 +08:00 [INF] HTTP GET /api/platforms responded 200 in 35ms
+2026-02-02 15:46:00.285 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-02 15:46:00.321 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-02 15:46:00.357 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 28ms
+2026-02-02 15:46:00.393 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-02 15:47:14.685 +08:00 [INF] HTTP GET /api/platforms responded 200 in 49ms
+2026-02-02 15:47:14.726 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 32ms
+2026-02-02 15:47:14.761 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 27ms
+2026-02-02 15:47:14.797 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
+2026-02-02 15:47:14.832 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms

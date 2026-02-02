@@ -24,6 +24,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IPlatformService, PlatformService>();
         services.AddScoped<IQueryLogService, QueryLogService>();
         services.AddScoped<IQueryTabService, QueryTabService>();
+        services.AddScoped<IConfigQueryService, ConfigQueryService>();
 
         // Register infrastructure
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
