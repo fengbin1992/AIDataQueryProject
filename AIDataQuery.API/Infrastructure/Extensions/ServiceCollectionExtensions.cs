@@ -26,6 +26,9 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IQueryTabService, QueryTabService>();
         services.AddScoped<IConfigQueryService, ConfigQueryService>();
 
+        // 数据安全服务
+        services.AddScoped<IDataMaskingService, DataMaskingService>();
+
         // Register infrastructure
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<ISqlValidator, SqlValidator>();

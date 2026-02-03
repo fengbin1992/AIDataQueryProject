@@ -362,4 +362,96 @@ public class ConfigQueryController : BaseController
     }
 
     #endregion
+
+    #region 文件夹管理
+
+    /// <summary>
+    /// 获取文件夹列表
+    /// </summary>
+    /// <returns>文件夹列表</returns>
+    [HttpGet("folders")]
+    [ProducesResponseType(typeof(ApiResponse<List<ConfigQueryFolderDto>>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<ApiResponse<List<ConfigQueryFolderDto>>>> GetFolders()
+    {
+        var result = await _configQueryService.GetFoldersAsync(CurrentUserId);
+        return Ok(ApiResponse<List<ConfigQueryFolderDto>>.Ok(result));
+    }
+
+    /// <summary>
+    /// 创建文件夹
+    /// </summary>
+    /// <param name="request">创建请求</param>
+    /// <returns>创建的文件夹ID</returns>
+    [HttpPost("folders")]
+    [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status201Created)]
+    public async Task<ActionResult<ApiResponse<object>>> CreateFolder([FromBody] CreateConfigQueryFolderRequest request)
+    {
+        var id = await _configQueryService.CreateFolderAsync(CurrentUserId, request);
+        return CreatedAtAction(nameof(GetFolders),
+            ApiResponse<object>.Ok(new { id }, "文件夹创建成功"));
+    }
+
+    /// <summary>
+    /// 更新文件夹
+    /// </summary>
+    /// <param name="id">文件夹ID</param>
+    /// <param name="request">更新请求</param>
+    /// <returns>更新结果</returns>
+    [HttpPut("folders/{id}")]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ApiResponse>> UpdateFolder(int id, [FromBody] UpdateConfigQueryFolderRequest request)
+    {
+        var success = await _configQueryService.UpdateFolderAsync(id, CurrentUserId, request);
+
+        if (!success)
+        {
+            return NotFound(ApiResponse.Fail("文件夹不存在"));
+        }
+
+        return Ok(ApiResponse.Ok("文件夹更新成功"));
+    }
+
+    /// <summary>
+    /// 删除文件夹
+    /// </summary>
+    /// <param name="id">文件夹ID</param>
+    /// <returns>删除结果</returns>
+    [HttpDelete("folders/{id}")]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ApiResponse>> DeleteFolder(int id)
+    {
+        var success = await _configQueryService.DeleteFolderAsync(id, CurrentUserId);
+
+        if (!success)
+        {
+            return NotFound(ApiResponse.Fail("文件夹不存在"));
+        }
+
+        return Ok(ApiResponse.Ok("文件夹删除成功"));
+    }
+
+    /// <summary>
+    /// 移动配置查询到文件夹
+    /// </summary>
+    /// <param name="id">配置查询ID</param>
+    /// <param name="request">移动请求</param>
+    /// <returns>移动结果</returns>
+    [HttpPut("{id}/move")]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ApiResponse>> MoveToFolder(int id, [FromBody] MoveToFolderRequest request)
+    {
+        var success = await _configQueryService.MoveToFolderAsync(id, CurrentUserId, request.FolderId);
+
+        if (!success)
+        {
+            return NotFound(ApiResponse.Fail("配置查询或文件夹不存在"));
+        }
+
+        return Ok(ApiResponse.Ok("移动成功"));
+    }
+
+    #endregion
 }

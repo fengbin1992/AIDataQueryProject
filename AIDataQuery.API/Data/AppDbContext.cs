@@ -21,6 +21,11 @@ public class AppDbContext : DbContext
     public DbSet<ConfigQuery> ConfigQueries => Set<ConfigQuery>();
     public DbSet<ConfigQueryParameter> ConfigQueryParameters => Set<ConfigQueryParameter>();
     public DbSet<ConfigQueryParamPreset> ConfigQueryParamPresets => Set<ConfigQueryParamPreset>();
+    public DbSet<ConfigQueryFolder> ConfigQueryFolders => Set<ConfigQueryFolder>();
+
+    // 数据安全相关
+    public DbSet<SensitiveMaskingRule> SensitiveMaskingRules => Set<SensitiveMaskingRule>();
+    public DbSet<SensitiveFieldMark> SensitiveFieldMarks => Set<SensitiveFieldMark>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -187,6 +192,7 @@ public class AppDbContext : DbContext
             entity.Property(e => e.IsActive).HasDefaultValue(true);
             entity.HasIndex(e => e.CreatedBy);
             entity.HasIndex(e => e.IsPublic);
+            entity.HasIndex(e => e.FolderId);
 
             entity.HasOne(e => e.Connection)
                 .WithMany()
@@ -197,6 +203,11 @@ public class AppDbContext : DbContext
                 .WithMany()
                 .HasForeignKey(e => e.CreatedBy)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(e => e.Folder)
+                .WithMany(f => f.ConfigQueries)
+                .HasForeignKey(e => e.FolderId)
+                .OnDelete(DeleteBehavior.SetNull);
         });
 
         // ConfigQueryParameter
@@ -236,6 +247,54 @@ public class AppDbContext : DbContext
             entity.HasOne(e => e.Creator)
                 .WithMany()
                 .HasForeignKey(e => e.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // ConfigQueryFolder
+        modelBuilder.Entity<ConfigQueryFolder>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.SortOrder).HasDefaultValue(0);
+            entity.HasIndex(e => e.CreatedBy);
+
+            entity.HasOne(e => e.Creator)
+                .WithMany()
+                .HasForeignKey(e => e.CreatedBy)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        // SensitiveMaskingRule
+        modelBuilder.Entity<SensitiveMaskingRule>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).HasMaxLength(100).IsRequired();
+            entity.Property(e => e.FieldPattern).HasMaxLength(500).IsRequired();
+            entity.Property(e => e.MaskConfig).HasMaxLength(1000);
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.Property(e => e.Priority).HasDefaultValue(0);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.HasIndex(e => new { e.IsActive, e.Priority });
+        });
+
+        // SensitiveFieldMark
+        modelBuilder.Entity<SensitiveFieldMark>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.TableName).HasMaxLength(200).IsRequired();
+            entity.Property(e => e.FieldName).HasMaxLength(200).IsRequired();
+            entity.Property(e => e.MaskConfig).HasMaxLength(1000);
+            entity.Property(e => e.Description).HasMaxLength(500);
+            entity.HasIndex(e => new { e.ConnectionId, e.TableName, e.FieldName }).IsUnique();
+
+            entity.HasOne(e => e.Connection)
+                .WithMany()
+                .HasForeignKey(e => e.ConnectionId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasOne(e => e.Marker)
+                .WithMany()
+                .HasForeignKey(e => e.MarkedBy)
                 .OnDelete(DeleteBehavior.Restrict);
         });
     }

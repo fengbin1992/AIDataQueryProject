@@ -24,3 +24,53 @@
 2026-02-02 15:47:14.761 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 27ms
 2026-02-02 15:47:14.797 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
 2026-02-02 15:47:14.832 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-02 18:03:28.101 +08:00 [INF] Starting AIDataQuery API
+2026-02-02 18:03:28.820 +08:00 [INF] HTTP GET / responded 404 in 69ms
+2026-02-02 18:06:03.178 +08:00 [INF] Starting AIDataQuery API
+2026-02-02 18:06:03.757 +08:00 [INF] HTTP GET / responded 404 in 105ms
+2026-02-02 18:06:14.488 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 253ms
+2026-02-02 18:06:14.525 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 291ms
+2026-02-02 18:06:14.788 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 190ms
+2026-02-02 18:06:14.791 +08:00 [INF] HTTP GET /api/platforms responded 200 in 193ms
+2026-02-02 18:06:14.879 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 71ms
+2026-02-02 18:06:15.331 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 441ms
+2026-02-02 18:06:25.492 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 41ms
+2026-02-02 18:06:25.497 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 46ms
+2026-02-02 18:06:25.625 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 74ms
+2026-02-02 18:06:25.627 +08:00 [INF] HTTP GET /api/platforms responded 200 in 78ms
+2026-02-02 18:06:25.667 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-02 18:06:25.775 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 99ms
+2026-02-02 18:06:29.268 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 25ms
+2026-02-02 18:06:29.317 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 38ms
+2026-02-02 18:06:34.520 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 20ms
+2026-02-02 18:06:36.337 +08:00 [INF] User admin logged in successfully
+2026-02-02 18:06:36.341 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 453ms
+2026-02-02 18:06:36.454 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 53ms
+2026-02-02 18:06:36.458 +08:00 [INF] HTTP GET /api/platforms responded 200 in 59ms
+2026-02-02 18:06:36.471 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 72ms
+2026-02-02 18:06:36.496 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-02 18:06:36.602 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 97ms
+2026-02-02 18:06:55.384 +08:00 [INF] Starting AIDataQuery API
+2026-02-02 18:06:55.978 +08:00 [INF] HTTP GET / responded 404 in 79ms
+2026-02-02 18:07:11.003 +08:00 [INF] Starting AIDataQuery API
+2026-02-02 18:07:11.596 +08:00 [INF] HTTP GET / responded 404 in 105ms
+2026-02-02 18:07:16.703 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 240ms
+2026-02-02 18:07:16.736 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 273ms
+2026-02-02 18:07:16.945 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 183ms
+2026-02-02 18:07:16.950 +08:00 [INF] HTTP GET /api/platforms responded 200 in 187ms
+2026-02-02 18:07:17.029 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 68ms
+2026-02-02 18:07:17.454 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 413ms
+2026-02-02 18:07:24.199 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 41ms
+2026-02-02 18:07:27.405 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 37ms
+2026-02-02 18:07:27.417 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 49ms
+2026-02-02 18:07:27.484 +08:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-02-02 18:07:27.518 +08:00 [INF] HTTP GET /api/users responded 200 in 90ms
+2026-02-02 18:07:43.604 +08:00 [INF] HTTP GET /api/platforms responded 200 in 33ms
+2026-02-02 18:07:43.689 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 75ms
+2026-02-02 18:07:44.957 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 34ms
+2026-02-02 18:07:45.010 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 36ms
+2026-02-02 18:07:46.042 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 83ms
+2026-02-02 18:07:46.051 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 92ms
+2026-02-02 18:07:46.143 +08:00 [INF] HTTP GET /api/platforms responded 200 in 31ms
+2026-02-02 18:07:46.184 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-02 18:07:46.295 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 101ms

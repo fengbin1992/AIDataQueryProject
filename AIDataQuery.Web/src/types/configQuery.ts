@@ -48,6 +48,8 @@ export interface ConfigQueryListItem {
   isOwner: boolean
   canEdit: boolean
   createdAt: string
+  folderId?: number
+  folderName?: string
 }
 
 /** 配置查询参数 */
@@ -106,6 +108,7 @@ export interface CreateConfigQueryRequest {
   connectionId?: number
   isPublic: boolean
   sortOrder?: number
+  folderId?: number
   parameters: CreateConfigQueryParameterRequest[]
 }
 
@@ -117,6 +120,8 @@ export interface UpdateConfigQueryRequest {
   connectionId?: number
   isPublic?: boolean
   sortOrder?: number
+  folderId?: number
+  clearFolder?: boolean
   parameters?: CreateConfigQueryParameterRequest[]
 }
 
@@ -193,4 +198,29 @@ export interface PagedListResponse<T> {
   total: number
   pageIndex: number
   pageSize: number
+}
+
+/** 配置查询文件夹 */
+export interface ConfigQueryFolder {
+  id: number
+  name: string
+  sortOrder: number
+  createdAt: string
+}
+
+/** 创建文件夹请求 */
+export interface CreateFolderRequest {
+  name: string
+  sortOrder?: number
+}
+
+/** 更新文件夹请求 */
+export interface UpdateFolderRequest {
+  name?: string
+  sortOrder?: number
+}
+
+/** 移动到文件夹请求 */
+export interface MoveToFolderRequest {
+  folderId?: number
 }

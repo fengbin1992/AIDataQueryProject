@@ -1,0 +1,1474 @@
+2026-02-03 09:34:53.554 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 09:34:54.380 +08:00 [INF] HTTP GET / responded 404 in 146ms
+2026-02-03 09:35:18.085 +08:00 [INF] HTTP GET /api/config-queries responded 401 in 61ms
+2026-02-03 09:35:18.085 +08:00 [INF] HTTP GET /api/query-tabs responded 401 in 61ms
+2026-02-03 09:35:18.211 +08:00 [INF] HTTP GET /api/platforms responded 401 in 2ms
+2026-02-03 09:35:18.211 +08:00 [INF] HTTP GET /api/templates/modules responded 401 in 2ms
+2026-02-03 09:35:20.250 +08:00 [INF] User admin logged in successfully
+2026-02-03 09:35:20.265 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 795ms
+2026-02-03 09:35:20.595 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 117ms
+2026-02-03 09:35:20.638 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 160ms
+2026-02-03 09:35:20.749 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 95ms
+2026-02-03 09:35:20.769 +08:00 [INF] HTTP GET /api/platforms responded 200 in 115ms
+2026-02-03 09:35:20.842 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 62ms
+2026-02-03 09:35:21.545 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 693ms
+2026-02-03 09:41:15.750 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 152ms
+2026-02-03 09:41:15.757 +08:00 [INF] HTTP GET /api/platforms responded 200 in 187ms
+2026-02-03 09:41:15.757 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 150ms
+2026-02-03 09:41:15.805 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 30ms
+2026-02-03 09:41:15.932 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 114ms
+2026-02-03 09:41:17.285 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 41ms
+2026-02-03 09:41:17.295 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 50ms
+2026-02-03 09:41:17.446 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 49ms
+2026-02-03 09:41:17.447 +08:00 [INF] HTTP GET /api/platforms responded 200 in 50ms
+2026-02-03 09:41:17.495 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 09:41:17.604 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 97ms
+2026-02-03 09:41:21.148 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 60ms
+2026-02-03 09:41:21.156 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 68ms
+2026-02-03 09:41:21.160 +08:00 [INF] HTTP GET /api/platforms responded 200 in 73ms
+2026-02-03 09:41:21.200 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 29ms
+2026-02-03 09:41:21.386 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 175ms
+2026-02-03 09:41:40.118 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 32ms
+2026-02-03 09:41:40.123 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 37ms
+2026-02-03 09:41:40.229 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 41ms
+2026-02-03 09:41:40.229 +08:00 [INF] HTTP GET /api/platforms responded 200 in 41ms
+2026-02-03 09:41:40.270 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 09:41:40.417 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 138ms
+2026-02-03 09:41:50.381 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 404 in 0ms
+2026-02-03 09:42:01.157 +08:00 [INF] HTTP GET /api/data-security/access/pending responded 404 in 0ms
+2026-02-03 09:45:28.970 +08:00 [INF] HTTP GET /api/platforms responded 200 in 52ms
+2026-02-03 09:45:29.068 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 87ms
+2026-02-03 09:45:34.471 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 404 in 0ms
+2026-02-03 09:45:39.328 +08:00 [INF] HTTP GET /api/data-security/access/pending responded 404 in 0ms
+2026-02-03 09:47:12.938 +08:00 [INF] HTTP GET /api/data-security/access/pending responded 404 in 0ms
+2026-02-03 09:47:25.082 +08:00 [INF] HTTP GET /api/data-security/access/requests responded 404 in 0ms
+2026-02-03 09:47:25.682 +08:00 [INF] HTTP GET /api/data-security/access/requests responded 404 in 0ms
+2026-02-03 09:47:26.339 +08:00 [INF] HTTP GET /api/data-security/access/requests responded 404 in 0ms
+2026-02-03 09:47:33.033 +08:00 [INF] HTTP GET /api/data-security/access/pending responded 404 in 0ms
+2026-02-03 09:47:47.378 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 64ms
+2026-02-03 09:47:47.416 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 27ms
+2026-02-03 09:47:53.207 +08:00 [INF] HTTP GET /api/platforms/connection/10 responded 200 in 25ms
+2026-02-03 09:48:00.177 +08:00 [INF] HTTP GET /api/platforms/connection/9 responded 200 in 20ms
+2026-02-03 09:48:09.924 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 404 in 0ms
+2026-02-03 09:48:21.621 +08:00 [INF] HTTP GET /api/data-security/access/pending responded 404 in 0ms
+2026-02-03 09:49:13.918 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 404 in 36ms
+2026-02-03 09:52:31.339 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 404 in 0ms
+2026-02-03 10:02:01.378 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 10:02:01.937 +08:00 [INF] HTTP GET / responded 404 in 47ms
+2026-02-03 10:02:27.843 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 270ms
+2026-02-03 10:02:27.886 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 313ms
+2026-02-03 10:02:28.161 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 201ms
+2026-02-03 10:02:28.173 +08:00 [INF] HTTP GET /api/platforms responded 200 in 213ms
+2026-02-03 10:02:28.252 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 62ms
+2026-02-03 10:02:28.656 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 392ms
+2026-02-03 10:02:29.292 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 37ms
+2026-02-03 10:02:29.299 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 43ms
+2026-02-03 10:02:29.408 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 46ms
+2026-02-03 10:02:29.411 +08:00 [INF] HTTP GET /api/platforms responded 200 in 50ms
+2026-02-03 10:02:29.455 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 10:02:29.643 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 178ms
+2026-02-03 10:02:32.734 +08:00 [ERR] Failed executing DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT `s`.`Id`, `s`.`Name`, `s`.`FieldPattern`, `s`.`MaskType`, `s`.`MaskConfig`, `s`.`Priority`, `s`.`IsActive`, `s`.`Description`, `s`.`CreatedAt`
+FROM `SensitiveMaskingRules` AS `s`
+ORDER BY `s`.`Priority` DESC, `s`.`Name`
+2026-02-03 10:02:32.764 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AIDataQuery.API.Data.AppDbContext'.
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.sensitivemaskingrules' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.sensitivemaskingrules' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-03 10:02:32.952 +08:00 [ERR] An unhandled exception occurred
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.sensitivemaskingrules' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at AIDataQuery.API.Services.DataMaskingService.GetMaskingRulesAsync() in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\DataMaskingService.cs:line 34
+   at AIDataQuery.API.Controllers.DataSecurityController.GetMaskingRules() in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Controllers\DataSecurityController.cs:line 34
+   at lambda_method407(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AIDataQuery.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Middleware\ExceptionMiddleware.cs:line 24
+2026-02-03 10:02:32.967 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 500 in 287ms
+2026-02-03 10:07:26.379 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 10:07:26.967 +08:00 [INF] HTTP GET / responded 404 in 1ms
+2026-02-03 10:07:27.132 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 200 in 340ms
+2026-02-03 10:07:32.816 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 29ms
+2026-02-03 10:07:34.803 +08:00 [INF] User admin logged in successfully
+2026-02-03 10:07:34.810 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 711ms
+2026-02-03 10:07:35.110 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 52ms
+2026-02-03 10:07:35.170 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 112ms
+2026-02-03 10:07:35.308 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 105ms
+2026-02-03 10:07:35.329 +08:00 [INF] HTTP GET /api/platforms responded 200 in 126ms
+2026-02-03 10:07:35.397 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 56ms
+2026-02-03 10:07:35.997 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 589ms
+2026-02-03 10:07:37.762 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 200 in 31ms
+2026-02-03 10:07:40.821 +08:00 [INF] HTTP GET /api/platforms responded 200 in 36ms
+2026-02-03 10:07:40.876 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 44ms
+2026-02-03 10:07:56.156 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 48ms
+2026-02-03 10:07:56.206 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 34ms
+2026-02-03 10:08:02.398 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 200 in 23ms
+2026-02-03 10:08:16.214 +08:00 [INF] HTTP GET /api/platforms responded 200 in 37ms
+2026-02-03 10:08:16.246 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 21ms
+2026-02-03 10:09:38.270 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 44ms
+2026-02-03 10:09:38.308 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 25ms
+2026-02-03 10:10:09.198 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 38ms
+2026-02-03 10:10:09.272 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 61ms
+2026-02-03 10:12:10.413 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 10:12:11.075 +08:00 [INF] HTTP GET / responded 404 in 50ms
+2026-02-03 10:12:15.402 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 248ms
+2026-02-03 10:12:15.558 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 138ms
+2026-02-03 10:12:28.366 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 1519ms
+2026-02-03 10:12:29.001 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 30ms
+2026-02-03 10:12:44.773 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields/schema responded 200 in 119ms
+2026-02-03 10:14:44.600 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 37ms
+2026-02-03 10:14:45.517 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 29ms
+2026-02-03 10:15:04.557 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 27ms
+2026-02-03 10:15:04.591 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 22ms
+2026-02-03 10:15:08.487 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 300ms
+2026-02-03 10:15:09.215 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 22ms
+2026-02-03 10:15:17.004 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields/schema responded 200 in 77ms
+2026-02-03 10:35:31.922 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields/schema responded 200 in 145ms
+2026-02-03 10:35:44.124 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields/schema responded 200 in 42ms
+2026-02-03 10:36:40.402 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 200 in 47ms
+2026-02-03 10:42:56.130 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 54ms
+2026-02-03 10:42:56.638 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 30ms
+2026-02-03 10:43:02.782 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 96ms
+2026-02-03 10:43:02.821 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 24ms
+2026-02-03 10:43:05.852 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields/schema responded 200 in 89ms
+2026-02-03 10:45:19.129 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 40ms
+2026-02-03 10:45:19.170 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 26ms
+2026-02-03 10:45:22.287 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 157ms
+2026-02-03 10:45:23.079 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 23ms
+2026-02-03 10:45:26.402 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields/schema responded 200 in 56ms
+2026-02-03 10:49:13.478 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 117ms
+2026-02-03 10:49:13.518 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 23ms
+2026-02-03 10:49:15.426 +08:00 [INF] HTTP GET /api/platforms/connection/16 responded 200 in 26ms
+2026-02-03 10:50:49.744 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 49ms
+2026-02-03 10:50:49.786 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 31ms
+2026-02-03 10:50:54.420 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 200 in 34ms
+2026-02-03 10:51:00.744 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 23ms
+2026-02-03 10:51:00.779 +08:00 [INF] HTTP GET /api/data-security/sensitive-fields responded 200 in 23ms
+2026-02-03 10:51:30.550 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 108ms
+2026-02-03 10:51:30.578 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 100ms
+2026-02-03 10:51:30.758 +08:00 [INF] HTTP GET /api/platforms responded 200 in 123ms
+2026-02-03 10:51:30.802 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 33ms
+2026-02-03 10:51:30.804 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 169ms
+2026-02-03 10:51:31.107 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 296ms
+2026-02-03 10:51:35.573 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 10:51:35.668 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 80ms
+2026-02-03 10:51:39.300 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 167ms
+2026-02-03 10:51:56.360 +08:00 [INF] Query executed successfully. Rows: 0, Time: 44ms
+2026-02-03 10:51:56.364 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 236ms
+2026-02-03 10:52:27.991 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 200ms
+2026-02-03 10:52:29.232 +08:00 [INF] Query executed successfully. Rows: 1, Time: 26ms
+2026-02-03 10:52:29.244 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 68ms
+2026-02-03 10:57:33.202 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 141ms
+2026-02-03 10:57:33.266 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 34ms
+2026-02-03 10:59:11.162 +08:00 [INF] HTTP GET /api/platforms responded 200 in 37ms
+2026-02-03 10:59:11.198 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 10:59:11.230 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 10:59:11.268 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 10:59:11.320 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 11:06:27.471 +08:00 [INF] HTTP GET /api/data-security/masking-rules responded 200 in 40ms
+2026-02-03 11:06:45.905 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 19ms
+2026-02-03 11:06:48.054 +08:00 [INF] User fengbin logged in successfully
+2026-02-03 11:06:48.058 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 317ms
+2026-02-03 11:06:48.477 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 73ms
+2026-02-03 11:06:48.486 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 83ms
+2026-02-03 11:06:48.499 +08:00 [INF] HTTP GET /api/platforms responded 200 in 96ms
+2026-02-03 11:06:48.611 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 50ms
+2026-02-03 11:06:48.777 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 155ms
+2026-02-03 11:07:03.142 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 34ms
+2026-02-03 11:07:03.193 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 38ms
+2026-02-03 11:07:06.592 +08:00 [INF] HTTP POST /api/auth/logout responded 200 in 17ms
+2026-02-03 11:07:11.312 +08:00 [INF] User admin logged in successfully
+2026-02-03 11:07:11.312 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 139ms
+2026-02-03 11:07:11.436 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 51ms
+2026-02-03 11:07:11.439 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 55ms
+2026-02-03 11:07:11.447 +08:00 [INF] HTTP GET /api/platforms responded 200 in 63ms
+2026-02-03 11:07:11.483 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 11:07:11.604 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 109ms
+2026-02-03 11:07:19.743 +08:00 [INF] HTTP GET /api/platforms responded 200 in 28ms
+2026-02-03 11:07:19.779 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 11:07:19.814 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:07:19.848 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:07:19.883 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 11:17:32.504 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 93ms
+2026-02-03 11:17:32.513 +08:00 [INF] HTTP GET /api/platforms responded 200 in 101ms
+2026-02-03 11:17:32.513 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 93ms
+2026-02-03 11:17:32.553 +08:00 [INF] HTTP GET /api/platforms responded 200 in 32ms
+2026-02-03 11:17:32.571 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 30ms
+2026-02-03 11:17:32.597 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:17:32.748 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 160ms
+2026-02-03 11:18:09.834 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 80ms
+2026-02-03 11:18:09.846 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 84ms
+2026-02-03 11:18:09.847 +08:00 [INF] HTTP GET /api/platforms responded 200 in 93ms
+2026-02-03 11:18:09.986 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 58ms
+2026-02-03 11:18:09.991 +08:00 [INF] HTTP GET /api/platforms responded 200 in 63ms
+2026-02-03 11:18:09.992 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 60ms
+2026-02-03 11:18:10.032 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 11:18:10.294 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 251ms
+2026-02-03 11:18:12.824 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 18ms
+2026-02-03 11:18:12.893 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 25ms
+2026-02-03 11:19:26.122 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 73ms
+2026-02-03 11:19:26.135 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 87ms
+2026-02-03 11:19:26.135 +08:00 [INF] HTTP GET /api/platforms responded 200 in 78ms
+2026-02-03 11:19:26.236 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 51ms
+2026-02-03 11:19:26.237 +08:00 [INF] HTTP GET /api/platforms responded 200 in 52ms
+2026-02-03 11:19:26.246 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 43ms
+2026-02-03 11:19:26.279 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 23ms
+2026-02-03 11:19:26.402 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 112ms
+2026-02-03 11:19:28.678 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 33ms
+2026-02-03 11:19:28.739 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 25ms
+2026-02-03 11:20:02.805 +08:00 [INF] User 1 created query tab 3: 查询 1
+2026-02-03 11:20:02.830 +08:00 [INF] HTTP POST /api/query-tabs responded 201 in 117ms
+2026-02-03 11:20:02.908 +08:00 [INF] HTTP GET /api/platforms responded 200 in 30ms
+2026-02-03 11:20:02.943 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 11:20:03.151 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 197ms
+2026-02-03 11:23:05.401 +08:00 [INF] HTTP GET /api/platforms responded 200 in 42ms
+2026-02-03 11:23:05.440 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 30ms
+2026-02-03 11:23:05.474 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 11:23:05.507 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 11:23:05.545 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 30ms
+2026-02-03 11:26:18.247 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 82ms
+2026-02-03 11:26:18.253 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 88ms
+2026-02-03 11:26:18.256 +08:00 [INF] HTTP GET /api/platforms responded 200 in 91ms
+2026-02-03 11:26:18.391 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 60ms
+2026-02-03 11:26:18.399 +08:00 [INF] HTTP GET /api/platforms responded 200 in 68ms
+2026-02-03 11:26:18.403 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 46ms
+2026-02-03 11:26:18.440 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:26:18.609 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 156ms
+2026-02-03 11:26:21.633 +08:00 [INF] HTTP GET /api/platforms responded 200 in 32ms
+2026-02-03 11:26:21.664 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:26:21.695 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 23ms
+2026-02-03 11:26:21.730 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:26:21.762 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 11:26:48.528 +08:00 [INF] HTTP GET /api/platforms responded 200 in 35ms
+2026-02-03 11:26:48.566 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 29ms
+2026-02-03 11:26:48.599 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 11:26:48.632 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:26:48.663 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 23ms
+2026-02-03 11:26:54.298 +08:00 [INF] HTTP GET /api/platforms responded 200 in 32ms
+2026-02-03 11:26:54.335 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 11:26:54.369 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 11:26:54.401 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 23ms
+2026-02-03 11:26:54.434 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 11:28:19.338 +08:00 [INF] Created config query 2 by user 1
+2026-02-03 11:28:19.341 +08:00 [INF] HTTP POST /api/config-queries responded 201 in 93ms
+2026-02-03 11:28:19.374 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 24ms
+2026-02-03 11:28:19.417 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 26ms
+2026-02-03 11:28:21.776 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 19ms
+2026-02-03 11:28:21.830 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 21ms
+2026-02-03 11:29:06.870 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 366
+ClientConnectionId:38218294-5952-45b3-b011-41dbc6ea9bd6
+Error Number:137,State:2,Class:15
+2026-02-03 11:29:06.886 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 205ms
+2026-02-03 11:29:15.487 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 366
+ClientConnectionId:38218294-5952-45b3-b011-41dbc6ea9bd6
+Error Number:137,State:2,Class:15
+2026-02-03 11:29:15.489 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 57ms
+2026-02-03 11:29:26.058 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 20ms
+2026-02-03 11:29:26.088 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 20ms
+2026-02-03 11:29:27.106 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 19ms
+2026-02-03 11:29:27.135 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 20ms
+2026-02-03 11:31:42.608 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 64ms
+2026-02-03 11:31:42.614 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 70ms
+2026-02-03 11:31:42.625 +08:00 [INF] HTTP GET /api/platforms responded 200 in 74ms
+2026-02-03 11:31:42.757 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 71ms
+2026-02-03 11:31:42.760 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 73ms
+2026-02-03 11:31:42.761 +08:00 [INF] HTTP GET /api/platforms responded 200 in 76ms
+2026-02-03 11:31:42.798 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 22ms
+2026-02-03 11:31:42.960 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 150ms
+2026-02-03 11:31:46.859 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 18ms
+2026-02-03 11:31:46.919 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 11:31:50.005 +08:00 [INF] HTTP GET /api/platforms responded 200 in 28ms
+2026-02-03 11:31:50.038 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:31:50.072 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 11:31:50.105 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 11:31:50.138 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 11:31:50.173 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 11:32:18.392 +08:00 [INF] Updated config query 2
+2026-02-03 11:32:18.393 +08:00 [INF] HTTP PUT /api/config-queries/2 responded 200 in 74ms
+2026-02-03 11:32:18.425 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 24ms
+2026-02-03 11:32:18.466 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 23ms
+2026-02-03 11:32:22.655 +08:00 [INF] HTTP GET /api/platforms responded 200 in 36ms
+2026-02-03 11:32:22.688 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:32:22.723 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:32:22.757 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:32:22.791 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 11:32:22.825 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 23ms
+2026-02-03 11:32:30.168 +08:00 [INF] Updated config query 2
+2026-02-03 11:32:30.169 +08:00 [INF] HTTP PUT /api/config-queries/2 responded 200 in 33ms
+2026-02-03 11:32:30.203 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 25ms
+2026-02-03 11:32:30.242 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 27ms
+2026-02-03 11:32:41.089 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 50ms
+2026-02-03 11:32:41.093 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 57ms
+2026-02-03 11:32:41.101 +08:00 [INF] HTTP GET /api/platforms responded 200 in 68ms
+2026-02-03 11:32:41.199 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 36ms
+2026-02-03 11:32:41.201 +08:00 [INF] HTTP GET /api/platforms responded 200 in 38ms
+2026-02-03 11:32:41.221 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 32ms
+2026-02-03 11:32:41.246 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:32:41.366 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 109ms
+2026-02-03 11:32:43.635 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 19ms
+2026-02-03 11:32:43.697 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 25ms
+2026-02-03 11:32:47.109 +08:00 [INF] HTTP GET /api/platforms responded 200 in 26ms
+2026-02-03 11:32:47.145 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:32:47.179 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:32:47.213 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 11:32:47.246 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 11:32:47.281 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 21ms
+2026-02-03 11:33:22.524 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 95ms
+2026-02-03 11:33:22.525 +08:00 [INF] HTTP GET /api/platforms responded 200 in 95ms
+2026-02-03 11:33:22.563 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:33:39.204 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 48ms
+2026-02-03 11:33:39.207 +08:00 [INF] HTTP GET /api/platforms responded 200 in 51ms
+2026-02-03 11:33:39.246 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 11:33:46.484 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 73ms
+2026-02-03 11:33:46.491 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 79ms
+2026-02-03 11:33:46.493 +08:00 [INF] HTTP GET /api/platforms responded 200 in 82ms
+2026-02-03 11:33:46.589 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 45ms
+2026-02-03 11:33:46.598 +08:00 [INF] HTTP GET /api/platforms responded 200 in 55ms
+2026-02-03 11:33:46.607 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 45ms
+2026-02-03 11:33:46.635 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:33:46.753 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 106ms
+2026-02-03 11:33:49.022 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 21ms
+2026-02-03 11:33:49.075 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 22ms
+2026-02-03 11:33:49.464 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 18ms
+2026-02-03 11:33:49.497 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 22ms
+2026-02-03 11:33:50.861 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 366
+ClientConnectionId:8d9c728e-050e-43c7-92e9-e1cff5febade
+Error Number:137,State:2,Class:15
+2026-02-03 11:33:50.862 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 110ms
+2026-02-03 11:33:56.258 +08:00 [INF] HTTP GET /api/platforms responded 200 in 28ms
+2026-02-03 11:33:56.293 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:33:56.325 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 11:33:56.359 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:33:56.393 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 11:33:56.431 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 23ms
+2026-02-03 11:34:00.966 +08:00 [INF] Updated config query 2
+2026-02-03 11:34:00.966 +08:00 [INF] HTTP PUT /api/config-queries/2 responded 200 in 31ms
+2026-02-03 11:34:01.000 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 26ms
+2026-02-03 11:34:01.042 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 26ms
+2026-02-03 11:34:01.073 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 11:34:01.108 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 23ms
+2026-02-03 11:34:03.465 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 366
+ClientConnectionId:8d9c728e-050e-43c7-92e9-e1cff5febade
+Error Number:137,State:2,Class:15
+2026-02-03 11:34:03.467 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 58ms
+2026-02-03 11:35:45.732 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 366
+ClientConnectionId:8d9c728e-050e-43c7-92e9-e1cff5febade
+Error Number:137,State:2,Class:15
+2026-02-03 11:35:45.733 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 83ms
+2026-02-03 11:38:16.415 +08:00 [INF] HTTP GET /api/platforms responded 200 in 98ms
+2026-02-03 11:38:16.418 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 91ms
+2026-02-03 11:38:16.419 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 104ms
+2026-02-03 11:38:16.452 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:38:16.530 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 36ms
+2026-02-03 11:38:16.532 +08:00 [INF] HTTP GET /api/platforms responded 200 in 39ms
+2026-02-03 11:38:16.577 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:38:16.703 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 114ms
+2026-02-03 11:38:19.534 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 23ms
+2026-02-03 11:38:19.590 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 11:38:22.020 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 366
+ClientConnectionId:8d9c728e-050e-43c7-92e9-e1cff5febade
+Error Number:137,State:2,Class:15
+2026-02-03 11:38:22.023 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 86ms
+2026-02-03 11:38:34.972 +08:00 [INF] HTTP GET /api/platforms responded 200 in 34ms
+2026-02-03 11:38:35.008 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:38:35.050 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 34ms
+2026-02-03 11:38:35.086 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:38:35.122 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 11:38:35.159 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 24ms
+2026-02-03 11:38:58.040 +08:00 [INF] Created preset 1 for config query 2 by user 1
+2026-02-03 11:38:58.041 +08:00 [INF] HTTP POST /api/config-queries/2/presets responded 201 in 66ms
+2026-02-03 11:38:58.070 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 22ms
+2026-02-03 11:39:43.105 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 11:39:43.735 +08:00 [INF] HTTP GET / responded 404 in 87ms
+2026-02-03 11:40:15.670 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 339ms
+2026-02-03 11:40:15.706 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 376ms
+2026-02-03 11:40:15.781 +08:00 [INF] HTTP GET /api/platforms responded 200 in 450ms
+2026-02-03 11:40:15.862 +08:00 [INF] HTTP GET /api/platforms responded 200 in 68ms
+2026-02-03 11:40:15.910 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 116ms
+2026-02-03 11:40:15.910 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 36ms
+2026-02-03 11:40:15.975 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 225ms
+2026-02-03 11:40:16.531 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 602ms
+2026-02-03 11:40:17.487 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 125ms
+2026-02-03 11:40:17.574 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 49ms
+2026-02-03 11:40:31.342 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 11:40:31.343 +08:00 [INF] Parameter: param1, Type: text
+2026-02-03 11:40:31.343 +08:00 [INF] Request parameters: param1=WLD00001040
+2026-02-03 11:40:31.344 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid =@wldwid
+2026-02-03 11:40:31.687 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 378
+ClientConnectionId:a6544872-0751-4357-8bcd-d83bff260c45
+Error Number:137,State:2,Class:15
+2026-02-03 11:40:31.702 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 415ms
+2026-02-03 11:41:58.776 +08:00 [INF] HTTP GET /api/platforms responded 200 in 46ms
+2026-02-03 11:41:58.832 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 46ms
+2026-02-03 11:41:58.873 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 31ms
+2026-02-03 11:41:58.911 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 29ms
+2026-02-03 11:41:58.951 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 30ms
+2026-02-03 11:41:58.993 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 26ms
+2026-02-03 11:42:16.351 +08:00 [INF] Updated config query 2
+2026-02-03 11:42:16.353 +08:00 [INF] HTTP PUT /api/config-queries/2 responded 200 in 115ms
+2026-02-03 11:42:16.393 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 31ms
+2026-02-03 11:42:16.439 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 30ms
+2026-02-03 11:42:16.473 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 25ms
+2026-02-03 11:42:16.508 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 11:42:19.301 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 11:42:19.302 +08:00 [INF] Parameter: param1, Type: text
+2026-02-03 11:42:19.302 +08:00 [INF] Request parameters: param1=WLD00001040
+2026-02-03 11:42:19.302 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid =@wldwid
+2026-02-03 11:42:19.354 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 378
+ClientConnectionId:a6544872-0751-4357-8bcd-d83bff260c45
+Error Number:137,State:2,Class:15
+2026-02-03 11:42:19.356 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 80ms
+2026-02-03 11:44:31.962 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 107ms
+2026-02-03 11:44:31.963 +08:00 [INF] HTTP GET /api/platforms responded 200 in 99ms
+2026-02-03 11:44:31.966 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 110ms
+2026-02-03 11:44:32.100 +08:00 [INF] HTTP GET /api/platforms responded 200 in 66ms
+2026-02-03 11:44:32.100 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 66ms
+2026-02-03 11:44:32.106 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 48ms
+2026-02-03 11:44:32.136 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:44:32.269 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 119ms
+2026-02-03 11:44:34.592 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 28ms
+2026-02-03 11:44:34.650 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 11:44:36.131 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 11:44:36.131 +08:00 [INF] Parameter: param1, Type: text
+2026-02-03 11:44:36.131 +08:00 [INF] Request parameters: param1=WLD00001040
+2026-02-03 11:44:36.131 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid =@wldwid
+2026-02-03 11:44:36.163 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 378
+ClientConnectionId:a6544872-0751-4357-8bcd-d83bff260c45
+Error Number:137,State:2,Class:15
+2026-02-03 11:44:36.166 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 65ms
+2026-02-03 11:44:41.576 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 11:44:41.576 +08:00 [INF] Parameter: param1, Type: text
+2026-02-03 11:44:41.576 +08:00 [INF] Request parameters: param1=WLD00001040
+2026-02-03 11:44:41.576 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid =@wldwid
+2026-02-03 11:44:41.618 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 378
+ClientConnectionId:a6544872-0751-4357-8bcd-d83bff260c45
+Error Number:137,State:2,Class:15
+2026-02-03 11:44:41.621 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 75ms
+2026-02-03 11:45:03.396 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 84ms
+2026-02-03 11:45:03.406 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 69ms
+2026-02-03 11:45:03.407 +08:00 [INF] HTTP GET /api/platforms responded 200 in 80ms
+2026-02-03 11:45:03.597 +08:00 [INF] HTTP GET /api/platforms responded 200 in 65ms
+2026-02-03 11:45:03.599 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 67ms
+2026-02-03 11:45:03.626 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 54ms
+2026-02-03 11:45:03.652 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 38ms
+2026-02-03 11:45:03.834 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 168ms
+2026-02-03 11:45:05.990 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 34ms
+2026-02-03 11:45:06.053 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 26ms
+2026-02-03 11:45:08.599 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 11:45:08.599 +08:00 [INF] Parameter: param1, Type: text
+2026-02-03 11:45:08.599 +08:00 [INF] Request parameters: param1=WLD00001040
+2026-02-03 11:45:08.599 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid =@wldwid
+2026-02-03 11:45:08.636 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 必须声明标量变量 "@wldwid"。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 378
+ClientConnectionId:a6544872-0751-4357-8bcd-d83bff260c45
+Error Number:137,State:2,Class:15
+2026-02-03 11:45:08.638 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 67ms
+2026-02-03 11:45:11.326 +08:00 [INF] HTTP GET /api/platforms responded 200 in 34ms
+2026-02-03 11:45:11.371 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 34ms
+2026-02-03 11:45:11.409 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 29ms
+2026-02-03 11:45:11.447 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:45:11.485 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 28ms
+2026-02-03 11:45:11.525 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 24ms
+2026-02-03 11:45:14.181 +08:00 [INF] Updated config query 2
+2026-02-03 11:45:14.182 +08:00 [INF] HTTP PUT /api/config-queries/2 responded 200 in 49ms
+2026-02-03 11:45:14.219 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 23ms
+2026-02-03 11:45:14.263 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 26ms
+2026-02-03 11:45:14.295 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 11:45:14.332 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 11:45:16.095 +08:00 [INF] HTTP GET /api/platforms responded 200 in 33ms
+2026-02-03 11:45:16.131 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:45:16.166 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:45:16.206 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 28ms
+2026-02-03 11:45:16.242 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 28ms
+2026-02-03 11:45:16.277 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 24ms
+2026-02-03 11:46:35.832 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 79ms
+2026-02-03 11:46:35.848 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 95ms
+2026-02-03 11:46:35.856 +08:00 [INF] HTTP GET /api/platforms responded 200 in 93ms
+2026-02-03 11:46:36.013 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 46ms
+2026-02-03 11:46:36.015 +08:00 [INF] HTTP GET /api/platforms responded 200 in 49ms
+2026-02-03 11:46:36.049 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 34ms
+2026-02-03 11:46:36.099 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 35ms
+2026-02-03 11:46:36.242 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 115ms
+2026-02-03 11:46:39.531 +08:00 [INF] HTTP GET /api/platforms responded 200 in 39ms
+2026-02-03 11:46:39.569 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 11:46:39.607 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 28ms
+2026-02-03 11:46:39.647 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 29ms
+2026-02-03 11:46:39.690 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 34ms
+2026-02-03 11:48:07.137 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 77ms
+2026-02-03 11:48:07.172 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 114ms
+2026-02-03 11:48:07.185 +08:00 [INF] HTTP GET /api/platforms responded 200 in 123ms
+2026-02-03 11:48:07.327 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 41ms
+2026-02-03 11:48:07.352 +08:00 [INF] HTTP GET /api/platforms responded 200 in 62ms
+2026-02-03 11:48:07.363 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 39ms
+2026-02-03 11:48:07.417 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 31ms
+2026-02-03 11:48:07.595 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 146ms
+2026-02-03 11:48:10.384 +08:00 [INF] HTTP GET /api/platforms responded 200 in 30ms
+2026-02-03 11:48:10.422 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 11:48:10.460 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 28ms
+2026-02-03 11:48:10.495 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 11:48:10.533 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 11:50:19.239 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 76ms
+2026-02-03 11:50:19.239 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 68ms
+2026-02-03 11:50:19.249 +08:00 [INF] HTTP GET /api/platforms responded 200 in 85ms
+2026-02-03 11:50:19.367 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 38ms
+2026-02-03 11:50:19.370 +08:00 [INF] HTTP GET /api/platforms responded 200 in 41ms
+2026-02-03 11:50:19.390 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 31ms
+2026-02-03 11:50:19.415 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 11:50:19.537 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 110ms
+2026-02-03 11:50:21.942 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 20ms
+2026-02-03 11:50:21.999 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 25ms
+2026-02-03 11:50:24.759 +08:00 [INF] HTTP GET /api/platforms responded 200 in 29ms
+2026-02-03 11:50:24.793 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:50:24.828 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 27ms
+2026-02-03 11:50:24.863 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:50:24.897 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 11:50:24.932 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 20ms
+2026-02-03 11:55:08.364 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 86ms
+2026-02-03 11:55:08.369 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 97ms
+2026-02-03 11:55:08.373 +08:00 [INF] HTTP GET /api/platforms responded 200 in 88ms
+2026-02-03 11:55:08.491 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 50ms
+2026-02-03 11:55:08.493 +08:00 [INF] HTTP GET /api/platforms responded 200 in 52ms
+2026-02-03 11:55:08.502 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 39ms
+2026-02-03 11:55:08.535 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 11:55:08.660 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 111ms
+2026-02-03 11:55:20.190 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 20ms
+2026-02-03 11:55:20.242 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 22ms
+2026-02-03 11:55:28.325 +08:00 [INF] HTTP GET /api/platforms responded 200 in 34ms
+2026-02-03 11:55:28.360 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:55:28.397 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 29ms
+2026-02-03 11:55:28.437 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 30ms
+2026-02-03 11:55:28.475 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 29ms
+2026-02-03 11:55:28.512 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 21ms
+2026-02-03 11:55:57.422 +08:00 [INF] Updated config query 2
+2026-02-03 11:55:57.422 +08:00 [INF] HTTP PUT /api/config-queries/2 responded 200 in 42ms
+2026-02-03 11:55:57.456 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 25ms
+2026-02-03 11:55:57.504 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 27ms
+2026-02-03 11:55:57.533 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 21ms
+2026-02-03 11:55:57.568 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 23ms
+2026-02-03 11:56:01.954 +08:00 [INF] HTTP GET /api/platforms responded 200 in 29ms
+2026-02-03 11:56:01.986 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:56:02.017 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 11:56:02.052 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 26ms
+2026-02-03 11:56:02.084 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 11:56:02.115 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 11:56:06.362 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 23ms
+2026-02-03 11:56:16.799 +08:00 [INF] HTTP GET /api/platforms responded 200 in 31ms
+2026-02-03 11:56:16.836 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 11:56:16.870 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 11:56:16.902 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 24ms
+2026-02-03 11:56:16.935 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 11:56:16.968 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 11:56:22.574 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 11:56:22.574 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 11:56:22.574 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001040
+2026-02-03 11:56:22.575 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001040'
+2026-02-03 11:56:22.725 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 135ms
+2026-02-03 11:56:22.733 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 188ms
+2026-02-03 13:57:44.425 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 13:57:45.016 +08:00 [INF] HTTP GET / responded 404 in 81ms
+2026-02-03 14:01:59.571 +08:00 [ERR] Failed executing DbCommand (31ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `c`.`Id`, `c`.`Name`, `c`.`SortOrder`, `c`.`CreatedAt`
+FROM `ConfigQueryFolders` AS `c`
+WHERE `c`.`CreatedBy` = @__userId_0
+ORDER BY `c`.`SortOrder`, `c`.`Name`
+2026-02-03 14:01:59.604 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AIDataQuery.API.Data.AppDbContext'.
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.configqueryfolders' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.configqueryfolders' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-03 14:01:59.608 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 328ms
+2026-02-03 14:01:59.728 +08:00 [ERR] An unhandled exception occurred
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.configqueryfolders' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at AIDataQuery.API.Services.ConfigQueryService.GetFoldersAsync(Int32 userId) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 864
+   at AIDataQuery.API.Controllers.ConfigQueryController.GetFolders() in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Controllers\ConfigQueryController.cs:line 376
+   at lambda_method25(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AIDataQuery.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Middleware\ExceptionMiddleware.cs:line 24
+2026-02-03 14:01:59.744 +08:00 [INF] HTTP GET /api/config-queries/folders responded 500 in 464ms
+2026-02-03 14:01:59.759 +08:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT `t`.`Id`, `t`.`Name`, `t`.`Description`, `t`.`IsPublic`, `t`.`CreatedBy`, `u`.`Nickname` AS `CreatedByName`, `t`.`CreatedBy` = @__userId_0 AS `IsOwner`, TRUE AS `CanEdit`, `t`.`CreatedAt`, `t`.`FolderId`, `c0`.`Name` AS `FolderName`
+FROM (
+    SELECT `c`.`Id`, `c`.`CreatedAt`, `c`.`CreatedBy`, `c`.`Description`, `c`.`FolderId`, `c`.`IsPublic`, `c`.`Name`, `c`.`SortOrder`, `c`.`CreatedBy` = @__userId_0 AS `c`
+    FROM `ConfigQueries` AS `c`
+    WHERE `c`.`IsActive` AND ((`c`.`CreatedBy` = @__userId_0) OR `c`.`IsPublic`)
+    ORDER BY `c`.`CreatedBy` = @__userId_0 DESC, `c`.`SortOrder`, `c`.`CreatedAt` DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS `t`
+INNER JOIN `Users` AS `u` ON `t`.`CreatedBy` = `u`.`Id`
+LEFT JOIN `ConfigQueryFolders` AS `c0` ON `t`.`FolderId` = `c0`.`Id`
+ORDER BY `t`.`c` DESC, `t`.`SortOrder`, `t`.`CreatedAt` DESC
+2026-02-03 14:01:59.762 +08:00 [ERR] An exception occurred while iterating over the results of a query for context type 'AIDataQuery.API.Data.AppDbContext'.
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.configqueryfolders' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.configqueryfolders' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-02-03 14:01:59.912 +08:00 [ERR] An unhandled exception occurred
+MySqlConnector.MySqlException (0x80004005): Table 'dataquery.configqueryfolders' doesn't exist
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 894
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 130
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 483
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at AIDataQuery.API.Services.ConfigQueryService.GetListAsync(Int32 userId, Boolean isAdmin, String keyword, Int32 pageIndex, Int32 pageSize) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 63
+   at AIDataQuery.API.Controllers.ConfigQueryController.GetList(String keyword, Int32 pageIndex, Int32 pageSize) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Controllers\ConfigQueryController.cs:line 41
+   at lambda_method23(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AIDataQuery.API.Middleware.ExceptionMiddleware.InvokeAsync(HttpContext context) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Middleware\ExceptionMiddleware.cs:line 24
+2026-02-03 14:01:59.919 +08:00 [INF] HTTP GET /api/config-queries responded 500 in 640ms
+2026-02-03 14:01:59.977 +08:00 [INF] HTTP GET /api/platforms responded 200 in 697ms
+2026-02-03 14:02:00.063 +08:00 [INF] HTTP GET /api/platforms responded 200 in 47ms
+2026-02-03 14:02:00.105 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 88ms
+2026-02-03 14:02:00.127 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 264ms
+2026-02-03 14:02:00.154 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 35ms
+2026-02-03 14:02:00.769 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 601ms
+2026-02-03 14:03:10.707 +08:00 [INF] Starting AIDataQuery API
+2026-02-03 14:03:11.256 +08:00 [INF] HTTP GET / responded 404 in 46ms
+2026-02-03 14:03:16.596 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 341ms
+2026-02-03 14:03:16.596 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 341ms
+2026-02-03 14:03:16.648 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 393ms
+2026-02-03 14:03:16.725 +08:00 [INF] HTTP GET /api/platforms responded 200 in 469ms
+2026-02-03 14:03:16.813 +08:00 [INF] HTTP GET /api/platforms responded 200 in 77ms
+2026-02-03 14:03:16.860 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 97ms
+2026-02-03 14:03:16.902 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 239ms
+2026-02-03 14:03:16.902 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 33ms
+2026-02-03 14:03:17.518 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 605ms
+2026-02-03 14:03:23.689 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 128ms
+2026-02-03 14:03:23.777 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 47ms
+2026-02-03 14:03:44.473 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 26ms
+2026-02-03 14:03:44.508 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 22ms
+2026-02-03 14:03:46.611 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 14:03:46.645 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 14:03:47.094 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 28ms
+2026-02-03 14:03:47.130 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 21ms
+2026-02-03 14:03:50.460 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 26ms
+2026-02-03 14:03:50.495 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 25ms
+2026-02-03 14:03:50.909 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 22ms
+2026-02-03 14:03:50.943 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 23ms
+2026-02-03 14:03:52.099 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 25ms
+2026-02-03 14:03:52.132 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 22ms
+2026-02-03 14:03:52.580 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 22ms
+2026-02-03 14:03:52.614 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 21ms
+2026-02-03 14:03:54.864 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 23ms
+2026-02-03 14:03:54.896 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 21ms
+2026-02-03 14:03:55.375 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 23ms
+2026-02-03 14:03:55.406 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 19ms
+2026-02-03 14:04:07.297 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 46ms
+2026-02-03 14:04:07.301 +08:00 [INF] HTTP GET /api/platforms responded 200 in 50ms
+2026-02-03 14:04:07.338 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 14:04:07.374 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 14:04:07.417 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 29ms
+2026-02-03 14:04:07.452 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 14:04:35.632 +08:00 [INF] HTTP GET /api/platforms/all responded 200 in 53ms
+2026-02-03 14:04:35.678 +08:00 [INF] HTTP GET /api/platforms/admin/connections responded 200 in 34ms
+2026-02-03 14:04:56.055 +08:00 [INF] HTTP GET /api/platforms responded 200 in 47ms
+2026-02-03 14:04:56.154 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 81ms
+2026-02-03 14:05:46.545 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 41ms
+2026-02-03 14:05:46.601 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 42ms
+2026-02-03 14:05:50.690 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 116ms
+2026-02-03 14:05:50.690 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 116ms
+2026-02-03 14:05:50.695 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 122ms
+2026-02-03 14:05:50.696 +08:00 [INF] HTTP GET /api/platforms responded 200 in 123ms
+2026-02-03 14:05:50.751 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 43ms
+2026-02-03 14:05:50.751 +08:00 [INF] HTTP GET /api/platforms responded 200 in 44ms
+2026-02-03 14:05:50.804 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 39ms
+2026-02-03 14:05:50.912 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 148ms
+2026-02-03 14:05:52.125 +08:00 [INF] HTTP GET /api/platforms responded 200 in 32ms
+2026-02-03 14:05:52.165 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 28ms
+2026-02-03 14:05:53.544 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 28ms
+2026-02-03 14:05:53.582 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 25ms
+2026-02-03 14:05:55.171 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 61ms
+2026-02-03 14:05:55.171 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 61ms
+2026-02-03 14:05:55.183 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 74ms
+2026-02-03 14:05:55.188 +08:00 [INF] HTTP GET /api/platforms responded 200 in 79ms
+2026-02-03 14:05:55.241 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 41ms
+2026-02-03 14:05:55.241 +08:00 [INF] HTTP GET /api/platforms responded 200 in 44ms
+2026-02-03 14:05:55.289 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 35ms
+2026-02-03 14:05:55.359 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 108ms
+2026-02-03 14:06:10.606 +08:00 [INF] HTTP GET /api/platforms responded 200 in 28ms
+2026-02-03 14:06:10.648 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 29ms
+2026-02-03 14:06:10.942 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 283ms
+2026-02-03 14:06:13.303 +08:00 [INF] User 1 deleted query tab 3
+2026-02-03 14:06:13.306 +08:00 [INF] HTTP DELETE /api/query-tabs/3 responded 200 in 153ms
+2026-02-03 14:06:13.394 +08:00 [INF] HTTP GET /api/platforms responded 200 in 34ms
+2026-02-03 14:06:13.436 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:06:13.540 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 93ms
+2026-02-03 14:07:03.590 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 40ms
+2026-02-03 14:07:03.649 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 48ms
+2026-02-03 14:07:11.123 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 40ms
+2026-02-03 14:07:11.136 +08:00 [INF] HTTP GET /api/platforms responded 200 in 54ms
+2026-02-03 14:07:11.169 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:07:11.201 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 14:07:11.236 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:07:11.270 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 14:07:11.304 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 20ms
+2026-02-03 14:07:16.407 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 36ms
+2026-02-03 14:07:16.415 +08:00 [INF] HTTP GET /api/platforms responded 200 in 44ms
+2026-02-03 14:07:16.450 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:07:16.484 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:07:16.518 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:07:16.554 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 28ms
+2026-02-03 14:07:16.585 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 14:07:31.601 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 57ms
+2026-02-03 14:07:31.608 +08:00 [INF] HTTP GET /api/platforms responded 200 in 64ms
+2026-02-03 14:07:31.642 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:07:31.679 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 28ms
+2026-02-03 14:07:31.713 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:07:31.744 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 14:07:31.775 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 21ms
+2026-02-03 14:07:39.292 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 36ms
+2026-02-03 14:07:39.300 +08:00 [INF] HTTP GET /api/platforms responded 200 in 44ms
+2026-02-03 14:07:39.335 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:07:39.371 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 28ms
+2026-02-03 14:07:39.406 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:07:39.440 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 14:07:39.472 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 23ms
+2026-02-03 14:07:50.016 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 43ms
+2026-02-03 14:07:50.022 +08:00 [INF] HTTP GET /api/platforms responded 200 in 49ms
+2026-02-03 14:07:50.056 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:07:50.088 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 14:07:50.121 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:07:50.152 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 14:07:50.181 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 21ms
+2026-02-03 14:14:07.449 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 75ms
+2026-02-03 14:14:07.451 +08:00 [INF] HTTP GET /api/platforms responded 200 in 92ms
+2026-02-03 14:14:07.484 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 23ms
+2026-02-03 14:14:07.517 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 14:14:07.551 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:14:07.584 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 14:14:07.615 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 14:14:16.331 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 35ms
+2026-02-03 14:14:16.350 +08:00 [INF] HTTP GET /api/platforms responded 200 in 54ms
+2026-02-03 14:14:16.384 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:14:16.417 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:14:16.448 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:14:16.483 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 14:14:16.513 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 21ms
+2026-02-03 14:14:42.806 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 25ms
+2026-02-03 14:14:42.837 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 19ms
+2026-02-03 14:14:44.175 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 19ms
+2026-02-03 14:14:44.204 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 19ms
+2026-02-03 14:16:14.005 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 86ms
+2026-02-03 14:16:14.018 +08:00 [INF] HTTP GET /api/platforms responded 200 in 83ms
+2026-02-03 14:16:14.018 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 99ms
+2026-02-03 14:16:14.056 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:17:46.513 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 87ms
+2026-02-03 14:17:46.532 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 90ms
+2026-02-03 14:17:46.532 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 100ms
+2026-02-03 14:17:46.545 +08:00 [INF] HTTP GET /api/platforms responded 200 in 97ms
+2026-02-03 14:17:46.660 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 50ms
+2026-02-03 14:17:46.662 +08:00 [INF] HTTP GET /api/platforms responded 200 in 56ms
+2026-02-03 14:17:46.672 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 48ms
+2026-02-03 14:17:46.705 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:17:46.881 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 166ms
+2026-02-03 14:17:49.610 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 20ms
+2026-02-03 14:17:49.666 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 26ms
+2026-02-03 14:17:49.702 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:17:49.736 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:17:59.374 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:18:02.517 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 22ms
+2026-02-03 14:18:10.733 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 23ms
+2026-02-03 14:18:10.767 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 23ms
+2026-02-03 14:18:12.438 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:18:12.472 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 14:18:35.712 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:18:35.712 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:18:35.713 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001039
+2026-02-03 14:18:35.714 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001039'
+2026-02-03 14:18:35.879 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 87ms
+2026-02-03 14:18:35.888 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 222ms
+2026-02-03 14:18:52.287 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:18:52.287 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:18:52.287 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001039
+2026-02-03 14:18:52.287 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001039'
+2026-02-03 14:18:52.352 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 62ms
+2026-02-03 14:18:52.354 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 90ms
+2026-02-03 14:19:16.061 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:19:16.061 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:19:16.061 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001039
+2026-02-03 14:19:16.061 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001039'
+2026-02-03 14:19:16.077 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 20ms
+2026-02-03 14:19:16.078 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 47ms
+2026-02-03 14:19:20.913 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:19:20.913 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:19:20.913 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001039
+2026-02-03 14:19:20.913 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001039'
+2026-02-03 14:19:21.002 +08:00 [ERR] Config query 2 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 对象名 'wldwzl' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 385
+ClientConnectionId:f1e71886-b34d-46d4-a6c6-c322db0f696a
+Error Number:208,State:1,Class:16
+2026-02-03 14:19:21.016 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 400 in 136ms
+2026-02-03 14:19:28.892 +08:00 [INF] HTTP GET /api/platforms responded 200 in 31ms
+2026-02-03 14:19:28.931 +08:00 [INF] HTTP GET /api/query-logs/all responded 200 in 26ms
+2026-02-03 14:19:39.879 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 79ms
+2026-02-03 14:19:39.898 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 99ms
+2026-02-03 14:19:39.898 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 98ms
+2026-02-03 14:19:39.898 +08:00 [INF] HTTP GET /api/platforms responded 200 in 99ms
+2026-02-03 14:19:39.950 +08:00 [INF] HTTP GET /api/platforms responded 200 in 43ms
+2026-02-03 14:19:39.954 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 44ms
+2026-02-03 14:19:40.000 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 37ms
+2026-02-03 14:19:40.369 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 406ms
+2026-02-03 14:19:40.545 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 26ms
+2026-02-03 14:19:40.578 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 22ms
+2026-02-03 14:19:41.177 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 49ms
+2026-02-03 14:19:41.178 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 50ms
+2026-02-03 14:19:41.187 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 60ms
+2026-02-03 14:19:41.190 +08:00 [INF] HTTP GET /api/platforms responded 200 in 63ms
+2026-02-03 14:19:41.235 +08:00 [INF] HTTP GET /api/platforms responded 200 in 38ms
+2026-02-03 14:19:41.246 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 44ms
+2026-02-03 14:19:41.277 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:19:41.441 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 185ms
+2026-02-03 14:19:49.920 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 27ms
+2026-02-03 14:19:49.955 +08:00 [INF] HTTP GET /api/templates/module/13 responded 200 in 24ms
+2026-02-03 14:19:51.831 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 54ms
+2026-02-03 14:19:51.832 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 55ms
+2026-02-03 14:19:51.840 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 63ms
+2026-02-03 14:19:51.842 +08:00 [INF] HTTP GET /api/platforms responded 200 in 66ms
+2026-02-03 14:19:51.891 +08:00 [INF] HTTP GET /api/platforms responded 200 in 41ms
+2026-02-03 14:19:51.895 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 42ms
+2026-02-03 14:19:51.935 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 33ms
+2026-02-03 14:19:52.029 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 125ms
+2026-02-03 14:19:56.212 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 20ms
+2026-02-03 14:19:56.245 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:19:57.972 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 38ms
+2026-02-03 14:19:57.980 +08:00 [INF] HTTP GET /api/platforms responded 200 in 46ms
+2026-02-03 14:19:58.016 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:19:58.052 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 27ms
+2026-02-03 14:19:58.086 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:19:58.120 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 14:20:42.640 +08:00 [INF] Created config query 3 by user 1
+2026-02-03 14:20:42.661 +08:00 [INF] HTTP POST /api/config-queries responded 201 in 107ms
+2026-02-03 14:20:42.713 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 43ms
+2026-02-03 14:20:42.713 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 43ms
+2026-02-03 14:20:42.785 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 44ms
+2026-02-03 14:20:42.794 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 54ms
+2026-02-03 14:20:42.827 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 14:20:42.859 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 22ms
+2026-02-03 14:20:45.566 +08:00 [INF] HTTP GET /api/config-queries/3 responded 200 in 21ms
+2026-02-03 14:20:45.597 +08:00 [INF] HTTP GET /api/config-queries/3/presets responded 200 in 19ms
+2026-02-03 14:20:45.630 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:20:45.665 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:29:10.997 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 74ms
+2026-02-03 14:29:11.003 +08:00 [INF] HTTP GET /api/platforms responded 200 in 81ms
+2026-02-03 14:29:11.038 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:29:11.070 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 14:29:11.106 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:29:11.138 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 22ms
+2026-02-03 14:29:59.375 +08:00 [INF] Created config query 4 by user 1
+2026-02-03 14:29:59.377 +08:00 [INF] HTTP POST /api/config-queries responded 201 in 65ms
+2026-02-03 14:29:59.425 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 40ms
+2026-02-03 14:29:59.430 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 44ms
+2026-02-03 14:29:59.500 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 44ms
+2026-02-03 14:29:59.508 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 52ms
+2026-02-03 14:29:59.538 +08:00 [INF] HTTP GET /api/config-queries/3 responded 200 in 21ms
+2026-02-03 14:29:59.569 +08:00 [INF] HTTP GET /api/config-queries/3/presets responded 200 in 21ms
+2026-02-03 14:30:01.589 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 19ms
+2026-02-03 14:30:01.618 +08:00 [INF] HTTP GET /api/config-queries/4/presets responded 200 in 19ms
+2026-02-03 14:30:01.655 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 29ms
+2026-02-03 14:30:01.697 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 29ms
+2026-02-03 14:30:17.154 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 39ms
+2026-02-03 14:30:17.161 +08:00 [INF] HTTP GET /api/platforms responded 200 in 46ms
+2026-02-03 14:30:17.195 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:30:17.230 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 14:30:17.265 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:30:17.299 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 14:30:17.335 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 23ms
+2026-02-03 14:30:24.787 +08:00 [INF] Updated config query 4
+2026-02-03 14:30:24.788 +08:00 [INF] HTTP PUT /api/config-queries/4 responded 200 in 75ms
+2026-02-03 14:30:24.829 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 32ms
+2026-02-03 14:30:24.833 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 36ms
+2026-02-03 14:30:24.882 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 32ms
+2026-02-03 14:30:24.886 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 36ms
+2026-02-03 14:30:24.915 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 21ms
+2026-02-03 14:30:24.947 +08:00 [INF] HTTP GET /api/config-queries/4/presets responded 200 in 23ms
+2026-02-03 14:30:46.973 +08:00 [INF] Config query 4 has 1 parameters defined
+2026-02-03 14:30:46.976 +08:00 [INF] Parameter: OrderId, Type: text
+2026-02-03 14:30:46.977 +08:00 [INF] Request parameters: OrderId=CGC000000106255
+2026-02-03 14:30:46.977 +08:00 [INF] SQL after parameter replacement: SELECT  top 1000
+a.djbh,a.wldwid ,a.hzid ,a.is_mp,a.wsdjbh ,a.dddjbh ,a.yyydjbh,
+b.spid ,b.shl ,b.hshj,b.hsje 
+FROM gxywhz a inner join gxywmx b on a.djbh=b.djbh 
+where a.dddjbh='CGC000000106255' or a.wsdjbh ='CGC000000106255' or a.yyydjbh ='CGC000000106255'
+2026-02-03 14:30:47.060 +08:00 [ERR] Config query 4 execution failed
+Microsoft.Data.SqlClient.SqlException (0x80131904): 列名 'dddjbh' 无效。
+列名 'dddjbh' 无效。
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at AIDataQuery.API.Services.ConfigQueryService.ExecuteAsync(Int32 id, Int32 userId, Boolean isAdmin, ExecuteConfigQueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\ConfigQueryService.cs:line 385
+ClientConnectionId:4ec74384-0452-4acf-8309-e132f438de84
+Error Number:207,State:1,Class:16
+2026-02-03 14:30:47.062 +08:00 [INF] HTTP POST /api/config-queries/4/execute responded 400 in 109ms
+2026-02-03 14:30:52.944 +08:00 [INF] Config query 4 has 1 parameters defined
+2026-02-03 14:30:52.944 +08:00 [INF] Parameter: OrderId, Type: text
+2026-02-03 14:30:52.944 +08:00 [INF] Request parameters: OrderId=CGC000000106255
+2026-02-03 14:30:52.944 +08:00 [INF] SQL after parameter replacement: SELECT  top 1000
+a.djbh,a.wldwid ,a.hzid ,a.is_mp,a.wsdjbh ,a.dddjbh ,a.yyydjbh,
+b.spid ,b.shl ,b.hshj,b.hsje 
+FROM gxywhz a inner join gxywmx b on a.djbh=b.djbh 
+where a.dddjbh='CGC000000106255' or a.wsdjbh ='CGC000000106255' or a.yyydjbh ='CGC000000106255'
+2026-02-03 14:30:53.306 +08:00 [INF] Config query 4 executed successfully. Rows: 0, Time: 342ms
+2026-02-03 14:30:53.308 +08:00 [INF] HTTP POST /api/config-queries/4/execute responded 200 in 387ms
+2026-02-03 14:30:56.537 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 48ms
+2026-02-03 14:30:56.546 +08:00 [INF] HTTP GET /api/platforms responded 200 in 57ms
+2026-02-03 14:30:56.579 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:30:56.615 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 14:30:56.649 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:30:56.683 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 25ms
+2026-02-03 14:30:56.714 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 20ms
+2026-02-03 14:31:18.865 +08:00 [INF] Updated config query 4
+2026-02-03 14:31:18.865 +08:00 [INF] HTTP PUT /api/config-queries/4 responded 200 in 49ms
+2026-02-03 14:31:18.913 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 37ms
+2026-02-03 14:31:18.922 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 46ms
+2026-02-03 14:31:18.975 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 34ms
+2026-02-03 14:31:18.979 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 38ms
+2026-02-03 14:31:19.010 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 22ms
+2026-02-03 14:31:19.044 +08:00 [INF] HTTP GET /api/config-queries/4/presets responded 200 in 22ms
+2026-02-03 14:31:21.673 +08:00 [INF] Config query 4 has 1 parameters defined
+2026-02-03 14:31:21.673 +08:00 [INF] Parameter: OrderId, Type: text
+2026-02-03 14:31:21.673 +08:00 [INF] Request parameters: OrderId=
+2026-02-03 14:31:21.673 +08:00 [INF] SQL after parameter replacement: SELECT  top 1000
+a.djbh,a.wldwid ,a.hzid ,a.is_mp,a.wsdjbh ,a.dddjbh ,a.yyydjbh,
+b.spid ,b.shl ,b.hshj,b.hsje 
+FROM gxywhz a inner join gxywmx b on a.djbh=b.djbh 
+where a.dddjbh='' or a.wsdjbh ='' or a.yyydjbh ='' or a.djbh=''
+2026-02-03 14:31:21.906 +08:00 [INF] Config query 4 executed successfully. Rows: 1000, Time: 228ms
+2026-02-03 14:31:21.908 +08:00 [INF] HTTP POST /api/config-queries/4/execute responded 200 in 257ms
+2026-02-03 14:31:41.595 +08:00 [INF] Config query 4 has 1 parameters defined
+2026-02-03 14:31:41.595 +08:00 [INF] Parameter: OrderId, Type: text
+2026-02-03 14:31:41.595 +08:00 [INF] Request parameters: OrderId=CGC000000106243
+2026-02-03 14:31:41.595 +08:00 [INF] SQL after parameter replacement: SELECT  top 1000
+a.djbh,a.wldwid ,a.hzid ,a.is_mp,a.wsdjbh ,a.dddjbh ,a.yyydjbh,
+b.spid ,b.shl ,b.hshj,b.hsje 
+FROM gxywhz a inner join gxywmx b on a.djbh=b.djbh 
+where a.dddjbh='CGC000000106243' or a.wsdjbh ='CGC000000106243' or a.yyydjbh ='CGC000000106243' or a.djbh='CGC000000106243'
+2026-02-03 14:31:41.743 +08:00 [INF] Config query 4 executed successfully. Rows: 0, Time: 145ms
+2026-02-03 14:31:41.743 +08:00 [INF] HTTP POST /api/config-queries/4/execute responded 200 in 169ms
+2026-02-03 14:31:55.053 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 47ms
+2026-02-03 14:31:55.062 +08:00 [INF] HTTP GET /api/platforms responded 200 in 56ms
+2026-02-03 14:31:55.103 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:31:55.136 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:31:55.170 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:31:55.202 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 24ms
+2026-02-03 14:31:55.234 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 22ms
+2026-02-03 14:32:23.039 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 34ms
+2026-02-03 14:32:27.806 +08:00 [INF] Config query 4 has 1 parameters defined
+2026-02-03 14:32:27.806 +08:00 [INF] Parameter: OrderId, Type: text
+2026-02-03 14:32:27.806 +08:00 [INF] Request parameters: OrderId=CGC000000106243
+2026-02-03 14:32:27.806 +08:00 [INF] SQL after parameter replacement: SELECT  top 1000
+a.djbh,a.wldwid ,a.hzid ,a.is_mp,a.wsdjbh ,a.dddjbh ,a.yyydjbh,
+b.spid ,b.shl ,b.hshj,b.hsje 
+FROM gxywhz a inner join gxywmx b on a.djbh=b.djbh 
+where a.dddjbh='CGC000000106243' or a.wsdjbh ='CGC000000106243' or a.yyydjbh ='CGC000000106243' or a.djbh='CGC000000106243'
+2026-02-03 14:32:28.186 +08:00 [INF] Config query 4 executed successfully. Rows: 1, Time: 377ms
+2026-02-03 14:32:28.187 +08:00 [INF] HTTP POST /api/config-queries/4/execute responded 200 in 407ms
+2026-02-03 14:44:16.903 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 112ms
+2026-02-03 14:44:16.906 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 99ms
+2026-02-03 14:44:16.906 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 115ms
+2026-02-03 14:44:16.910 +08:00 [INF] HTTP GET /api/platforms responded 200 in 110ms
+2026-02-03 14:44:17.008 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 38ms
+2026-02-03 14:44:17.009 +08:00 [INF] HTTP GET /api/platforms responded 200 in 40ms
+2026-02-03 14:44:17.049 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 31ms
+2026-02-03 14:44:17.078 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 22ms
+2026-02-03 14:44:17.250 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 162ms
+2026-02-03 14:44:20.208 +08:00 [INF] HTTP GET /api/config-queries/4 responded 200 in 20ms
+2026-02-03 14:44:20.263 +08:00 [INF] HTTP GET /api/config-queries/4/presets responded 200 in 25ms
+2026-02-03 14:44:20.298 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:44:20.331 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 24ms
+2026-02-03 14:44:33.648 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 23ms
+2026-02-03 14:44:33.680 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 23ms
+2026-02-03 14:44:46.880 +08:00 [INF] HTTP GET /api/config-queries/3 responded 200 in 20ms
+2026-02-03 14:44:46.911 +08:00 [INF] HTTP GET /api/config-queries/3/presets responded 200 in 20ms
+2026-02-03 14:44:46.943 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:44:46.973 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 23ms
+2026-02-03 14:44:51.868 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 14:44:51.898 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 20ms
+2026-02-03 14:44:51.933 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 23ms
+2026-02-03 14:44:51.969 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 27ms
+2026-02-03 14:44:53.626 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 38ms
+2026-02-03 14:44:53.632 +08:00 [INF] HTTP GET /api/platforms responded 200 in 45ms
+2026-02-03 14:44:53.665 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:44:53.699 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:44:53.732 +08:00 [INF] HTTP GET /api/platforms/ERP_HYYX_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:44:53.766 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_TJ/connections responded 200 in 26ms
+2026-02-03 14:44:53.805 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 24ms
+2026-02-03 14:45:01.092 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:45:01.092 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:45:01.092 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001040
+2026-02-03 14:45:01.092 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001040'
+2026-02-03 14:45:01.167 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 51ms
+2026-02-03 14:45:01.168 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 96ms
+2026-02-03 14:45:22.887 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 28ms
+2026-02-03 14:45:22.923 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 22ms
+2026-02-03 14:45:22.956 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:45:22.989 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:46:27.321 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 89ms
+2026-02-03 14:46:27.334 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 92ms
+2026-02-03 14:46:27.334 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 102ms
+2026-02-03 14:46:27.346 +08:00 [INF] HTTP GET /api/platforms responded 200 in 97ms
+2026-02-03 14:46:27.459 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 40ms
+2026-02-03 14:46:27.462 +08:00 [INF] HTTP GET /api/platforms responded 200 in 43ms
+2026-02-03 14:46:27.509 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:46:27.543 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:46:27.651 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 97ms
+2026-02-03 14:46:51.492 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 73ms
+2026-02-03 14:46:51.499 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 71ms
+2026-02-03 14:46:51.504 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 86ms
+2026-02-03 14:46:51.504 +08:00 [INF] HTTP GET /api/platforms responded 200 in 86ms
+2026-02-03 14:46:51.619 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 51ms
+2026-02-03 14:46:51.627 +08:00 [INF] HTTP GET /api/platforms responded 200 in 59ms
+2026-02-03 14:46:51.632 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 38ms
+2026-02-03 14:46:51.673 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 14:46:51.780 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 94ms
+2026-02-03 14:47:01.665 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 59ms
+2026-02-03 14:47:01.674 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 68ms
+2026-02-03 14:47:01.682 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 77ms
+2026-02-03 14:47:01.686 +08:00 [INF] HTTP GET /api/platforms responded 200 in 80ms
+2026-02-03 14:47:01.779 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 37ms
+2026-02-03 14:47:01.782 +08:00 [INF] HTTP GET /api/platforms responded 200 in 40ms
+2026-02-03 14:47:01.805 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 29ms
+2026-02-03 14:47:01.843 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-03 14:47:01.969 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 115ms
+2026-02-03 14:47:24.771 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 69ms
+2026-02-03 14:47:24.791 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 80ms
+2026-02-03 14:47:24.792 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 92ms
+2026-02-03 14:47:24.796 +08:00 [INF] HTTP GET /api/platforms responded 200 in 95ms
+2026-02-03 14:47:24.899 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 40ms
+2026-02-03 14:47:24.903 +08:00 [INF] HTTP GET /api/platforms responded 200 in 45ms
+2026-02-03 14:47:24.934 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:47:24.966 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:47:25.074 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 95ms
+2026-02-03 14:47:30.331 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 19ms
+2026-02-03 14:47:30.383 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 21ms
+2026-02-03 14:47:30.414 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 22ms
+2026-02-03 14:47:30.448 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 14:47:44.634 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 64ms
+2026-02-03 14:47:44.635 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 66ms
+2026-02-03 14:47:44.637 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 66ms
+2026-02-03 14:47:44.638 +08:00 [INF] HTTP GET /api/platforms responded 200 in 69ms
+2026-02-03 14:47:44.749 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 37ms
+2026-02-03 14:47:44.751 +08:00 [INF] HTTP GET /api/platforms responded 200 in 40ms
+2026-02-03 14:47:44.792 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:47:44.825 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:47:44.947 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 111ms
+2026-02-03 14:48:10.229 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 33ms
+2026-02-03 14:48:10.283 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 23ms
+2026-02-03 14:48:10.318 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:48:10.350 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 23ms
+2026-02-03 14:48:12.249 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 18ms
+2026-02-03 14:48:12.280 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 19ms
+2026-02-03 14:48:12.316 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 24ms
+2026-02-03 14:48:12.349 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:48:24.772 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:48:24.772 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:48:24.772 +08:00 [INF] Request parameters: param1=WLD00001040, wldwid=WLD00001040
+2026-02-03 14:48:24.772 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001040'
+2026-02-03 14:48:24.791 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 15ms
+2026-02-03 14:48:24.792 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 65ms
+2026-02-03 14:54:57.820 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 121ms
+2026-02-03 14:54:57.821 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 107ms
+2026-02-03 14:54:57.827 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 129ms
+2026-02-03 14:54:57.831 +08:00 [INF] HTTP GET /api/platforms responded 200 in 124ms
+2026-02-03 14:54:57.945 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 39ms
+2026-02-03 14:54:57.948 +08:00 [INF] HTTP GET /api/platforms responded 200 in 42ms
+2026-02-03 14:54:57.989 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:54:58.022 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 26ms
+2026-02-03 14:54:58.201 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 166ms
+2026-02-03 14:55:58.421 +08:00 [INF] HTTP GET /api/config-queries/1 responded 200 in 33ms
+2026-02-03 14:55:58.477 +08:00 [INF] HTTP GET /api/config-queries/1/presets responded 200 in 22ms
+2026-02-03 14:55:58.508 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 23ms
+2026-02-03 14:55:58.542 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 25ms
+2026-02-03 14:56:06.951 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 19ms
+2026-02-03 14:56:06.982 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 21ms
+2026-02-03 14:56:07.015 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 21ms
+2026-02-03 14:56:07.045 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 22ms
+2026-02-03 14:56:13.154 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 67ms
+2026-02-03 14:56:13.161 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 74ms
+2026-02-03 14:56:13.167 +08:00 [INF] HTTP GET /api/platforms responded 200 in 80ms
+2026-02-03 14:56:13.167 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 81ms
+2026-02-03 14:56:13.277 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 58ms
+2026-02-03 14:56:13.283 +08:00 [INF] HTTP GET /api/platforms responded 200 in 64ms
+2026-02-03 14:56:13.286 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 40ms
+2026-02-03 14:56:13.323 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 25ms
+2026-02-03 14:56:13.426 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 94ms
+2026-02-03 14:56:16.143 +08:00 [INF] HTTP GET /api/config-queries/2 responded 200 in 22ms
+2026-02-03 14:56:16.198 +08:00 [INF] HTTP GET /api/config-queries/2/presets responded 200 in 24ms
+2026-02-03 14:56:16.238 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 27ms
+2026-02-03 14:56:16.272 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_CZ/connections responded 200 in 26ms
+2026-02-03 14:56:26.435 +08:00 [INF] Config query 2 has 1 parameters defined
+2026-02-03 14:56:26.435 +08:00 [INF] Parameter: wldwid, Type: text
+2026-02-03 14:56:26.435 +08:00 [INF] Request parameters: wldwid=WLD00001040
+2026-02-03 14:56:26.435 +08:00 [INF] SQL after parameter replacement: SELECT 
+*
+FROM wldwzl
+WHERE wldwid ='WLD00001040'
+2026-02-03 14:56:26.533 +08:00 [INF] Config query 2 executed successfully. Rows: 1, Time: 86ms
+2026-02-03 14:56:26.534 +08:00 [INF] HTTP POST /api/config-queries/2/execute responded 200 in 118ms

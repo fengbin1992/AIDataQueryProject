@@ -80,6 +80,22 @@ const routes: RouteRecordRaw[] = [
             meta: {
               title: '连接管理'
             }
+          },
+          {
+            path: 'masking-rules',
+            name: 'MaskingRules',
+            component: () => import('@/views/admin/dataSecurity/MaskingRulesView.vue'),
+            meta: {
+              title: '脱敏规则'
+            }
+          },
+          {
+            path: 'sensitive-fields',
+            name: 'SensitiveFields',
+            component: () => import('@/views/admin/dataSecurity/SensitiveFieldsView.vue'),
+            meta: {
+              title: '敏感字段'
+            }
           }
         ]
       }

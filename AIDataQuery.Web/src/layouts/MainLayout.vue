@@ -32,6 +32,8 @@
             <el-menu-item index="/admin/users">用户管理</el-menu-item>
             <el-menu-item index="/admin/platforms">平台管理</el-menu-item>
             <el-menu-item index="/admin/connections">连接管理</el-menu-item>
+            <el-menu-item index="/admin/masking-rules">脱敏规则</el-menu-item>
+            <el-menu-item index="/admin/sensitive-fields">敏感字段</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </div>

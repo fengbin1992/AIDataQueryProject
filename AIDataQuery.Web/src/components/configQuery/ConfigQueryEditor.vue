@@ -18,14 +18,38 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="默认连接" prop="connectionId">
-            <el-select v-model="form.connectionId" placeholder="选择数据库连接" clearable style="width: 100%">
-              <el-option
-                v-for="conn in connections"
-                :key="conn.id"
-                :label="conn.name"
-                :value="conn.id"
-              />
-            </el-select>
+            <div class="connection-select-wrapper">
+              <el-select
+                v-model="form.connectionId"
+                placeholder="选择数据库连接"
+                clearable
+                style="width: 100%"
+                :class="{ 'production-select': isSelectedProduction }"
+              >
+                <el-option
+                  v-for="conn in connections"
+                  :key="conn.id"
+                  :label="conn.name"
+                  :value="conn.id"
+                  :class="{ 'production-option': conn.isProduction }"
+                >
+                  <div class="connection-option">
+                    <span class="conn-name">{{ conn.name }}</span>
+                    <el-tag
+                      v-if="conn.isProduction"
+                      type="danger"
+                      size="small"
+                      class="env-tag"
+                    >
+                      正式
+                    </el-tag>
+                  </div>
+                </el-option>
+              </el-select>
+              <el-tag v-if="isSelectedProduction" type="danger" size="small" class="selected-env-tag">
+                正式环境
+              </el-tag>
+            </div>
           </el-form-item>
         </el-col>
       </el-row>
@@ -37,6 +61,12 @@
       <el-form-item label="公开" prop="isPublic" v-if="isAdmin">
         <el-switch v-model="form.isPublic" />
         <span class="form-tip">公开后其他用户可以使用此配置查询</span>
+      </el-form-item>
+
+      <el-form-item label="所属文件夹" prop="folderId">
+        <el-select v-model="form.folderId" placeholder="选择文件夹（可选）" clearable style="width: 300px">
+          <el-option v-for="folder in folders" :key="folder.id" :label="folder.name" :value="folder.id" />
+        </el-select>
       </el-form-item>
 
       <!-- SQL 模板 -->
@@ -74,105 +104,110 @@
 
       <!-- 可视化配置 -->
       <div class="params-config" v-if="configMode === 'visual'">
+        <el-empty v-if="form.parameters.length === 0" description="暂无参数，请点击下方按钮添加或使用解析参数自动识别" :image-size="60" />
+
         <div v-for="(param, index) in form.parameters" :key="index" class="param-card">
           <div class="param-header">
-            <span class="param-name">@{{ param.paramName }}</span>
-            <el-button text type="danger" size="small" @click="removeParameter(index)">
+            <div class="param-title">
+              <el-tag type="primary" effect="dark" size="small">参数 {{ index + 1 }}</el-tag>
+              <code class="param-code">@{{ param.paramName || 'unnamed' }}</code>
+            </div>
+            <el-button type="danger" text size="small" @click="removeParameter(index)">
               <el-icon><Delete /></el-icon>
+              删除
             </el-button>
           </div>
 
-          <el-row :gutter="12">
-            <el-col :span="8">
-              <el-form-item label="显示名称" :prop="`parameters.${index}.paramLabel`" required>
-                <el-input v-model="param.paramLabel" placeholder="参数显示名称" />
-              </el-form-item>
-            </el-col>
-            <el-col :span="8">
-              <el-form-item label="类型" :prop="`parameters.${index}.paramType`" required>
+          <div class="param-body">
+            <!-- 基础信息行 -->
+            <div class="form-row">
+              <div class="form-item" style="flex: 1;">
+                <label class="form-label required">参数名</label>
+                <el-input v-model="param.paramName" placeholder="与SQL中@后的名称一致">
+                  <template #prepend>@</template>
+                </el-input>
+                <div class="form-tip">SQL中使用 @{{ param.paramName || 'paramName' }} 引用</div>
+              </div>
+              <div class="form-item" style="flex: 1;">
+                <label class="form-label required">显示名称</label>
+                <el-input v-model="param.paramLabel" placeholder="用户看到的标签名" />
+              </div>
+              <div class="form-item" style="width: 140px;">
+                <label class="form-label required">类型</label>
                 <el-select v-model="param.paramType" style="width: 100%" @change="handleTypeChange(param)">
-                  <el-option label="文本输入" value="text" />
-                  <el-option label="数字输入" value="number" />
-                  <el-option label="日期选择" value="date" />
+                  <el-option label="文本" value="text" />
+                  <el-option label="数字" value="number" />
+                  <el-option label="日期" value="date" />
                   <el-option label="日期范围" value="daterange" />
                   <el-option label="下拉单选" value="select" />
                   <el-option label="下拉多选" value="multiselect" />
                 </el-select>
-              </el-form-item>
-            </el-col>
-            <el-col :span="8">
-              <el-form-item label="必填">
-                <el-switch v-model="param.isRequired" />
-              </el-form-item>
-            </el-col>
-          </el-row>
-
-          <el-row :gutter="12">
-            <el-col :span="12">
-              <el-form-item label="默认值">
-                <el-input v-model="param.defaultValue" placeholder="默认值" />
-              </el-form-item>
-            </el-col>
-            <el-col :span="12">
-              <el-form-item label="占位提示">
-                <el-input v-model="param.placeholder" placeholder="输入框占位提示" />
-              </el-form-item>
-            </el-col>
-          </el-row>
-
-          <!-- 下拉选项配置 -->
-          <template v-if="param.paramType === 'select' || param.paramType === 'multiselect'">
-            <el-form-item label="选项来源">
-              <el-radio-group v-model="param.optionsConfig!.mode" size="small">
-                <el-radio-button value="static">固定选项</el-radio-button>
-                <el-radio-button value="dynamic">SQL 查询</el-radio-button>
-              </el-radio-group>
-            </el-form-item>
-
-            <!-- 固定选项 -->
-            <div v-if="param.optionsConfig?.mode === 'static'" class="static-options">
-              <div
-                v-for="(opt, optIndex) in param.optionsConfig.options"
-                :key="optIndex"
-                class="option-row"
-              >
-                <el-input v-model="opt.value" placeholder="值" style="width: 120px" />
-                <el-input v-model="opt.label" placeholder="显示文本" style="flex: 1" />
-                <el-button text type="danger" @click="removeOption(param, optIndex)">
-                  <el-icon><Delete /></el-icon>
-                </el-button>
               </div>
-              <el-button size="small" @click="addOption(param)">
-                <el-icon><Plus /></el-icon>
-                添加选项
-              </el-button>
+              <div class="form-item" style="width: 80px;">
+                <label class="form-label">必填</label>
+                <el-switch v-model="param.isRequired" />
+              </div>
             </div>
 
-            <!-- 动态 SQL -->
-            <div v-else class="dynamic-options">
-              <el-form-item label="数据库连接">
-                <el-select v-model="param.optionsConfig!.connectionId" placeholder="选择连接" style="width: 100%">
-                  <el-option
-                    v-for="conn in connections"
-                    :key="conn.id"
-                    :label="conn.name"
-                    :value="conn.id"
-                  />
-                </el-select>
-              </el-form-item>
-              <el-form-item label="SQL 查询">
-                <el-input
-                  v-model="param.optionsConfig!.sql"
-                  type="textarea"
-                  :rows="2"
-                  placeholder="SELECT id as value, name as label FROM ..."
-                />
-              </el-form-item>
+            <!-- 默认值行 -->
+            <div class="form-row">
+              <div class="form-item" style="flex: 1;">
+                <label class="form-label">默认值</label>
+                <el-input v-model="param.defaultValue" placeholder="参数的默认值（可选）" />
+              </div>
             </div>
-          </template>
+
+            <!-- 下拉选项配置 -->
+            <template v-if="param.paramType === 'select' || param.paramType === 'multiselect'">
+              <div class="options-section">
+                <div class="section-title">
+                  <span>选项配置</span>
+                  <el-radio-group v-model="param.optionsConfig!.mode" size="small">
+                    <el-radio-button value="static">固定选项</el-radio-button>
+                    <el-radio-button value="dynamic">SQL动态</el-radio-button>
+                  </el-radio-group>
+                </div>
+
+                <!-- 固定选项 -->
+                <div v-if="param.optionsConfig?.mode === 'static'" class="static-options">
+                  <div v-for="(opt, optIndex) in param.optionsConfig.options" :key="optIndex" class="option-row">
+                    <el-input v-model="opt.value" placeholder="值">
+                      <template #prepend>值</template>
+                    </el-input>
+                    <el-input v-model="opt.label" placeholder="显示文本">
+                      <template #prepend>文本</template>
+                    </el-input>
+                    <el-button type="danger" text @click="removeOption(param, optIndex)">
+                      <el-icon><Delete /></el-icon>
+                    </el-button>
+                  </div>
+                  <el-button size="small" @click="addOption(param)">
+                    <el-icon><Plus /></el-icon>
+                    添加选项
+                  </el-button>
+                </div>
+
+                <!-- 动态 SQL -->
+                <div v-else class="dynamic-options">
+                  <div class="form-row">
+                    <div class="form-item" style="width: 300px;">
+                      <label class="form-label">数据库连接</label>
+                      <el-select v-model="param.optionsConfig!.connectionId" placeholder="选择连接" style="width: 100%">
+                        <el-option v-for="conn in connections" :key="conn.id" :label="conn.name" :value="conn.id" />
+                      </el-select>
+                    </div>
+                    <div class="form-item" style="flex: 1;">
+                      <label class="form-label">SQL 查询</label>
+                      <el-input v-model="param.optionsConfig!.sql" placeholder="SELECT id as value, name as label FROM ..." />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
         </div>
 
-        <el-button @click="addParameter">
+        <el-button type="primary" plain @click="addParameter" class="add-param-btn">
           <el-icon><Plus /></el-icon>
           添加参数
         </el-button>
@@ -211,12 +246,14 @@ import { configQueryApi } from '@/services/configQuery'
 import { platformApi } from '@/services'
 import type {
   CreateConfigQueryRequest,
-  CreateConfigQueryParameterRequest
+  CreateConfigQueryParameterRequest,
+  ConfigQueryFolder
 } from '@/types/configQuery'
 
 interface ConnectionItem {
   id: number
   name: string
+  isProduction: boolean
 }
 
 const props = defineProps<{
@@ -240,10 +277,18 @@ const dialogVisible = computed({
 const isEdit = computed(() => props.configQueryId !== null)
 const isAdmin = computed(() => userStore.isAdmin)
 
+// 是否选中正式环境
+const isSelectedProduction = computed(() => {
+  if (!form.value.connectionId) return false
+  const conn = connections.value.find(c => c.id === form.value.connectionId)
+  return conn?.isProduction ?? false
+})
+
 const formRef = ref<FormInstance>()
 const submitting = ref(false)
 const configMode = ref<'visual' | 'json'>('visual')
 const connections = ref<ConnectionItem[]>([])
+const folders = ref<ConfigQueryFolder[]>([])
 const parametersJson = ref('')
 
 const form = ref<CreateConfigQueryRequest>({
@@ -252,6 +297,7 @@ const form = ref<CreateConfigQueryRequest>({
   sqlContent: '',
   connectionId: undefined,
   isPublic: false,
+  folderId: undefined,
   parameters: []
 })
 
@@ -271,8 +317,8 @@ watch(
 )
 
 async function handleOpen() {
-  // 加载连接列表
-  await loadConnections()
+  // 加载连接列表和文件夹列表
+  await Promise.all([loadConnections(), loadFolders()])
 
   if (props.configQueryId) {
     // 编辑模式：加载现有数据
@@ -285,6 +331,7 @@ async function handleOpen() {
         sqlContent: query.sqlContent,
         connectionId: query.connectionId || undefined,
         isPublic: query.isPublic,
+        folderId: (query as any).folderId || undefined,
         parameters: query.parameters.map(p => ({
           paramName: p.paramName,
           paramLabel: p.paramLabel,
@@ -308,6 +355,7 @@ async function handleOpen() {
       sqlContent: '',
       connectionId: undefined,
       isPublic: false,
+      folderId: undefined,
       parameters: []
     }
     parametersJson.value = '[]'
@@ -327,7 +375,8 @@ async function loadConnections() {
           for (const conn of connRes.data) {
             allConnections.push({
               id: conn.id,
-              name: `${platform.name} - ${conn.name}`
+              name: `${platform.name} - ${conn.name}`,
+              isProduction: conn.isProduction
             })
           }
         }
@@ -336,6 +385,17 @@ async function loadConnections() {
     }
   } catch {
     connections.value = []
+  }
+}
+
+async function loadFolders() {
+  try {
+    const { data } = await configQueryApi.getFolders()
+    if (data.success && data.data) {
+      folders.value = data.data
+    }
+  } catch {
+    folders.value = []
   }
 }
 
@@ -473,6 +533,46 @@ async function handleSubmit() {
   font-size: 12px;
 }
 
+.connection-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+
+  .el-select {
+    flex: 1;
+  }
+
+  .selected-env-tag {
+    flex-shrink: 0;
+  }
+}
+
+.connection-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .conn-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .env-tag {
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+}
+
+.production-select {
+  :deep(.el-input__wrapper) {
+    border-color: var(--el-color-danger);
+    box-shadow: 0 0 0 1px var(--el-color-danger) inset;
+  }
+}
+
 .sql-actions {
   display: flex;
   gap: 8px;
@@ -485,31 +585,120 @@ async function handleSubmit() {
 
 .params-config {
   .param-card {
-    border: 1px solid var(--el-border-color-light);
-    border-radius: 4px;
-    padding: 12px;
-    margin-bottom: 12px;
+    border: 1px solid var(--el-border-color);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background-color: var(--el-bg-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
     .param-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      padding: 12px 16px;
+      background: linear-gradient(to right, var(--el-fill-color-light), var(--el-bg-color));
+      border-bottom: 1px solid var(--el-border-color-lighter);
+      border-radius: 8px 8px 0 0;
 
-      .param-name {
-        font-weight: 500;
-        color: var(--el-color-primary);
-      }
-    }
-
-    .static-options {
-      .option-row {
+      .param-title {
         display: flex;
         align-items: center;
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 12px;
+
+        .param-code {
+          font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+          font-size: 14px;
+          color: var(--el-color-primary);
+          background-color: var(--el-color-primary-light-9);
+          padding: 2px 8px;
+          border-radius: 4px;
+        }
       }
     }
+
+    .param-body {
+      padding: 20px;
+
+      .form-row {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 16px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .form-item {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .form-label {
+          font-size: 13px;
+          color: var(--el-text-color-regular);
+          font-weight: 500;
+
+          &.required::before {
+            content: '*';
+            color: var(--el-color-danger);
+            margin-right: 4px;
+          }
+        }
+
+        .form-tip {
+          font-size: 12px;
+          color: var(--el-text-color-placeholder);
+        }
+      }
+
+      .options-section {
+        margin-top: 16px;
+        padding: 16px;
+        background-color: var(--el-fill-color-lighter);
+        border-radius: 6px;
+
+        .section-title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          font-size: 13px;
+          font-weight: 500;
+          color: var(--el-text-color-secondary);
+        }
+      }
+
+      .static-options {
+        .option-row {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 12px;
+
+          .el-input {
+            flex: 1;
+          }
+        }
+      }
+
+      .dynamic-options {
+        .form-row {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .add-param-btn {
+    width: 100%;
+    height: 44px;
+    border-style: dashed;
+    font-size: 14px;
+  }
+
+  .el-empty {
+    padding: 30px 0;
   }
 }
 

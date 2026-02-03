@@ -29,14 +29,65 @@
               <span class="count">({{ myQueries.length }})</span>
             </div>
             <div class="group-items" v-show="myListExpanded">
+              <!-- 未分组的查询 -->
               <div
-                v-for="item in myQueries"
+                v-for="item in myUnfolderedQueries"
                 :key="item.id"
                 class="list-item"
                 :class="{ active: store.currentId === item.id }"
                 @click="selectQuery(item.id)"
+                @contextmenu.prevent="showMoveDialog(item.id, item.folderId)"
               >
                 <span class="item-name">{{ item.name }}</span>
+                <el-dropdown trigger="click" @click.stop @command="(cmd: string) => handleQueryCommand(cmd, item)">
+                  <el-icon class="item-more"><MoreFilled /></el-icon>
+                  <template #dropdown>
+                    <el-dropdown-menu>
+                      <el-dropdown-item command="move">移动到文件夹</el-dropdown-item>
+                    </el-dropdown-menu>
+                  </template>
+                </el-dropdown>
+              </div>
+
+              <!-- 文件夹 -->
+              <div v-for="folder in store.folders" :key="'folder-' + folder.id" class="folder-group">
+                <div class="folder-header" @click="store.toggleFolder(folder.id)">
+                  <el-icon>
+                    <FolderOpened v-if="store.isFolderExpanded(folder.id)" />
+                    <Folder v-else />
+                  </el-icon>
+                  <span class="folder-name">{{ folder.name }}</span>
+                  <span class="count">({{ getQueriesInFolder(folder.id).length }})</span>
+                  <el-dropdown trigger="click" @click.stop @command="(cmd: string) => handleFolderCommand(cmd, folder)">
+                    <el-icon class="folder-more"><MoreFilled /></el-icon>
+                    <template #dropdown>
+                      <el-dropdown-menu>
+                        <el-dropdown-item command="rename">重命名</el-dropdown-item>
+                        <el-dropdown-item command="delete">删除</el-dropdown-item>
+                      </el-dropdown-menu>
+                    </template>
+                  </el-dropdown>
+                </div>
+                <div class="folder-items" v-show="store.isFolderExpanded(folder.id)">
+                  <div
+                    v-for="item in getQueriesInFolder(folder.id)"
+                    :key="item.id"
+                    class="list-item"
+                    :class="{ active: store.currentId === item.id }"
+                    @click="selectQuery(item.id)"
+                  >
+                    <span class="item-name">{{ item.name }}</span>
+                    <el-dropdown trigger="click" @click.stop @command="(cmd: string) => handleQueryCommand(cmd, item)">
+                      <el-icon class="item-more"><MoreFilled /></el-icon>
+                      <template #dropdown>
+                        <el-dropdown-menu>
+                          <el-dropdown-item command="move">移动到文件夹</el-dropdown-item>
+                          <el-dropdown-item command="remove">移出文件夹</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </template>
+                    </el-dropdown>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -67,6 +118,10 @@
             <el-icon><Plus /></el-icon>
             <span>新建</span>
           </el-button>
+          <el-button text @click="showNewFolderDialog">
+            <el-icon><Folder /></el-icon>
+            <span>新建文件夹</span>
+          </el-button>
         </div>
       </template>
 
@@ -95,6 +150,64 @@
     <!-- 右侧内容区 -->
     <div class="content-panel">
       <template v-if="store.currentQuery">
+        <!-- 顶部数据库选择区 -->
+        <div class="database-selectors">
+          <div class="selector-item">
+            <span class="label">平台：</span>
+            <el-select
+              v-model="selectedPlatformCode"
+              placeholder="选择平台"
+              @change="handlePlatformChange"
+              :disabled="!platforms.length"
+            >
+              <el-option
+                v-for="platform in platforms"
+                :key="platform.code"
+                :label="platform.name"
+                :value="platform.code"
+              />
+            </el-select>
+          </div>
+          <div class="selector-item database-selector">
+            <span class="label">数据库：</span>
+            <el-select
+              v-model="selectedConnectionId"
+              placeholder="选择数据库"
+              @change="handleConnectionChange"
+              :disabled="!connections.length"
+              :class="{ 'production-select': isSelectedProduction }"
+            >
+              <el-option
+                v-for="conn in connections"
+                :key="conn.id"
+                :label="conn.name"
+                :value="conn.id"
+                :class="{ 'production-option': conn.isProduction }"
+              >
+                <div class="connection-option">
+                  <span class="conn-name">{{ conn.name }}</span>
+                  <el-tag
+                    v-if="conn.isProduction"
+                    type="danger"
+                    size="small"
+                    class="env-tag"
+                  >
+                    正式
+                  </el-tag>
+                </div>
+              </el-option>
+            </el-select>
+            <el-tag v-if="isSelectedProduction" type="danger" size="small" class="selected-env-tag">
+              正式环境
+            </el-tag>
+          </div>
+          <div class="default-connection-hint" v-if="store.currentQuery.connectionName">
+            <el-tag type="info" size="small">
+              默认：{{ store.currentQuery.connectionName }}
+            </el-tag>
+          </div>
+        </div>
+
         <!-- SQL 预览面板 -->
         <div class="sql-panel" :class="{ expanded: store.sqlPanelExpanded }">
           <div class="panel-header" @click="store.toggleSqlPanel">
@@ -103,8 +216,8 @@
             <template v-if="!store.sqlPanelExpanded">
               <span class="summary">{{ store.sqlPreviewSummary }}</span>
             </template>
-            <div class="panel-actions" v-if="store.sqlPanelExpanded">
-              <el-button text size="small" @click.stop="copySql">
+            <div class="panel-actions">
+              <el-button v-if="store.sqlPanelExpanded" text size="small" @click.stop="copySql">
                 <el-icon><CopyDocument /></el-icon>
                 复制
               </el-button>
@@ -122,7 +235,7 @@
         </div>
 
         <!-- 参数配置面板 -->
-        <div class="param-panel" :class="{ expanded: store.paramPanelExpanded }">
+        <div class="param-panel">
           <div class="panel-header" @click="store.toggleParamPanel">
             <el-icon><CaretBottom v-if="store.paramPanelExpanded" /><CaretRight v-else /></el-icon>
             <span>参数配置</span>
@@ -199,19 +312,20 @@
           </el-button>
         </div>
 
-        <!-- 查询结果区（移到 content-panel 内部） -->
-        <div class="result-panel" v-if="store.result">
-          <div class="result-header">
+        <!-- 查询结果区 -->
+        <div class="result-panel" :class="{ expanded: store.resultPanelExpanded }" v-if="store.result">
+          <div class="panel-header" @click="store.toggleResultPanel">
+            <el-icon><CaretBottom v-if="store.resultPanelExpanded" /><CaretRight v-else /></el-icon>
             <span>查询结果 ({{ store.result.totalRows }}条)</span>
             <span class="execution-time">执行耗时: {{ store.result.executionTimeMs }}ms</span>
           </div>
-          <div class="result-content">
+          <div class="result-content" v-show="store.resultPanelExpanded">
             <el-table
               :data="store.result.rows"
               stripe
               border
               size="small"
-              max-height="300"
+              height="100%"
             >
               <el-table-column
                 v-for="col in store.result.columns"
@@ -256,12 +370,54 @@
         <el-button type="primary" @click="savePreset">保存</el-button>
       </template>
     </el-dialog>
+
+    <!-- 新建文件夹弹窗 -->
+    <el-dialog v-model="newFolderVisible" title="新建文件夹" width="400px">
+      <el-form label-width="80px">
+        <el-form-item label="名称" required>
+          <el-input v-model="newFolderName" placeholder="请输入文件夹名称" @keyup.enter="createNewFolder" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="newFolderVisible = false">取消</el-button>
+        <el-button type="primary" @click="createNewFolder">创建</el-button>
+      </template>
+    </el-dialog>
+
+    <!-- 重命名文件夹弹窗 -->
+    <el-dialog v-model="editFolderVisible" title="重命名文件夹" width="400px">
+      <el-form label-width="80px">
+        <el-form-item label="名称" required>
+          <el-input v-model="editFolderName" placeholder="请输入文件夹名称" @keyup.enter="updateFolderName" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="editFolderVisible = false">取消</el-button>
+        <el-button type="primary" @click="updateFolderName">保存</el-button>
+      </template>
+    </el-dialog>
+
+    <!-- 移动到文件夹弹窗 -->
+    <el-dialog v-model="moveQueryVisible" title="移动到文件夹" width="400px">
+      <el-form label-width="80px">
+        <el-form-item label="目标文件夹">
+          <el-select v-model="moveTargetFolderId" placeholder="选择文件夹" clearable style="width: 100%">
+            <el-option label="未分组" :value="-1" />
+            <el-option v-for="folder in store.folders" :key="folder.id" :label="folder.name" :value="folder.id" />
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="moveQueryVisible = false">取消</el-button>
+        <el-button type="primary" @click="moveQueryToFolder">移动</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import {
   Search,
   Plus,
@@ -273,14 +429,26 @@ import {
   CopyDocument,
   Edit,
   FolderAdd,
-  VideoPlay
+  VideoPlay,
+  Folder,
+  FolderOpened,
+  MoreFilled
 } from '@element-plus/icons-vue'
 import { useConfigQueryStore } from '@/stores/configQuery'
+import { platformApi } from '@/services'
 import ParamFormView from './ParamFormView.vue'
 import ParamJsonView from './ParamJsonView.vue'
 import ConfigQueryEditor from './ConfigQueryEditor.vue'
+import type { PlatformDto, DatabaseConnectionDto } from '@/types'
+import type { ConfigQueryListItem, ConfigQueryFolder } from '@/types/configQuery'
 
 const store = useConfigQueryStore()
+
+// 平台和数据库连接
+const platforms = ref<PlatformDto[]>([])
+const connections = ref<DatabaseConnectionDto[]>([])
+const selectedPlatformCode = ref<string>('')
+const selectedConnectionId = ref<number | undefined>(undefined)
 
 // 列表状态
 const listCollapsed = ref(false)
@@ -299,14 +467,85 @@ const presetForm = ref({
   isDefault: false
 })
 
+// 文件夹相关
+const newFolderVisible = ref(false)
+const newFolderName = ref('')
+const editFolderVisible = ref(false)
+const editFolderId = ref<number | null>(null)
+const editFolderName = ref('')
+const moveQueryVisible = ref(false)
+const moveQueryId = ref<number | null>(null)
+const moveTargetFolderId = ref<number>(-1)
+
 // 计算属性
 const myQueries = computed(() => {
   return store.list.filter(q => q.isOwner)
 })
 
+// 我创建的查询按文件夹分组
+const myUnfolderedQueries = computed(() => {
+  return myQueries.value.filter(q => !q.folderId)
+})
+
+// 获取文件夹内的查询
+function getQueriesInFolder(folderId: number): ConfigQueryListItem[] {
+  return myQueries.value.filter(q => q.folderId === folderId)
+}
+
 const publicQueries = computed(() => {
   return store.list.filter(q => !q.isOwner && q.isPublic)
 })
+
+// 是否选中正式环境
+const isSelectedProduction = computed(() => {
+  if (!selectedConnectionId.value) return false
+  const conn = connections.value.find(c => c.id === selectedConnectionId.value)
+  return conn?.isProduction ?? false
+})
+
+// 加载平台列表
+async function loadPlatforms(): Promise<void> {
+  try {
+    const { data } = await platformApi.getPlatforms()
+    if (data.success && data.data) {
+      platforms.value = data.data
+      // 如果有平台，自动选择第一个
+      if (data.data.length > 0 && !selectedPlatformCode.value) {
+        await handlePlatformChange(data.data[0].code)
+      }
+    }
+  } catch {
+    platforms.value = []
+  }
+}
+
+// 加载连接列表
+async function loadConnections(platformCode: string): Promise<void> {
+  try {
+    const { data } = await platformApi.getConnections(platformCode)
+    if (data.success && data.data) {
+      connections.value = data.data
+      // 自动选择第一个连接
+      if (data.data.length > 0 && !selectedConnectionId.value) {
+        selectedConnectionId.value = data.data[0].id
+      }
+    }
+  } catch {
+    connections.value = []
+  }
+}
+
+// 平台变更
+async function handlePlatformChange(platformCode: string): Promise<void> {
+  selectedPlatformCode.value = platformCode
+  selectedConnectionId.value = undefined
+  await loadConnections(platformCode)
+}
+
+// 连接变更
+function handleConnectionChange(connectionId: number): void {
+  selectedConnectionId.value = connectionId
+}
 
 // 方法
 function toggleList() {
@@ -327,6 +566,30 @@ async function handleSearch() {
 
 async function selectQuery(id: number) {
   await store.selectQuery(id)
+  // 如果配置查询有默认连接，自动选择对应的平台和数据库
+  await setDefaultConnection()
+}
+
+// 根据配置查询的默认连接设置平台和数据库
+async function setDefaultConnection() {
+  if (!store.currentQuery?.connectionId) return
+
+  const targetConnectionId = store.currentQuery.connectionId
+
+  // 遍历平台查找包含该连接的平台
+  for (const platform of platforms.value) {
+    const { data } = await platformApi.getConnections(platform.code)
+    if (data.success && data.data) {
+      const conn = data.data.find(c => c.id === targetConnectionId)
+      if (conn) {
+        // 找到了，设置平台和连接
+        selectedPlatformCode.value = platform.code
+        connections.value = data.data
+        selectedConnectionId.value = targetConnectionId
+        return
+      }
+    }
+  }
 }
 
 function showEditor(id: number | null) {
@@ -336,7 +599,13 @@ function showEditor(id: number | null) {
 
 async function handleEditorSuccess() {
   editorVisible.value = false
+  const currentId = store.currentId
   await store.loadList()
+  // 强制重新加载当前选中的配置查询详情
+  if (currentId) {
+    store.currentId = null
+    await store.selectQuery(currentId)
+  }
 }
 
 function copySql() {
@@ -372,9 +641,101 @@ async function savePreset() {
 }
 
 async function executeQuery() {
-  await store.execute()
+  await store.execute(selectedConnectionId.value)
   if (store.result && !store.result.success) {
     ElMessage.error(store.result.errorMessage || '执行失败')
+  }
+}
+
+// 文件夹操作
+function showNewFolderDialog() {
+  newFolderName.value = ''
+  newFolderVisible.value = true
+}
+
+async function createNewFolder() {
+  if (!newFolderName.value.trim()) {
+    ElMessage.warning('请输入文件夹名称')
+    return
+  }
+  try {
+    await store.createFolder({ name: newFolderName.value.trim() })
+    ElMessage.success('文件夹创建成功')
+    newFolderVisible.value = false
+  } catch (error) {
+    ElMessage.error('创建失败')
+  }
+}
+
+function showEditFolderDialog(folder: ConfigQueryFolder) {
+  editFolderId.value = folder.id
+  editFolderName.value = folder.name
+  editFolderVisible.value = true
+}
+
+async function updateFolderName() {
+  if (!editFolderId.value || !editFolderName.value.trim()) {
+    ElMessage.warning('请输入文件夹名称')
+    return
+  }
+  try {
+    await store.updateFolder(editFolderId.value, { name: editFolderName.value.trim() })
+    ElMessage.success('文件夹更新成功')
+    editFolderVisible.value = false
+  } catch (error) {
+    ElMessage.error('更新失败')
+  }
+}
+
+async function confirmDeleteFolder(folder: ConfigQueryFolder) {
+  try {
+    await ElMessageBox.confirm(
+      `确定删除文件夹"${folder.name}"吗？内部的查询将移到未分组。`,
+      '删除文件夹',
+      { type: 'warning' }
+    )
+    await store.deleteFolder(folder.id)
+    ElMessage.success('文件夹删除成功')
+  } catch {
+    // 用户取消
+  }
+}
+
+function showMoveDialog(queryId: number, currentFolderId: number | undefined) {
+  moveQueryId.value = queryId
+  moveTargetFolderId.value = currentFolderId ?? -1
+  moveQueryVisible.value = true
+}
+
+async function moveQueryToFolder() {
+  if (moveQueryId.value === null) return
+  try {
+    // -1 表示未分组，转换为 null
+    const targetFolderId = moveTargetFolderId.value === -1 ? null : moveTargetFolderId.value
+    await store.moveToFolder(moveQueryId.value, targetFolderId)
+    ElMessage.success('移动成功')
+    moveQueryVisible.value = false
+  } catch (error) {
+    ElMessage.error('移动失败')
+  }
+}
+
+function handleFolderCommand(command: string, folder: ConfigQueryFolder) {
+  if (command === 'rename') {
+    showEditFolderDialog(folder)
+  } else if (command === 'delete') {
+    confirmDeleteFolder(folder)
+  }
+}
+
+function handleQueryCommand(command: string, item: ConfigQueryListItem) {
+  if (command === 'move') {
+    showMoveDialog(item.id, item.folderId)
+  } else if (command === 'remove') {
+    // 移出文件夹
+    store.moveToFolder(item.id, null)
+      .then(() => ElMessage.success('已移出文件夹'))
+      .catch(() => ElMessage.error('移动失败'))
   }
 }
 
@@ -393,7 +754,10 @@ function handleKeydown(e: KeyboardEvent) {
 }
 
 onMounted(async () => {
-  await store.loadList()
+  await Promise.all([
+    store.loadList(),
+    loadPlatforms()
+  ])
   window.addEventListener('keydown', handleKeydown)
 })
 
@@ -486,14 +850,89 @@ watch(
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         &:hover {
           background-color: var(--el-fill-color-light);
+
+          .item-more {
+            opacity: 1;
+          }
         }
 
         &.active {
           background-color: var(--el-color-primary-light-9);
           color: var(--el-color-primary);
+        }
+
+        .item-name {
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .item-more {
+          opacity: 0;
+          cursor: pointer;
+          padding: 2px;
+          margin-left: 4px;
+          flex-shrink: 0;
+
+          &:hover {
+            color: var(--el-color-primary);
+          }
+        }
+      }
+
+      .folder-group {
+        .folder-header {
+          display: flex;
+          align-items: center;
+          padding: 6px 12px 6px 20px;
+          cursor: pointer;
+          font-size: 13px;
+          color: var(--el-text-color-regular);
+
+          &:hover {
+            background-color: var(--el-fill-color-light);
+
+            .folder-more {
+              opacity: 1;
+            }
+          }
+
+          .folder-name {
+            flex: 1;
+            margin-left: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .count {
+            font-size: 12px;
+            color: var(--el-text-color-placeholder);
+            margin-left: 4px;
+          }
+
+          .folder-more {
+            opacity: 0;
+            cursor: pointer;
+            padding: 2px;
+            margin-left: 4px;
+            flex-shrink: 0;
+
+            &:hover {
+              color: var(--el-color-primary);
+            }
+          }
+        }
+
+        .folder-items {
+          .list-item {
+            padding-left: 44px;
+          }
         }
       }
     }
@@ -538,11 +977,73 @@ watch(
   gap: 12px;
   min-width: 0;
 
+  .database-selectors {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 12px;
+    background-color: var(--el-fill-color-light);
+    border-radius: 4px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+
+    .selector-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .label {
+        font-size: 13px;
+        color: var(--el-text-color-secondary);
+        white-space: nowrap;
+      }
+
+      .el-select {
+        min-width: 300px;
+      }
+    }
+
+    .database-selector {
+      .el-select {
+        min-width: 350px;
+      }
+
+      .connection-option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .conn-name {
+          flex: 1;
+        }
+
+        .env-tag {
+          margin-left: 8px;
+        }
+      }
+
+      .selected-env-tag {
+        margin-left: 8px;
+      }
+    }
+
+    .default-connection-hint {
+      margin-left: auto;
+    }
+
+    .production-select {
+      :deep(.el-input__wrapper) {
+        border-color: var(--el-color-danger);
+      }
+    }
+  }
+
   .sql-panel,
   .param-panel {
     border: 1px solid var(--el-border-color-light);
     border-radius: 4px;
     background-color: var(--el-bg-color);
+    flex-shrink: 0;
 
     .panel-header {
       display: flex;
@@ -577,7 +1078,9 @@ watch(
     .panel-content {
       padding: 12px;
     }
+  }
 
+  .sql-panel {
     &.expanded {
       flex: 1;
       overflow: hidden;
@@ -589,6 +1092,11 @@ watch(
         overflow: auto;
       }
     }
+  }
+
+  .param-panel {
+    max-height: 50%;
+    overflow-y: auto;
   }
 
   .sql-preview {
@@ -626,6 +1134,10 @@ watch(
       > span {
         white-space: nowrap;
       }
+
+      .el-select {
+        min-width: 180px;
+      }
     }
   }
 
@@ -647,22 +1159,44 @@ watch(
     background-color: var(--el-bg-color);
     flex-shrink: 0;
 
-    .result-header {
+    .panel-header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 8px 12px;
+      cursor: pointer;
       border-bottom: 1px solid var(--el-border-color-light);
+      user-select: none;
       font-size: 13px;
 
+      &:hover {
+        background-color: var(--el-fill-color-light);
+      }
+
       .execution-time {
+        margin-left: auto;
         color: var(--el-text-color-secondary);
         font-size: 12px;
       }
     }
 
     .result-content {
-      padding: 12px;
+      height: 0;
+      overflow: hidden;
+    }
+
+    &.expanded {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .result-content {
+        flex: 1;
+        height: auto;
+        min-height: 0;
+        overflow: hidden;
+      }
     }
   }
 }

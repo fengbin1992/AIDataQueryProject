@@ -48,6 +48,7 @@ public class ConfigQueryService : IConfigQueryService
         // 用户可见的配置查询 = 自己创建的 + 管理员公开的
         var query = _context.ConfigQueries
             .Include(q => q.Creator)
+            .Include(q => q.Folder)
             .Where(q => q.IsActive)
             .Where(q => q.CreatedBy == userId || q.IsPublic);
 
@@ -75,7 +76,9 @@ public class ConfigQueryService : IConfigQueryService
                 CreatedByName = q.Creator != null ? q.Creator.Nickname : "",
                 IsOwner = q.CreatedBy == userId,
                 CanEdit = q.CreatedBy == userId || isAdmin,
-                CreatedAt = q.CreatedAt
+                CreatedAt = q.CreatedAt,
+                FolderId = q.FolderId,
+                FolderName = q.Folder != null ? q.Folder.Name : null
             })
             .ToListAsync();
 
@@ -119,6 +122,7 @@ public class ConfigQueryService : IConfigQueryService
             IsPublic = isAdmin ? request.IsPublic : false,
             CreatedBy = userId,
             SortOrder = request.SortOrder,
+            FolderId = request.FolderId,
             IsActive = true,
             CreatedAt = DateTime.UtcNow
         };
@@ -180,6 +184,9 @@ public class ConfigQueryService : IConfigQueryService
         // 只有管理员可以修改公开状态
         if (request.IsPublic.HasValue && isAdmin) configQuery.IsPublic = request.IsPublic.Value;
         if (request.SortOrder.HasValue) configQuery.SortOrder = request.SortOrder.Value;
+        // 处理文件夹
+        if (request.ClearFolder) configQuery.FolderId = null;
+        else if (request.FolderId.HasValue) configQuery.FolderId = request.FolderId;
         configQuery.UpdatedAt = DateTime.UtcNow;
 
         // 更新参数
@@ -348,8 +355,20 @@ public class ConfigQueryService : IConfigQueryService
 
         try
         {
+            // 调试日志：记录参数信息
+            _logger.LogInformation("Config query {Id} has {ParamCount} parameters defined",
+                id, configQuery.Parameters.Count);
+            foreach (var p in configQuery.Parameters)
+            {
+                _logger.LogInformation("Parameter: {Name}, Type: {Type}", p.ParamName, p.ParamType);
+            }
+            _logger.LogInformation("Request parameters: {Params}",
+                string.Join(", ", request.Parameters.Select(kv => $"{kv.Key}={kv.Value}")));
+
             // 替换参数
             var sql = ReplaceParameters(configQuery.SqlContent, configQuery.Parameters.ToList(), request.Parameters);
+
+            _logger.LogInformation("SQL after parameter replacement: {Sql}", sql);
 
             var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
             var timeoutSeconds = _configuration.GetValue<int>("Query:TimeoutSeconds", 30);
@@ -834,6 +853,105 @@ public class ConfigQueryService : IConfigQueryService
 
         _context.QueryLogs.Add(log);
         await _context.SaveChangesAsync();
+    }
+
+    #endregion
+
+    #region 文件夹管理
+
+    public async Task<List<ConfigQueryFolderDto>> GetFoldersAsync(int userId)
+    {
+        var folders = await _context.ConfigQueryFolders
+            .Where(f => f.CreatedBy == userId)
+            .OrderBy(f => f.SortOrder)
+            .ThenBy(f => f.Name)
+            .Select(f => new ConfigQueryFolderDto
+            {
+                Id = f.Id,
+                Name = f.Name,
+                SortOrder = f.SortOrder,
+                CreatedAt = f.CreatedAt
+            })
+            .ToListAsync();
+
+        return folders;
+    }
+
+    public async Task<int> CreateFolderAsync(int userId, CreateConfigQueryFolderRequest request)
+    {
+        var folder = new ConfigQueryFolder
+        {
+            Name = request.Name,
+            CreatedBy = userId,
+            SortOrder = request.SortOrder,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        _context.ConfigQueryFolders.Add(folder);
+        await _context.SaveChangesAsync();
+
+        _logger.LogInformation("Created config query folder {Id} by user {UserId}", folder.Id, userId);
+        return folder.Id;
+    }
+
+    public async Task<bool> UpdateFolderAsync(int folderId, int userId, UpdateConfigQueryFolderRequest request)
+    {
+        var folder = await _context.ConfigQueryFolders
+            .FirstOrDefaultAsync(f => f.Id == folderId && f.CreatedBy == userId);
+
+        if (folder == null) return false;
+
+        if (!string.IsNullOrEmpty(request.Name)) folder.Name = request.Name;
+        if (request.SortOrder.HasValue) folder.SortOrder = request.SortOrder.Value;
+
+        await _context.SaveChangesAsync();
+        _logger.LogInformation("Updated config query folder {Id}", folderId);
+        return true;
+    }
+
+    public async Task<bool> DeleteFolderAsync(int folderId, int userId)
+    {
+        var folder = await _context.ConfigQueryFolders
+            .FirstOrDefaultAsync(f => f.Id == folderId && f.CreatedBy == userId);
+
+        if (folder == null) return false;
+
+        // 将文件夹内的查询移到未分组
+        var queries = await _context.ConfigQueries
+            .Where(q => q.FolderId == folderId)
+            .ToListAsync();
+        foreach (var q in queries)
+        {
+            q.FolderId = null;
+        }
+
+        _context.ConfigQueryFolders.Remove(folder);
+        await _context.SaveChangesAsync();
+
+        _logger.LogInformation("Deleted config query folder {Id}", folderId);
+        return true;
+    }
+
+    public async Task<bool> MoveToFolderAsync(int configQueryId, int userId, int? folderId)
+    {
+        var configQuery = await _context.ConfigQueries
+            .FirstOrDefaultAsync(q => q.Id == configQueryId && q.IsActive && q.CreatedBy == userId);
+
+        if (configQuery == null) return false;
+
+        // 如果指定了文件夹，验证文件夹存在且属于该用户
+        if (folderId.HasValue)
+        {
+            var folderExists = await _context.ConfigQueryFolders
+                .AnyAsync(f => f.Id == folderId.Value && f.CreatedBy == userId);
+            if (!folderExists) return false;
+        }
+
+        configQuery.FolderId = folderId;
+        await _context.SaveChangesAsync();
+
+        _logger.LogInformation("Moved config query {Id} to folder {FolderId}", configQueryId, folderId);
+        return true;
     }
 
     #endregion

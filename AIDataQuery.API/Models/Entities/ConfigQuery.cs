@@ -47,12 +47,18 @@ public class ConfigQuery
     /// </summary>
     public bool IsActive { get; set; } = true;
 
+    /// <summary>
+    /// 所属文件夹ID（可空）
+    /// </summary>
+    public int? FolderId { get; set; }
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
 
     // Navigation properties
     public DatabaseConnection? Connection { get; set; }
     public User? Creator { get; set; }
+    public ConfigQueryFolder? Folder { get; set; }
     public ICollection<ConfigQueryParameter> Parameters { get; set; } = new List<ConfigQueryParameter>();
     public ICollection<ConfigQueryParamPreset> Presets { get; set; } = new List<ConfigQueryParamPreset>();
 }

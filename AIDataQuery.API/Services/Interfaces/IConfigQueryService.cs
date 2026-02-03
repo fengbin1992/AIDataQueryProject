@@ -99,4 +99,33 @@ public interface IConfigQueryService
     Task<bool> DeletePresetAsync(int configQueryId, int presetId, int userId);
 
     #endregion
+
+    #region 文件夹管理
+
+    /// <summary>
+    /// 获取用户文件夹列表
+    /// </summary>
+    Task<List<ConfigQueryFolderDto>> GetFoldersAsync(int userId);
+
+    /// <summary>
+    /// 创建文件夹
+    /// </summary>
+    Task<int> CreateFolderAsync(int userId, CreateConfigQueryFolderRequest request);
+
+    /// <summary>
+    /// 更新文件夹
+    /// </summary>
+    Task<bool> UpdateFolderAsync(int folderId, int userId, UpdateConfigQueryFolderRequest request);
+
+    /// <summary>
+    /// 删除文件夹
+    /// </summary>
+    Task<bool> DeleteFolderAsync(int folderId, int userId);
+
+    /// <summary>
+    /// 移动配置查询到文件夹
+    /// </summary>
+    Task<bool> MoveToFolderAsync(int configQueryId, int userId, int? folderId);
+
+    #endregion
 }

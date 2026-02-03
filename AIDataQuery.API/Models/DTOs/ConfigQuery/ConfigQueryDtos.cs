@@ -18,6 +18,8 @@ public class ConfigQueryListItemDto
     public bool IsOwner { get; set; }
     public bool CanEdit { get; set; }
     public DateTime CreatedAt { get; set; }
+    public int? FolderId { get; set; }
+    public string? FolderName { get; set; }
 }
 
 /// <summary>
@@ -144,6 +146,7 @@ public class CreateConfigQueryRequest
     public int? ConnectionId { get; set; }
     public bool IsPublic { get; set; } = false;
     public int SortOrder { get; set; } = 0;
+    public int? FolderId { get; set; }
     public List<CreateConfigQueryParameterRequest> Parameters { get; set; } = new();
 }
 
@@ -175,6 +178,8 @@ public class UpdateConfigQueryRequest
     public int? ConnectionId { get; set; }
     public bool? IsPublic { get; set; }
     public int? SortOrder { get; set; }
+    public int? FolderId { get; set; }
+    public bool ClearFolder { get; set; } = false;
     public List<CreateConfigQueryParameterRequest>? Parameters { get; set; }
 }
 
@@ -316,6 +321,47 @@ public class ConfigQueryParameterExportDto
     public OptionsConfigDto? Options { get; set; }
     public string? ValidationRule { get; set; }
     public ExtraConfigDto? ExtraConfig { get; set; }
+}
+
+#endregion
+
+#region 文件夹 DTO
+
+/// <summary>
+/// 配置查询文件夹 DTO
+/// </summary>
+public class ConfigQueryFolderDto
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public int SortOrder { get; set; }
+    public DateTime CreatedAt { get; set; }
+}
+
+/// <summary>
+/// 创建文件夹请求
+/// </summary>
+public class CreateConfigQueryFolderRequest
+{
+    public string Name { get; set; } = string.Empty;
+    public int SortOrder { get; set; } = 0;
+}
+
+/// <summary>
+/// 更新文件夹请求
+/// </summary>
+public class UpdateConfigQueryFolderRequest
+{
+    public string? Name { get; set; }
+    public int? SortOrder { get; set; }
+}
+
+/// <summary>
+/// 移动配置查询到文件夹请求
+/// </summary>
+public class MoveToFolderRequest
+{
+    public int? FolderId { get; set; }
 }
 
 #endregion

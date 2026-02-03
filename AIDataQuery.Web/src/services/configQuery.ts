@@ -12,7 +12,11 @@ import type {
   GetOptionsRequest,
   GetOptionsResponse,
   ConfigQueryExport,
-  PagedListResponse
+  PagedListResponse,
+  ConfigQueryFolder,
+  CreateFolderRequest,
+  UpdateFolderRequest,
+  MoveToFolderRequest
 } from '@/types/configQuery'
 import type { QueryResult } from '@/types'
 
@@ -131,5 +135,42 @@ export const configQueryApi = {
    */
   deletePreset(configQueryId: number, presetId: number) {
     return request.delete(`/config-queries/${configQueryId}/presets/${presetId}`)
+  },
+
+  // ==================== 文件夹管理 ====================
+
+  /**
+   * 获取文件夹列表
+   */
+  getFolders() {
+    return request.get<ConfigQueryFolder[]>('/config-queries/folders')
+  },
+
+  /**
+   * 创建文件夹
+   */
+  createFolder(data: CreateFolderRequest) {
+    return request.post<{ id: number }>('/config-queries/folders', data)
+  },
+
+  /**
+   * 更新文件夹
+   */
+  updateFolder(id: number, data: UpdateFolderRequest) {
+    return request.put(`/config-queries/folders/${id}`, data)
+  },
+
+  /**
+   * 删除文件夹
+   */
+  deleteFolder(id: number) {
+    return request.delete(`/config-queries/folders/${id}`)
+  },
+
+  /**
+   * 移动配置查询到文件夹
+   */
+  moveToFolder(id: number, data: MoveToFolderRequest) {
+    return request.put(`/config-queries/${id}/move`, data)
   }
 }

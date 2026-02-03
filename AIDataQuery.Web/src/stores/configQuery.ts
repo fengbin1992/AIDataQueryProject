@@ -8,7 +8,10 @@ import type {
   CreateConfigQueryRequest,
   UpdateConfigQueryRequest,
   ExecuteConfigQueryRequest,
-  CreateParamPresetRequest
+  CreateParamPresetRequest,
+  ConfigQueryFolder,
+  CreateFolderRequest,
+  UpdateFolderRequest
 } from '@/types/configQuery'
 import type { QueryResult } from '@/types'
 
@@ -24,6 +27,10 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
   const pageSize = ref(20)
   const keyword = ref('')
   const loading = ref(false)
+
+  // 文件夹
+  const folders = ref<ConfigQueryFolder[]>([])
+  const expandedFolders = ref<Set<number>>(new Set())
 
   // 当前选中
   const currentId = ref<number | null>(null)
@@ -51,6 +58,7 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
   const sqlPanelExpanded = ref(false)
   const paramPanelExpanded = ref(true)
   const listPanelCollapsed = ref(false)
+  const resultPanelExpanded = ref(false)
 
   // ==================== 计算属性 ====================
 
@@ -108,18 +116,25 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
   async function loadList(): Promise<void> {
     loading.value = true
     try {
-      const { data } = await configQueryApi.getList({
-        keyword: keyword.value || undefined,
-        pageIndex: pageIndex.value,
-        pageSize: pageSize.value
-      })
-      if (data.success && data.data) {
-        list.value = data.data.items
-        total.value = data.data.total
+      const [listRes, foldersRes] = await Promise.all([
+        configQueryApi.getList({
+          keyword: keyword.value || undefined,
+          pageIndex: pageIndex.value,
+          pageSize: pageSize.value
+        }),
+        configQueryApi.getFolders()
+      ])
+      if (listRes.data.success && listRes.data.data) {
+        list.value = listRes.data.data.items
+        total.value = listRes.data.data.total
+      }
+      if (foldersRes.data.success && foldersRes.data.data) {
+        folders.value = foldersRes.data.data
       }
     } catch {
       list.value = []
       total.value = 0
+      folders.value = []
     } finally {
       loading.value = false
     }
@@ -293,7 +308,21 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
   function syncJsonToForm(): boolean {
     try {
       const parsed = JSON.parse(jsonEditorContent.value)
-      paramValues.value = parsed
+      // 只保留在参数列表中定义的参数，过滤掉无效的键
+      if (currentQuery.value) {
+        const validKeys = new Set(currentQuery.value.parameters.map(p => p.paramName))
+        const filtered: Record<string, unknown> = {}
+        for (const key of Object.keys(parsed)) {
+          if (validKeys.has(key)) {
+            filtered[key] = parsed[key]
+          }
+        }
+        paramValues.value = filtered
+        // 同时更新 JSON 内容，移除无效的键
+        jsonEditorContent.value = JSON.stringify(filtered, null, 2)
+      } else {
+        paramValues.value = parsed
+      }
       jsonParseError.value = null
       return true
     } catch (e) {
@@ -335,6 +364,7 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
       const { data } = await configQueryApi.execute(currentId.value, request)
       if (data.success && data.data) {
         result.value = data.data
+        resultPanelExpanded.value = true
       } else {
         result.value = {
           success: false,
@@ -441,6 +471,77 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     return []
   }
 
+  // ==================== 文件夹操作 ====================
+
+  /**
+   * 加载文件夹列表
+   */
+  async function loadFolders(): Promise<void> {
+    try {
+      const { data } = await configQueryApi.getFolders()
+      if (data.success && data.data) {
+        folders.value = data.data
+      }
+    } catch {
+      folders.value = []
+    }
+  }
+
+  /**
+   * 创建文件夹
+   */
+  async function createFolder(data: CreateFolderRequest): Promise<number> {
+    const { data: response } = await configQueryApi.createFolder(data)
+    if (response.success && response.data) {
+      await loadFolders()
+      return response.data.id
+    }
+    throw new Error(response.message || '创建失败')
+  }
+
+  /**
+   * 更新文件夹
+   */
+  async function updateFolder(id: number, data: UpdateFolderRequest): Promise<void> {
+    await configQueryApi.updateFolder(id, data)
+    await loadFolders()
+  }
+
+  /**
+   * 删除文件夹
+   */
+  async function deleteFolder(id: number): Promise<void> {
+    await configQueryApi.deleteFolder(id)
+    await loadList()
+    expandedFolders.value.delete(id)
+  }
+
+  /**
+   * 移动配置查询到文件夹
+   */
+  async function moveToFolder(queryId: number, folderId: number | null): Promise<void> {
+    await configQueryApi.moveToFolder(queryId, { folderId: folderId ?? undefined })
+    await loadList()
+  }
+
+  /**
+   * 切换文件夹展开状态
+   */
+  function toggleFolder(folderId: number): void {
+    if (expandedFolders.value.has(folderId)) {
+      expandedFolders.value.delete(folderId)
+    } else {
+      expandedFolders.value.add(folderId)
+    }
+  }
+
+  /**
+   * 检查文件夹是否展开
+   */
+  function isFolderExpanded(folderId: number): boolean {
+    return expandedFolders.value.has(folderId)
+  }
+
   /**
    * 切换输入模式
    */
@@ -472,6 +573,10 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     listPanelCollapsed.value = !listPanelCollapsed.value
   }
 
+  function toggleResultPanel(): void {
+    resultPanelExpanded.value = !resultPanelExpanded.value
+  }
+
   /**
    * 重置状态
    */
@@ -480,6 +585,8 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     total.value = 0
     pageIndex.value = 1
     keyword.value = ''
+    folders.value = []
+    expandedFolders.value = new Set()
     currentId.value = null
     currentQuery.value = null
     paramValues.value = {}
@@ -488,6 +595,7 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     presets.value = []
     currentPresetId.value = null
     result.value = null
+    resultPanelExpanded.value = false
     inputMode.value = 'form'
   }
 
@@ -499,6 +607,8 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     pageSize,
     keyword,
     loading,
+    folders,
+    expandedFolders,
     currentId,
     currentQuery,
     inputMode,
@@ -512,6 +622,7 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     sqlPanelExpanded,
     paramPanelExpanded,
     listPanelCollapsed,
+    resultPanelExpanded,
 
     // 计算属性
     currentQueryName,
@@ -539,10 +650,18 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     exportConfig,
     importConfig,
     parseParams,
+    loadFolders,
+    createFolder,
+    updateFolder,
+    deleteFolder,
+    moveToFolder,
+    toggleFolder,
+    isFolderExpanded,
     setInputMode,
     toggleSqlPanel,
     toggleParamPanel,
     toggleListPanel,
+    toggleResultPanel,
     reset
   }
 })

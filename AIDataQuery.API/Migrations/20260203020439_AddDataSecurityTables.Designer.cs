@@ -4,6 +4,7 @@ using AIDataQuery.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AIDataQuery.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260203020439_AddDataSecurityTables")]
+    partial class AddDataSecurityTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,9 +45,6 @@ namespace AIDataQuery.API.Migrations
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("varchar(500)");
-
-                    b.Property<int?>("FolderId")
-                        .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -79,42 +79,9 @@ namespace AIDataQuery.API.Migrations
 
                     b.HasIndex("CreatedBy");
 
-                    b.HasIndex("FolderId");
-
                     b.HasIndex("IsPublic");
 
                     b.ToTable("ConfigQueries");
-                });
-
-            modelBuilder.Entity("AIDataQuery.API.Models.Entities.ConfigQueryFolder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.Property<int>("SortOrder")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatedBy");
-
-                    b.ToTable("ConfigQueryFolders");
                 });
 
             modelBuilder.Entity("AIDataQuery.API.Models.Entities.ConfigQueryParamPreset", b =>
@@ -739,25 +706,7 @@ namespace AIDataQuery.API.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("AIDataQuery.API.Models.Entities.ConfigQueryFolder", "Folder")
-                        .WithMany("ConfigQueries")
-                        .HasForeignKey("FolderId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
                     b.Navigation("Connection");
-
-                    b.Navigation("Creator");
-
-                    b.Navigation("Folder");
-                });
-
-            modelBuilder.Entity("AIDataQuery.API.Models.Entities.ConfigQueryFolder", b =>
-                {
-                    b.HasOne("AIDataQuery.API.Models.Entities.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
 
                     b.Navigation("Creator");
                 });
@@ -918,11 +867,6 @@ namespace AIDataQuery.API.Migrations
                     b.Navigation("Parameters");
 
                     b.Navigation("Presets");
-                });
-
-            modelBuilder.Entity("AIDataQuery.API.Models.Entities.ConfigQueryFolder", b =>
-                {
-                    b.Navigation("ConfigQueries");
                 });
 
             modelBuilder.Entity("AIDataQuery.API.Models.Entities.DatabaseConnection", b =>
