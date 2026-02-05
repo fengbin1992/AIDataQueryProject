@@ -11,7 +11,8 @@ import type {
   CreateParamPresetRequest,
   ConfigQueryFolder,
   CreateFolderRequest,
-  UpdateFolderRequest
+  UpdateFolderRequest,
+  ConditionSwitchItem
 } from '@/types/configQuery'
 import type { QueryResult } from '@/types'
 
@@ -49,6 +50,9 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
   // 参数预设
   const presets = ref<ConfigQueryParamPreset[]>([])
   const currentPresetId = ref<number | null>(null)
+
+  // 条件开关状态（key: 条件组名或参数名, value: 是否启用）
+  const conditionSwitches = ref<Record<string, boolean>>({})
 
   // 执行结果
   const result = ref<QueryResult | null>(null)
@@ -92,6 +96,34 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     if (!currentQuery.value) return ''
     const sql = currentQuery.value.sqlContent
     return sql.length > 50 ? sql.substring(0, 50) + '...' : sql
+  })
+
+  // 条件开关列表（每个参数或条件组一个开关）
+  const conditionSwitchList = computed<ConditionSwitchItem[]>(() => {
+    if (!currentQuery.value) return []
+    if (currentQuery.value.parameters.length === 0) return []
+
+    const groups = new Map<string, { label: string; paramNames: string[] }>()
+
+    for (const param of currentQuery.value.parameters) {
+      // 有条件组用条件组名，没有则用参数名
+      const key = param.conditionGroup || param.paramName
+      if (!groups.has(key)) {
+        groups.set(key, {
+          // 有条件组显示条件组名，没有显示参数标签
+          label: param.conditionGroup || param.paramLabel,
+          paramNames: []
+        })
+      }
+      groups.get(key)!.paramNames.push(param.paramName)
+    }
+
+    return Array.from(groups.entries()).map(([key, info]) => ({
+      key,
+      label: info.label,
+      enabled: conditionSwitches.value[key] !== false, // 默认启用
+      paramNames: info.paramNames
+    }))
   })
 
   // ==================== 监听器 ====================
@@ -185,6 +217,39 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     jsonEditorContent.value = JSON.stringify(values, null, 2)
     jsonParseError.value = null
     currentPresetId.value = null
+
+    // 初始化条件开关
+    initConditionSwitches()
+  }
+
+  /**
+   * 初始化条件开关（每个参数或条件组一个开关，默认全部启用）
+   */
+  function initConditionSwitches(): void {
+    if (!currentQuery.value) return
+
+    const switches: Record<string, boolean> = {}
+    for (const param of currentQuery.value.parameters) {
+      const key = param.conditionGroup || param.paramName
+      if (!(key in switches)) {
+        switches[key] = true // 默认启用
+      }
+    }
+    conditionSwitches.value = switches
+  }
+
+  /**
+   * 切换条件启用状态
+   */
+  function toggleCondition(key: string): void {
+    conditionSwitches.value[key] = !conditionSwitches.value[key]
+  }
+
+  /**
+   * 设置条件启用状态
+   */
+  function setConditionEnabled(key: string, enabled: boolean): void {
+    conditionSwitches.value[key] = enabled
   }
 
   /**
@@ -355,9 +420,19 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     executing.value = true
     result.value = null
 
+    // 构建启用的条件列表
+    const enabledConditions = Object.entries(conditionSwitches.value)
+      .filter(([, isEnabled]) => isEnabled)
+      .map(([key]) => key)
+
+    // 如果全部启用或没有条件开关，传 null（后端优化）
+    const allEnabled = conditionSwitchList.value.length === 0 ||
+      enabledConditions.length === conditionSwitchList.value.length
+
     const request: ExecuteConfigQueryRequest = {
       connectionId,
-      parameters: paramValues.value
+      parameters: paramValues.value,
+      enabledConditions: allEnabled ? null : enabledConditions
     }
 
     try {
@@ -594,6 +669,7 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     jsonParseError.value = null
     presets.value = []
     currentPresetId.value = null
+    conditionSwitches.value = {}
     result.value = null
     resultPanelExpanded.value = false
     inputMode.value = 'form'
@@ -617,6 +693,7 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     jsonParseError,
     presets,
     currentPresetId,
+    conditionSwitches,
     result,
     executing,
     sqlPanelExpanded,
@@ -630,12 +707,16 @@ export const useConfigQueryStore = defineStore('configQuery', () => {
     canEdit,
     paramValuesSummary,
     sqlPreviewSummary,
+    conditionSwitchList,
 
     // 操作
     loadList,
     search,
     selectQuery,
     initParamValues,
+    initConditionSwitches,
+    toggleCondition,
+    setConditionEnabled,
     loadPresets,
     applyPreset,
     savePreset,

@@ -155,6 +155,11 @@
                 <label class="form-label">默认值</label>
                 <el-input v-model="param.defaultValue" placeholder="参数的默认值（可选）" />
               </div>
+              <div class="form-item" style="flex: 1;">
+                <label class="form-label">条件组</label>
+                <el-input v-model="param.conditionGroup" placeholder="同组参数共享开关（可选）" />
+                <div class="form-tip">如日期范围的 StartDate 和 EndDate 可设为同一组</div>
+              </div>
             </div>
 
             <!-- 下拉选项配置 -->
@@ -342,7 +347,8 @@ async function handleOpen() {
           optionsConfig: p.optionsConfig || { mode: 'static', options: [] },
           validationRule: p.validationRule || '',
           extraConfig: p.extraConfig || {},
-          sortOrder: p.sortOrder
+          sortOrder: p.sortOrder,
+          conditionGroup: p.conditionGroup || ''
         }))
       }
       parametersJson.value = JSON.stringify(form.value.parameters, null, 2)
@@ -428,7 +434,8 @@ function createDefaultParameter(paramName: string): CreateConfigQueryParameterRe
     optionsConfig: { mode: 'static', options: [] },
     validationRule: '',
     extraConfig: {},
-    sortOrder: form.value.parameters.length
+    sortOrder: form.value.parameters.length,
+    conditionGroup: ''
   }
 }
 

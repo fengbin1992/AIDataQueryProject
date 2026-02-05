@@ -65,7 +65,7 @@ public class QueryService : IQueryService
                 };
             }
 
-            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
             var timeoutSeconds = _configuration.GetValue<int>("Query:TimeoutSeconds", 30);
             var maxRows = _configuration.GetValue<int>("Query:MaxRows", 10000);
 
@@ -151,7 +151,7 @@ public class QueryService : IQueryService
 
         try
         {
-            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
             using var sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
 
@@ -190,7 +190,7 @@ public class QueryService : IQueryService
 
         try
         {
-            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
             using var sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
 
@@ -232,7 +232,7 @@ public class QueryService : IQueryService
 
         try
         {
-            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
             using var sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
             return true;
@@ -327,7 +327,7 @@ public class QueryService : IQueryService
         }
 
         var maxExportRows = _configuration.GetValue<int>("Query:MaxExportRows", 50000);
-        var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+        var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
 
         using var sqlConnection = new SqlConnection(connectionString);
         await sqlConnection.OpenAsync();
@@ -385,5 +385,22 @@ public class QueryService : IQueryService
 
         _context.QueryLogs.Add(log);
         await _context.SaveChangesAsync();
+    }
+
+    /// <summary>
+    /// 确保连接字符串包含SSL相关设置，避免证书验证错误
+    /// </summary>
+    private static string EnsureSslSettings(string connectionString)
+    {
+        if (string.IsNullOrEmpty(connectionString))
+            return connectionString;
+
+        // 如果连接字符串中已经包含 TrustServerCertificate 或 Encrypt 设置，则不做修改
+        if (connectionString.Contains("TrustServerCertificate", StringComparison.OrdinalIgnoreCase))
+            return connectionString;
+
+        // 添加 TrustServerCertificate=True 以信任服务器证书
+        var separator = connectionString.TrimEnd().EndsWith(';') ? "" : ";";
+        return connectionString + separator + "TrustServerCertificate=True";
     }
 }

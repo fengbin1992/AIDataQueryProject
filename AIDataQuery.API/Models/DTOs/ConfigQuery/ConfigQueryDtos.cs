@@ -60,6 +60,11 @@ public class ConfigQueryParameterDto
     public string? ValidationRule { get; set; }
     public ExtraConfigDto? ExtraConfig { get; set; }
     public int SortOrder { get; set; }
+
+    /// <summary>
+    /// 条件组名称（同组参数共享开关）
+    /// </summary>
+    public string? ConditionGroup { get; set; }
 }
 
 #endregion
@@ -165,6 +170,11 @@ public class CreateConfigQueryParameterRequest
     public string? ValidationRule { get; set; }
     public ExtraConfigDto? ExtraConfig { get; set; }
     public int SortOrder { get; set; } = 0;
+
+    /// <summary>
+    /// 条件组名称（同组参数共享开关）
+    /// </summary>
+    public string? ConditionGroup { get; set; }
 }
 
 /// <summary>
@@ -197,6 +207,11 @@ public class ExecuteConfigQueryRequest
     /// 参数值（JSON 对象）
     /// </summary>
     public Dictionary<string, object?> Parameters { get; set; } = new();
+
+    /// <summary>
+    /// 启用的条件组/参数名列表，null表示全部启用
+    /// </summary>
+    public List<string>? EnabledConditions { get; set; }
 }
 
 /// <summary>

@@ -265,29 +265,8 @@
               @sync="store.syncJsonToForm"
             />
 
-            <!-- 预设和执行按钮 -->
+            <!-- 执行按钮 -->
             <div class="action-bar">
-              <div class="preset-section">
-                <span>预设:</span>
-                <el-select
-                  v-model="store.currentPresetId"
-                  placeholder="选择预设"
-                  size="small"
-                  clearable
-                  @change="handlePresetChange"
-                >
-                  <el-option
-                    v-for="preset in store.presets"
-                    :key="preset.id"
-                    :label="preset.name"
-                    :value="preset.id"
-                  />
-                </el-select>
-                <el-button size="small" @click="showSavePreset">
-                  <el-icon><FolderAdd /></el-icon>
-                  保存
-                </el-button>
-              </div>
               <el-button
                 type="primary"
                 :loading="store.executing"
@@ -355,22 +334,6 @@
       @success="handleEditorSuccess"
     />
 
-    <!-- 保存预设弹窗 -->
-    <el-dialog v-model="savePresetVisible" title="保存参数预设" width="400px">
-      <el-form :model="presetForm" label-width="80px">
-        <el-form-item label="预设名称" required>
-          <el-input v-model="presetForm.name" placeholder="请输入预设名称" />
-        </el-form-item>
-        <el-form-item label="设为默认">
-          <el-switch v-model="presetForm.isDefault" />
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <el-button @click="savePresetVisible = false">取消</el-button>
-        <el-button type="primary" @click="savePreset">保存</el-button>
-      </template>
-    </el-dialog>
-
     <!-- 新建文件夹弹窗 -->
     <el-dialog v-model="newFolderVisible" title="新建文件夹" width="400px">
       <el-form label-width="80px">
@@ -428,7 +391,6 @@ import {
   Document,
   CopyDocument,
   Edit,
-  FolderAdd,
   VideoPlay,
   Folder,
   FolderOpened,
@@ -459,13 +421,6 @@ const searchKeyword = ref('')
 // 编辑器状态
 const editorVisible = ref(false)
 const editingId = ref<number | null>(null)
-
-// 预设表单
-const savePresetVisible = ref(false)
-const presetForm = ref({
-  name: '',
-  isDefault: false
-})
 
 // 文件夹相关
 const newFolderVisible = ref(false)
@@ -612,31 +567,6 @@ function copySql() {
   if (store.currentQuery) {
     navigator.clipboard.writeText(store.currentQuery.sqlContent)
     ElMessage.success('SQL 已复制到剪贴板')
-  }
-}
-
-function handlePresetChange(presetId: number | null) {
-  if (presetId) {
-    store.applyPreset(presetId)
-  }
-}
-
-function showSavePreset() {
-  presetForm.value = { name: '', isDefault: false }
-  savePresetVisible.value = true
-}
-
-async function savePreset() {
-  if (!presetForm.value.name) {
-    ElMessage.warning('请输入预设名称')
-    return
-  }
-  try {
-    await store.savePreset(presetForm.value.name, presetForm.value.isDefault)
-    ElMessage.success('预设保存成功')
-    savePresetVisible.value = false
-  } catch (error) {
-    ElMessage.error('保存失败')
   }
 }
 
@@ -1118,27 +1048,10 @@ watch(
   .action-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid var(--el-border-color-light);
-    flex-wrap: wrap;
-    gap: 8px;
-
-    .preset-section {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-
-      > span {
-        white-space: nowrap;
-      }
-
-      .el-select {
-        min-width: 180px;
-      }
-    }
   }
 
   .quick-execute {
@@ -1196,6 +1109,21 @@ watch(
         height: auto;
         min-height: 0;
         overflow: hidden;
+      }
+    }
+  }
+}
+
+// 斑马纹效果 - 增强对比度
+:deep(.el-table) {
+  .el-table__row {
+    td.el-table__cell {
+      background-color: var(--el-bg-color);
+    }
+
+    &--striped {
+      td.el-table__cell {
+        background-color: var(--el-fill-color);
       }
     }
   }

@@ -222,6 +222,7 @@ public class AppDbContext : DbContext
             entity.Property(e => e.Placeholder).HasMaxLength(200);
             entity.Property(e => e.ValidationRule).HasMaxLength(200);
             entity.Property(e => e.SortOrder).HasDefaultValue(0);
+            entity.Property(e => e.ConditionGroup).HasMaxLength(50);
             entity.HasIndex(e => new { e.ConfigQueryId, e.ParamName }).IsUnique();
 
             entity.HasOne(e => e.ConfigQuery)

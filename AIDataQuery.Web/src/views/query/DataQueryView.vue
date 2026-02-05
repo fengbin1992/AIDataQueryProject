@@ -98,7 +98,7 @@ const workspaceRef = ref<InstanceType<typeof QueryWorkspace>>()
 const activeTab = ref<'sql' | 'config'>('sql')
 
 // 面板隐藏状态
-const isTabsHidden = ref(false)
+const isTabsHidden = ref(true)
 const isSelectorsHidden = ref(false)
 const isResultHidden = ref(false)
 

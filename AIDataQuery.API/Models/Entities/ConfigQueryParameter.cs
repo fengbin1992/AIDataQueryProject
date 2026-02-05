@@ -62,6 +62,12 @@ public class ConfigQueryParameter
     /// </summary>
     public int SortOrder { get; set; } = 0;
 
+    /// <summary>
+    /// 条件组名称（同组参数共享开关，如日期范围的StartDate和EndDate）
+    /// 为空表示独立参数，使用ParamName作为条件标识
+    /// </summary>
+    public string? ConditionGroup { get; set; }
+
     // Navigation property
     public ConfigQuery? ConfigQuery { get; set; }
 }

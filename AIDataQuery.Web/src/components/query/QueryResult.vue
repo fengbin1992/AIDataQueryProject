@@ -320,5 +320,18 @@ function formatSqlValue(value: unknown): string {
     font-family: 'Consolas', 'Monaco', monospace;
     font-size: 13px;
   }
+
+  // 斑马纹效果 - 增强对比度
+  .el-table__row {
+    td.el-table__cell {
+      background-color: var(--el-bg-color);
+    }
+
+    &--striped {
+      td.el-table__cell {
+        background-color: var(--el-fill-color);
+      }
+    }
+  }
 }
 </style>

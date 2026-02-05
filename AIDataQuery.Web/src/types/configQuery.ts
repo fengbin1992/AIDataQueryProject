@@ -65,6 +65,8 @@ export interface ConfigQueryParameter {
   validationRule?: string
   extraConfig?: ExtraConfig
   sortOrder: number
+  /** 条件组名称（同组参数共享开关） */
+  conditionGroup?: string
 }
 
 /** 配置查询详情 */
@@ -98,6 +100,8 @@ export interface CreateConfigQueryParameterRequest {
   validationRule?: string
   extraConfig?: ExtraConfig
   sortOrder: number
+  /** 条件组名称（同组参数共享开关） */
+  conditionGroup?: string
 }
 
 /** 创建配置查询请求 */
@@ -129,6 +133,8 @@ export interface UpdateConfigQueryRequest {
 export interface ExecuteConfigQueryRequest {
   connectionId?: number
   parameters: Record<string, unknown>
+  /** 启用的条件组/参数名列表，null/undefined表示全部启用 */
+  enabledConditions?: string[] | null
 }
 
 /** 参数预设 */
@@ -223,4 +229,16 @@ export interface UpdateFolderRequest {
 /** 移动到文件夹请求 */
 export interface MoveToFolderRequest {
   folderId?: number
+}
+
+/** 条件开关状态 */
+export interface ConditionSwitchItem {
+  /** 条件组/参数名（唯一标识） */
+  key: string
+  /** 显示名称 */
+  label: string
+  /** 是否启用 */
+  enabled: boolean
+  /** 包含的参数名列表 */
+  paramNames: string[]
 }

@@ -1,5 +1,29 @@
 <template>
   <div class="param-form-view">
+    <!-- 条件开关区域 -->
+    <div v-if="store.conditionSwitchList.length > 0" class="condition-switches">
+      <div class="switches-header">
+        <span class="label">条件开关</span>
+        <el-button link type="primary" size="small" @click="enableAll">全部启用</el-button>
+        <el-button link type="info" size="small" @click="disableAll">全部禁用</el-button>
+      </div>
+      <div class="switches-body">
+        <el-tag
+          v-for="item in store.conditionSwitchList"
+          :key="item.key"
+          :type="item.enabled ? 'primary' : 'info'"
+          :effect="item.enabled ? 'dark' : 'plain'"
+          class="condition-tag"
+          @click="store.toggleCondition(item.key)"
+        >
+          <el-icon v-if="item.enabled"><Check /></el-icon>
+          <el-icon v-else><Close /></el-icon>
+          {{ item.label }}
+        </el-tag>
+      </div>
+    </div>
+
+    <!-- 参数表单 -->
     <el-form :model="formValues" label-position="top" size="default">
       <el-row :gutter="16">
         <el-col
@@ -9,13 +33,15 @@
         >
           <el-form-item
             :label="param.paramLabel"
-            :required="param.isRequired"
+            :required="param.isRequired && isParamEnabled(param)"
+            :class="{ 'param-disabled': !isParamEnabled(param) }"
           >
             <!-- 文本输入 -->
             <el-input
               v-if="param.paramType === 'text'"
               :model-value="formValues[param.paramName] as string"
               :placeholder="param.placeholder || '请输入'"
+              :disabled="!isParamEnabled(param)"
               clearable
               @update:model-value="(val: string) => { formValues[param.paramName] = val; emitChange() }"
             />
@@ -29,6 +55,7 @@
               :max="param.extraConfig?.max"
               :precision="param.extraConfig?.precision"
               :step="param.extraConfig?.step || 1"
+              :disabled="!isParamEnabled(param)"
               controls-position="right"
               style="width: 100%"
               @update:model-value="(val: number | undefined) => { formValues[param.paramName] = val ?? 0; emitChange() }"
@@ -42,6 +69,7 @@
               :placeholder="param.placeholder || '请选择日期'"
               :format="param.extraConfig?.format || 'YYYY-MM-DD'"
               value-format="YYYY-MM-DD"
+              :disabled="!isParamEnabled(param)"
               style="width: 100%"
               @update:model-value="(val: string | null) => { formValues[param.paramName] = val ?? ''; emitChange() }"
             />
@@ -56,6 +84,7 @@
               end-placeholder="结束日期"
               :format="param.extraConfig?.format || 'YYYY-MM-DD'"
               value-format="YYYY-MM-DD"
+              :disabled="!isParamEnabled(param)"
               style="width: 100%"
               @update:model-value="(val: [string, string] | null) => { formValues[param.paramName] = val ?? ['', '']; emitChange() }"
             />
@@ -65,6 +94,7 @@
               v-else-if="param.paramType === 'select'"
               :model-value="formValues[param.paramName] as string | number"
               :placeholder="param.placeholder || '请选择'"
+              :disabled="!isParamEnabled(param)"
               clearable
               filterable
               style="width: 100%"
@@ -84,6 +114,7 @@
               v-else-if="param.paramType === 'multiselect'"
               :model-value="formValues[param.paramName] as (string | number)[]"
               :placeholder="param.placeholder || '请选择'"
+              :disabled="!isParamEnabled(param)"
               multiple
               clearable
               filterable
@@ -109,7 +140,9 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted } from 'vue'
+import { Check, Close } from '@element-plus/icons-vue'
 import { configQueryApi } from '@/services/configQuery'
+import { useConfigQueryStore } from '@/stores/configQuery'
 import type { ConfigQueryParameter, OptionItem } from '@/types/configQuery'
 
 const props = defineProps<{
@@ -121,6 +154,7 @@ const emit = defineEmits<{
   'update:values': [values: Record<string, unknown>]
 }>()
 
+const store = useConfigQueryStore()
 const formValues = ref<Record<string, unknown>>({})
 const dynamicOptions = ref<Record<string, OptionItem[]>>({})
 
@@ -137,6 +171,26 @@ watch(
 function getColSpan(paramType: string): number {
   if (paramType === 'daterange') return 12
   return 8
+}
+
+// 判断参数是否启用
+function isParamEnabled(param: ConfigQueryParameter): boolean {
+  const key = param.conditionGroup || param.paramName
+  return store.conditionSwitches[key] !== false
+}
+
+// 全部启用
+function enableAll(): void {
+  for (const item of store.conditionSwitchList) {
+    store.setConditionEnabled(item.key, true)
+  }
+}
+
+// 全部禁用
+function disableAll(): void {
+  for (const item of store.conditionSwitchList) {
+    store.setConditionEnabled(item.key, false)
+  }
 }
 
 // 获取选项
@@ -191,8 +245,66 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .param-form-view {
+  .condition-switches {
+    margin-bottom: 16px;
+    padding: 12px;
+    background: var(--el-fill-color-lighter);
+    border-radius: 8px;
+
+    .switches-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+
+      .label {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--el-text-color-secondary);
+      }
+    }
+
+    .switches-body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .condition-tag {
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+      max-width: none !important;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      :deep(.el-tag__content) {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+        overflow: visible;
+      }
+
+      :deep(.el-icon) {
+        margin-right: 6px;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+    }
+  }
+
   .el-form-item {
     margin-bottom: 12px;
+
+    &.param-disabled {
+      opacity: 0.5;
+
+      :deep(.el-form-item__label) {
+        text-decoration: line-through;
+      }
+    }
   }
 
   :deep(.el-form-item__label) {

@@ -152,7 +152,8 @@ public class ConfigQueryService : IConfigQueryService
                     ExtraConfig = param.ExtraConfig != null
                         ? JsonSerializer.Serialize(param.ExtraConfig, JsonOptions)
                         : null,
-                    SortOrder = param.SortOrder > 0 ? param.SortOrder : sortOrder++
+                    SortOrder = param.SortOrder > 0 ? param.SortOrder : sortOrder++,
+                    ConditionGroup = param.ConditionGroup
                 };
                 _context.ConfigQueryParameters.Add(parameter);
             }
@@ -215,7 +216,8 @@ public class ConfigQueryService : IConfigQueryService
                     ExtraConfig = param.ExtraConfig != null
                         ? JsonSerializer.Serialize(param.ExtraConfig, JsonOptions)
                         : null,
-                    SortOrder = param.SortOrder > 0 ? param.SortOrder : sortOrder++
+                    SortOrder = param.SortOrder > 0 ? param.SortOrder : sortOrder++,
+                    ConditionGroup = param.ConditionGroup
                 };
                 _context.ConfigQueryParameters.Add(parameter);
             }
@@ -296,7 +298,8 @@ public class ConfigQueryService : IConfigQueryService
                 OptionsConfig = param.OptionsConfig,
                 ValidationRule = param.ValidationRule,
                 ExtraConfig = param.ExtraConfig,
-                SortOrder = param.SortOrder
+                SortOrder = param.SortOrder,
+                ConditionGroup = param.ConditionGroup
             };
             _context.ConfigQueryParameters.Add(copyParam);
         }
@@ -343,9 +346,24 @@ public class ConfigQueryService : IConfigQueryService
             return new QueryResult { Success = false, ErrorMessage = "数据库连接不存在" };
         }
 
-        // 验证必填参数
+        // 调试日志：输出前端传递的 enabledConditions
+        _logger.LogInformation("EnabledConditions from request: {EnabledConditions}",
+            request.EnabledConditions == null ? "null" : $"[{string.Join(", ", request.EnabledConditions)}]");
+
+        // 验证必填参数（只验证启用的参数）
+        var enabledSet = request.EnabledConditions != null
+            ? new HashSet<string>(request.EnabledConditions, StringComparer.OrdinalIgnoreCase)
+            : null;
+
         foreach (var param in configQuery.Parameters.Where(p => p.IsRequired))
         {
+            // 检查参数或其所属组是否启用
+            var conditionKey = string.IsNullOrWhiteSpace(param.ConditionGroup) ? param.ParamName : param.ConditionGroup;
+            if (enabledSet != null && !enabledSet.Contains(conditionKey))
+            {
+                continue; // 跳过禁用参数的验证
+            }
+
             if (!request.Parameters.TryGetValue(param.ParamName, out var value) ||
                 value == null || (value is string s && string.IsNullOrEmpty(s)))
             {
@@ -365,12 +383,20 @@ public class ConfigQueryService : IConfigQueryService
             _logger.LogInformation("Request parameters: {Params}",
                 string.Join(", ", request.Parameters.Select(kv => $"{kv.Key}={kv.Value}")));
 
-            // 替换参数
-            var sql = ReplaceParameters(configQuery.SqlContent, configQuery.Parameters.ToList(), request.Parameters);
+            // 先移除禁用的条件行
+            var sqlAfterConditionRemoval = RemoveDisabledConditions(
+                configQuery.SqlContent,
+                configQuery.Parameters.ToList(),
+                request.EnabledConditions);
+
+            _logger.LogInformation("SQL after condition removal: {Sql}", sqlAfterConditionRemoval);
+
+            // 然后替换参数
+            var sql = ReplaceParameters(sqlAfterConditionRemoval, configQuery.Parameters.ToList(), request.Parameters);
 
             _logger.LogInformation("SQL after parameter replacement: {Sql}", sql);
 
-            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
             var timeoutSeconds = _configuration.GetValue<int>("Query:TimeoutSeconds", 30);
             var maxRows = _configuration.GetValue<int>("Query:MaxRows", 10000);
 
@@ -484,7 +510,7 @@ public class ConfigQueryService : IConfigQueryService
 
         try
         {
-            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
             using var sqlConnection = new SqlConnection(connectionString);
             await sqlConnection.OpenAsync();
 
@@ -723,7 +749,8 @@ public class ConfigQueryService : IConfigQueryService
                 ExtraConfig = !string.IsNullOrEmpty(p.ExtraConfig)
                     ? JsonSerializer.Deserialize<ExtraConfigDto>(p.ExtraConfig, JsonOptions)
                     : null,
-                SortOrder = p.SortOrder
+                SortOrder = p.SortOrder,
+                ConditionGroup = p.ConditionGroup
             }).ToList()
         };
     }
@@ -734,12 +761,17 @@ public class ConfigQueryService : IConfigQueryService
 
         foreach (var param in parameters)
         {
-            if (!values.TryGetValue(param.ParamName, out var value))
+            // Trim 参数名，防止数据库中存储的参数名有空格
+            var trimmedParamName = param.ParamName.Trim();
+
+            // 尝试从 values 中获取值（先尝试原始参数名，再尝试 trim 后的参数名）
+            if (!values.TryGetValue(param.ParamName, out var value) &&
+                !values.TryGetValue(trimmedParamName, out value))
             {
                 value = param.DefaultValue;
             }
 
-            var placeholder = $"@{param.ParamName}";
+            var placeholder = $"@{trimmedParamName}";
             var replacement = FormatParameterValue(param.ParamType, value);
 
             result = result.Replace(placeholder, replacement);
@@ -824,6 +856,98 @@ public class ConfigQueryService : IConfigQueryService
         }
 
         return items.Count > 0 ? string.Join(",", items) : "''";
+    }
+
+    /// <summary>
+    /// 根据启用状态移除SQL中的条件行
+    /// </summary>
+    private string RemoveDisabledConditions(
+        string sql,
+        List<ConfigQueryParameter> parameters,
+        List<string>? enabledConditions)
+    {
+        // null表示全部启用
+        if (enabledConditions == null) return sql;
+
+        // 构建需要保留的条件组/参数名集合
+        var enabledSet = new HashSet<string>(enabledConditions, StringComparer.OrdinalIgnoreCase);
+
+        // 构建禁用的参数名集合
+        var disabledParams = new List<string>();
+        foreach (var param in parameters)
+        {
+            var conditionKey = string.IsNullOrWhiteSpace(param.ConditionGroup) ? param.ParamName : param.ConditionGroup;
+            var isEnabled = enabledSet.Contains(conditionKey);
+            _logger.LogInformation("Param: '{ParamName}', ConditionGroup: '{ConditionGroup}', ConditionKey: '{ConditionKey}', IsEnabled: {IsEnabled}",
+                param.ParamName, param.ConditionGroup ?? "(null)", conditionKey, isEnabled);
+            if (!isEnabled)
+            {
+                disabledParams.Add(param.ParamName);
+            }
+        }
+
+        if (disabledParams.Count == 0) return sql;
+
+        _logger.LogInformation("Disabled params to remove: {Params}", string.Join(", ", disabledParams));
+
+        var result = sql;
+
+        // 移除包含禁用参数的 AND/OR 条件
+        foreach (var paramName in disabledParams)
+        {
+            // Trim 参数名，防止数据库中存储的参数名有空格
+            var trimmedParamName = paramName.Trim();
+
+            // 匹配模式: and/or 字段名(支持 a.[中文] 格式) 运算符 @参数名
+            // 字段名可以是: a.[xxx], [xxx], a.xxx, xxx 等格式
+            var pattern = $@"\s+(AND|OR)\s+[a-zA-Z0-9_\.]*\[?[^\]]*\]?\s*=\s*@{Regex.Escape(trimmedParamName)}\b";
+            result = Regex.Replace(result, pattern, " ", RegexOptions.IgnoreCase);
+
+            // 也处理 LIKE 情况
+            pattern = $@"\s+(AND|OR)\s+[a-zA-Z0-9_\.]*\[?[^\]]*\]?\s+LIKE\s+[^@]*@{Regex.Escape(trimmedParamName)}\b[^']*";
+            result = Regex.Replace(result, pattern, " ", RegexOptions.IgnoreCase);
+
+            // 处理 IN 情况
+            pattern = $@"\s+(AND|OR)\s+[a-zA-Z0-9_\.]*\[?[^\]]*\]?\s+IN\s*\([^)]*@{Regex.Escape(trimmedParamName)}\b[^)]*\)";
+            result = Regex.Replace(result, pattern, " ", RegexOptions.IgnoreCase);
+        }
+
+        // 清理多余的空白
+        result = Regex.Replace(result, @"[ \t]+", " ");
+        result = Regex.Replace(result, @"\n\s*\n", "\n");
+
+        // 清理多余的AND/OR
+        result = CleanupWhereClause(result);
+
+        _logger.LogInformation("SQL after removing disabled conditions:\n{Sql}", result);
+
+        return result;
+    }
+
+    /// <summary>
+    /// 清理WHERE子句中悬空的AND/OR
+    /// </summary>
+    private string CleanupWhereClause(string sql)
+    {
+        // 移除WHERE后直接跟AND/OR的情况（考虑换行和空格）
+        sql = Regex.Replace(sql, @"WHERE\s+(AND|OR)\s+", "WHERE ", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        // 移除1=1后直接跟AND的多余空行情况
+        sql = Regex.Replace(sql, @"1\s*=\s*1\s+(AND|OR)\s+", "1=1 $1 ", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        // 移除连续的AND/OR
+        sql = Regex.Replace(sql, @"\s+(AND|OR)\s+(AND|OR)\s+", " $2 ", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        // 移除末尾悬空的AND/OR (在GROUP BY/ORDER BY/LIMIT/HAVING等之前)
+        sql = Regex.Replace(sql, @"\s+(AND|OR)\s*(?=\s*(GROUP|ORDER|LIMIT|HAVING|;|$))", " ", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        // 移除空的WHERE 1=1子句后面没有条件的情况 (WHERE 1=1 直接跟 GROUP/ORDER等)
+        sql = Regex.Replace(sql, @"WHERE\s+1\s*=\s*1\s*(?=\s*(GROUP|ORDER|LIMIT|HAVING|;|$))", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        // 移除完全空的WHERE子句
+        sql = Regex.Replace(sql, @"WHERE\s+(?=(GROUP|ORDER|LIMIT|HAVING|;|$))", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+
+        return sql.Trim();
     }
 
     private async Task LogQueryAsync(
@@ -955,4 +1079,21 @@ public class ConfigQueryService : IConfigQueryService
     }
 
     #endregion
+
+    /// <summary>
+    /// 确保连接字符串包含SSL相关设置，避免证书验证错误
+    /// </summary>
+    private static string EnsureSslSettings(string connectionString)
+    {
+        if (string.IsNullOrEmpty(connectionString))
+            return connectionString;
+
+        // 如果连接字符串中已经包含 TrustServerCertificate 或 Encrypt 设置，则不做修改
+        if (connectionString.Contains("TrustServerCertificate", StringComparison.OrdinalIgnoreCase))
+            return connectionString;
+
+        // 添加 TrustServerCertificate=True 以信任服务器证书
+        var separator = connectionString.TrimEnd().EndsWith(';') ? "" : ";";
+        return connectionString + separator + "TrustServerCertificate=True";
+    }
 }
