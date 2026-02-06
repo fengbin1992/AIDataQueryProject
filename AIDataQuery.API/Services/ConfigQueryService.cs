@@ -1,4 +1,5 @@
 using System.Data;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
@@ -12,6 +13,7 @@ using AIDataQuery.API.Models.Entities;
 using AIDataQuery.API.Models.Enums;
 using AIDataQuery.API.Services.Interfaces;
 using AIDataQuery.API.Infrastructure.Encryption;
+using AIDataQuery.API.Infrastructure.Database;
 
 namespace AIDataQuery.API.Services;
 
@@ -396,17 +398,15 @@ public class ConfigQueryService : IConfigQueryService
 
             _logger.LogInformation("SQL after parameter replacement: {Sql}", sql);
 
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
             var timeoutSeconds = _configuration.GetValue<int>("Query:TimeoutSeconds", 30);
             var maxRows = _configuration.GetValue<int>("Query:MaxRows", 10000);
 
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
 
-            using var command = new SqlCommand(sql, sqlConnection)
-            {
-                CommandTimeout = timeoutSeconds
-            };
+            using var command = DbConnectionFactory.CreateCommand(sql, dbConnection);
+            command.CommandTimeout = timeoutSeconds;
 
             using var reader = await command.ExecuteReaderAsync();
 
@@ -449,7 +449,7 @@ public class ConfigQueryService : IConfigQueryService
                 ExecutionTimeMs = (int)stopwatch.ElapsedMilliseconds
             };
         }
-        catch (SqlException ex)
+        catch (DbException ex)
         {
             stopwatch.Stop();
             var errorMessage = $"SQL执行错误: {ex.Message}";
@@ -510,14 +510,12 @@ public class ConfigQueryService : IConfigQueryService
 
         try
         {
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
 
-            using var command = new SqlCommand(request.Sql, sqlConnection)
-            {
-                CommandTimeout = 30
-            };
+            using var command = DbConnectionFactory.CreateCommand(request.Sql, dbConnection);
+            command.CommandTimeout = 30;
 
             using var reader = await command.ExecuteReaderAsync();
 
@@ -1080,20 +1078,4 @@ public class ConfigQueryService : IConfigQueryService
 
     #endregion
 
-    /// <summary>
-    /// 确保连接字符串包含SSL相关设置，避免证书验证错误
-    /// </summary>
-    private static string EnsureSslSettings(string connectionString)
-    {
-        if (string.IsNullOrEmpty(connectionString))
-            return connectionString;
-
-        // 如果连接字符串中已经包含 TrustServerCertificate 或 Encrypt 设置，则不做修改
-        if (connectionString.Contains("TrustServerCertificate", StringComparison.OrdinalIgnoreCase))
-            return connectionString;
-
-        // 添加 TrustServerCertificate=True 以信任服务器证书
-        var separator = connectionString.TrimEnd().EndsWith(';') ? "" : ";";
-        return connectionString + separator + "TrustServerCertificate=True";
-    }
 }

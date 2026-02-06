@@ -6,6 +6,7 @@ using AIDataQuery.API.Models.Entities;
 using AIDataQuery.API.Models.Enums;
 using AIDataQuery.API.Services.Interfaces;
 using AIDataQuery.API.Infrastructure.Encryption;
+using AIDataQuery.API.Infrastructure.Database;
 
 namespace AIDataQuery.API.Services;
 
@@ -384,9 +385,9 @@ public class PlatformService : IPlatformService
 
         try
         {
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
             return true;
         }
         catch (Exception ex)
@@ -396,20 +397,4 @@ public class PlatformService : IPlatformService
         }
     }
 
-    /// <summary>
-    /// 确保连接字符串包含SSL相关设置，避免证书验证错误
-    /// </summary>
-    private static string EnsureSslSettings(string connectionString)
-    {
-        if (string.IsNullOrEmpty(connectionString))
-            return connectionString;
-
-        // 如果连接字符串中已经包含 TrustServerCertificate 或 Encrypt 设置，则不做修改
-        if (connectionString.Contains("TrustServerCertificate", StringComparison.OrdinalIgnoreCase))
-            return connectionString;
-
-        // 添加 TrustServerCertificate=True 以信任服务器证书
-        var separator = connectionString.TrimEnd().EndsWith(';') ? "" : ";";
-        return connectionString + separator + "TrustServerCertificate=True";
-    }
 }

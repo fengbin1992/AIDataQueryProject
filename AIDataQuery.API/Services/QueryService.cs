@@ -1,4 +1,5 @@
 using System.Data;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Text;
 using Microsoft.Data.SqlClient;
@@ -11,6 +12,7 @@ using AIDataQuery.API.Models.Enums;
 using AIDataQuery.API.Services.Interfaces;
 using AIDataQuery.API.Infrastructure.Security;
 using AIDataQuery.API.Infrastructure.Encryption;
+using AIDataQuery.API.Infrastructure.Database;
 
 namespace AIDataQuery.API.Services;
 
@@ -65,17 +67,15 @@ public class QueryService : IQueryService
                 };
             }
 
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
             var timeoutSeconds = _configuration.GetValue<int>("Query:TimeoutSeconds", 30);
             var maxRows = _configuration.GetValue<int>("Query:MaxRows", 10000);
 
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
 
-            using var command = new SqlCommand(request.Sql, sqlConnection)
-            {
-                CommandTimeout = timeoutSeconds
-            };
+            using var command = DbConnectionFactory.CreateCommand(request.Sql, dbConnection);
+            command.CommandTimeout = timeoutSeconds;
 
             using var reader = await command.ExecuteReaderAsync();
 
@@ -112,7 +112,7 @@ public class QueryService : IQueryService
 
             return result;
         }
-        catch (SqlException ex)
+        catch (DbException ex)
         {
             stopwatch.Stop();
             var errorMessage = $"SQL执行错误: {ex.Message}";
@@ -151,17 +151,13 @@ public class QueryService : IQueryService
 
         try
         {
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
 
-            var sql = @"
-                SELECT TABLE_SCHEMA, TABLE_NAME
-                FROM INFORMATION_SCHEMA.TABLES
-                WHERE TABLE_TYPE = 'BASE TABLE'
-                ORDER BY TABLE_SCHEMA, TABLE_NAME";
+            var sql = DbConnectionFactory.GetTablesSql(connection.DatabaseType);
 
-            using var command = new SqlCommand(sql, sqlConnection);
+            using var command = DbConnectionFactory.CreateCommand(sql, dbConnection);
             using var reader = await command.ExecuteReaderAsync();
 
             var tables = new List<TableInfo>();
@@ -190,18 +186,17 @@ public class QueryService : IQueryService
 
         try
         {
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
 
-            var sql = @"
-                SELECT COLUMN_NAME, DATA_TYPE, IS_NULLABLE
-                FROM INFORMATION_SCHEMA.COLUMNS
-                WHERE TABLE_NAME = @TableName
-                ORDER BY ORDINAL_POSITION";
+            var sql = DbConnectionFactory.GetColumnsSql(connection.DatabaseType);
 
-            using var command = new SqlCommand(sql, sqlConnection);
-            command.Parameters.AddWithValue("@TableName", tableName);
+            using var command = DbConnectionFactory.CreateCommand(sql, dbConnection);
+            var param = command.CreateParameter();
+            param.ParameterName = "@TableName";
+            param.Value = tableName;
+            command.Parameters.Add(param);
 
             using var reader = await command.ExecuteReaderAsync();
 
@@ -232,9 +227,9 @@ public class QueryService : IQueryService
 
         try
         {
-            var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
-            using var sqlConnection = new SqlConnection(connectionString);
-            await sqlConnection.OpenAsync();
+            var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
+            using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+            await dbConnection.OpenAsync();
             return true;
         }
         catch (Exception ex)
@@ -327,12 +322,12 @@ public class QueryService : IQueryService
         }
 
         var maxExportRows = _configuration.GetValue<int>("Query:MaxExportRows", 50000);
-        var connectionString = EnsureSslSettings(_aesEncryptor.Decrypt(connection.ConnectionString));
+        var connectionString = _aesEncryptor.Decrypt(connection.ConnectionString);
 
-        using var sqlConnection = new SqlConnection(connectionString);
-        await sqlConnection.OpenAsync();
+        using var dbConnection = DbConnectionFactory.CreateConnection(connection.DatabaseType, connectionString);
+        await dbConnection.OpenAsync();
 
-        using var command = new SqlCommand(request.Sql, sqlConnection);
+        using var command = DbConnectionFactory.CreateCommand(request.Sql, dbConnection);
         using var reader = await command.ExecuteReaderAsync();
 
         var result = new QueryResult { Success = true };
@@ -387,20 +382,4 @@ public class QueryService : IQueryService
         await _context.SaveChangesAsync();
     }
 
-    /// <summary>
-    /// 确保连接字符串包含SSL相关设置，避免证书验证错误
-    /// </summary>
-    private static string EnsureSslSettings(string connectionString)
-    {
-        if (string.IsNullOrEmpty(connectionString))
-            return connectionString;
-
-        // 如果连接字符串中已经包含 TrustServerCertificate 或 Encrypt 设置，则不做修改
-        if (connectionString.Contains("TrustServerCertificate", StringComparison.OrdinalIgnoreCase))
-            return connectionString;
-
-        // 添加 TrustServerCertificate=True 以信任服务器证书
-        var separator = connectionString.TrimEnd().EndsWith(';') ? "" : ";";
-        return connectionString + separator + "TrustServerCertificate=True";
-    }
 }

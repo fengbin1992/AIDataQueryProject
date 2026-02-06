@@ -1,0 +1,65 @@
+2026-02-06 09:21:07.549 +08:00 [INF] Starting AIDataQuery API
+2026-02-06 09:21:08.448 +08:00 [INF] HTTP GET / responded 404 in 116ms
+2026-02-06 09:21:48.187 +08:00 [INF] HTTP GET /api/config-queries/folders responded 401 in 72ms
+2026-02-06 09:21:48.187 +08:00 [INF] HTTP GET /api/query-tabs responded 401 in 72ms
+2026-02-06 09:21:48.187 +08:00 [INF] HTTP GET /api/config-queries responded 401 in 72ms
+2026-02-06 09:21:48.187 +08:00 [INF] HTTP GET /api/platforms responded 401 in 72ms
+2026-02-06 09:21:48.342 +08:00 [INF] HTTP GET /api/templates/modules responded 401 in 1ms
+2026-02-06 09:21:48.342 +08:00 [INF] HTTP GET /api/platforms responded 401 in 1ms
+2026-02-06 09:21:50.408 +08:00 [INF] User admin logged in successfully
+2026-02-06 09:21:50.427 +08:00 [INF] HTTP POST /api/auth/login responded 200 in 834ms
+2026-02-06 09:21:50.784 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 127ms
+2026-02-06 09:21:50.818 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 160ms
+2026-02-06 09:21:50.849 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 195ms
+2026-02-06 09:21:50.862 +08:00 [INF] HTTP GET /api/platforms responded 200 in 205ms
+2026-02-06 09:21:50.927 +08:00 [INF] HTTP GET /api/platforms responded 200 in 47ms
+2026-02-06 09:21:51.000 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 121ms
+2026-02-06 09:21:51.007 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 61ms
+2026-02-06 09:21:51.050 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 28ms
+2026-02-06 09:21:51.714 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 653ms
+2026-02-06 09:22:02.269 +08:00 [INF] HTTP GET /api/platforms/YYLKCZX/connections responded 200 in 33ms
+2026-02-06 09:22:02.404 +08:00 [ERR] Failed to get tables for connection 17
+System.ArgumentException: Keyword not supported: 'port'.
+   at Microsoft.Data.Common.DbConnectionOptions.ParseInternal(Dictionary`2 parsetable, String connectionString, Boolean buildChain, Dictionary`2 synonyms, Boolean firstKey)
+   at Microsoft.Data.Common.DbConnectionOptions..ctor(String connectionString, Dictionary`2 synonyms)
+   at Microsoft.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   at Microsoft.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   at Microsoft.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   at AIDataQuery.API.Services.QueryService.GetTablesAsync(Int32 connectionId) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\QueryService.cs:line 155
+2026-02-06 09:22:02.414 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 128ms
+2026-02-06 09:22:32.503 +08:00 [ERR] Query execution failed for user 1
+System.ArgumentException: Keyword not supported: 'port'.
+   at Microsoft.Data.Common.DbConnectionOptions.ParseInternal(Dictionary`2 parsetable, String connectionString, Boolean buildChain, Dictionary`2 synonyms, Boolean firstKey)
+   at Microsoft.Data.Common.DbConnectionOptions..ctor(String connectionString, Dictionary`2 synonyms)
+   at Microsoft.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   at Microsoft.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   at Microsoft.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   at AIDataQuery.API.Services.QueryService.ExecuteQueryAsync(Int32 userId, QueryRequest request, String clientIp) in D:\AINETProject\AIProjectAPI\AIDataQueryProject\AIDataQuery.API\Services\QueryService.cs:line 72
+2026-02-06 09:22:32.506 +08:00 [INF] HTTP POST /api/query/execute responded 400 in 199ms
+2026-02-06 09:30:34.472 +08:00 [INF] Starting AIDataQuery API
+2026-02-06 09:30:35.141 +08:00 [INF] HTTP GET / responded 404 in 103ms
+2026-02-06 09:30:57.228 +08:00 [INF] HTTP GET /api/config-queries/folders responded 200 in 336ms
+2026-02-06 09:30:57.228 +08:00 [INF] HTTP GET /api/query-tabs responded 200 in 336ms
+2026-02-06 09:30:57.286 +08:00 [INF] HTTP GET /api/config-queries responded 200 in 394ms
+2026-02-06 09:30:57.332 +08:00 [INF] HTTP GET /api/platforms responded 200 in 441ms
+2026-02-06 09:30:57.470 +08:00 [INF] HTTP GET /api/platforms responded 200 in 89ms
+2026-02-06 09:30:57.563 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 83ms
+2026-02-06 09:30:57.579 +08:00 [INF] HTTP GET /api/templates/modules responded 200 in 198ms
+2026-02-06 09:30:57.604 +08:00 [INF] HTTP GET /api/platforms/ERP_YYY_GXXQ/connections responded 200 in 32ms
+2026-02-06 09:30:58.265 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 644ms
+2026-02-06 09:31:01.423 +08:00 [INF] HTTP GET /api/platforms/YYLKCZX/connections responded 200 in 35ms
+2026-02-06 09:31:01.694 +08:00 [INF] HTTP GET /api/query/tables responded 200 in 256ms
+2026-02-06 09:31:26.880 +08:00 [INF] Query executed successfully. Rows: 6, Time: 101ms
+2026-02-06 09:31:26.890 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 340ms
+2026-02-06 09:31:37.024 +08:00 [INF] Query executed successfully. Rows: 6, Time: 91ms
+2026-02-06 09:31:37.025 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 123ms
+2026-02-06 09:31:55.347 +08:00 [INF] Query executed successfully. Rows: 0, Time: 98ms
+2026-02-06 09:31:55.348 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 134ms
+2026-02-06 09:32:09.862 +08:00 [INF] Query executed successfully. Rows: 4, Time: 94ms
+2026-02-06 09:32:09.863 +08:00 [INF] HTTP POST /api/query/execute responded 200 in 146ms
